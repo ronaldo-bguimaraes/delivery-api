@@ -1,0 +1,17 @@
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Application.deps.json
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Application.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Application.pdb
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Domain.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.pdb
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Domain.pdb
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.csproj.AssemblyReference.cache
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.AssemblyInfoInputs.cache
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.AssemblyInfo.cs
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.csproj.CoreCompileInputs.cache
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.csproj.CopyComplete
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Application.pdb
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestpApiModeloDDD.Domain.Core.Services.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD\bin\Debug\netcoreapp3.1\RestpApiModeloDDD.Domain.Core.Services.pdb

@@ -1,0 +1,13 @@
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.deps.json
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.pdb
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Domain.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Domain.pdb
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.AssemblyReference.cache
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.AssemblyInfoInputs.cache
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.AssemblyInfo.cs
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.CoreCompileInputs.cache
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.CopyComplete
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.dll
+E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.pdb
