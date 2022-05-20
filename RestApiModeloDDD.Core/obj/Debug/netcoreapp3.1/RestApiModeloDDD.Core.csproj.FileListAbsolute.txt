@@ -11,3 +11,16 @@ E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3
 E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.CopyComplete
 E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.dll
 E:\C#\Curso C#\CRUD\RestAPiModeloDDD\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.pdb
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.deps.json
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.dll
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Core.pdb
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Domain.dll
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\bin\Debug\netcoreapp3.1\RestApiModeloDDD.Domain.pdb
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.AssemblyReference.cache
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.AssemblyInfoInputs.cache
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.AssemblyInfo.cs
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.CoreCompileInputs.cache
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.csproj.CopyComplete
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.dll
+C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Core\obj\Debug\netcoreapp3.1\RestApiModeloDDD.Core.pdb

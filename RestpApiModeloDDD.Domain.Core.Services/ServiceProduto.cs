@@ -1,20 +1,17 @@
-﻿using RestApiModeloDDD.Core.Interfaces.Repositories;
-using RestApiModeloDDD.Core.Interfaces.Services;
-using RestApiModeloDDD.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Delivery.Domain.Core.Interfaces.Repositories;
+using Delivery.Domain.Core.Interfaces.Services;
+using Delivery.Domain.Entities;
 
-namespace RestpApiModeloDDD.Domain.Core.Services
+namespace Delivery.Domain.Core.Services
 {
-    public class ServiceProduto : ServiceBase<Produto>, IserviceProduto
+  public class ServiceProduto : ServiceBase<Produto>, IServiceProduto
 
+  {
+    private readonly IRepositoryProduto repositoryProduto;
+
+    public ServiceProduto(IRepositoryProduto _repositoryProduto) : base(_repositoryProduto)
     {
-        private readonly IRepositoryProduto repositoryProduto;
-
-        public ServiceProduto(IRepositoryProduto _repositoryProduto) : base(_repositoryProduto)
-        {
-            repositoryProduto = _repositoryProduto;
-        }
+      repositoryProduto = _repositoryProduto;
     }
+  }
 }

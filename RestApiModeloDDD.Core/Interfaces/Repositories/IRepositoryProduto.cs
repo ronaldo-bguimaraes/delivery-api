@@ -1,10 +1,6 @@
-﻿using RestApiModeloDDD.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Delivery.Domain.Entities;
 
-namespace RestApiModeloDDD.Core.Interfaces.Repositories
+namespace Delivery.Domain.Core.Interfaces.Repositories
 {
-    public interface IRepositoryProduto: IRespositoryBase<Produto>{
-    }
+  public interface IRepositoryProduto : IRepositoryBase<Produto> { }
 }

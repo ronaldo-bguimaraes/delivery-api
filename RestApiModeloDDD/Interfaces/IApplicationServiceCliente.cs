@@ -1,20 +1,18 @@
-﻿using RestApiModeloDDD.Dtos;
-using System;
+﻿using Delivery.Dtos;
 using System.Collections.Generic;
-using System.Text;
 
-namespace RestApiModeloDDD
+namespace Delivery
 {
-    public interface IApplicationServiceCliente
-    {
-        void Add(ClienteDto clienteDto);
+  public interface IApplicationServiceCliente
+  {
+    void Add(ClienteDto clienteDto);
 
-        void Update(ClienteDto clienteDto);
+    void Update(ClienteDto clienteDto);
 
-        void Remove(ClienteDto clienteDto);
+    void Remove(ClienteDto clienteDto);
 
-        IEnumerable<ClienteDto> GetAll();
-        ClienteDto GetById(int id);
+    IEnumerable<ClienteDto> GetAll();
+    ClienteDto GetById(int id);
 
-    }
+  }
 }

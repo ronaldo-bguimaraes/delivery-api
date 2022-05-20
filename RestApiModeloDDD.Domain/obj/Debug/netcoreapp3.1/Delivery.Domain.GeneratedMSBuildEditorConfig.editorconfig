@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = Delivery.Domain
+build_property.ProjectDir = C:\github\ronaldobgui\delivery-api\RestApiModeloDDD.Domain\

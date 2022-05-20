@@ -1,11 +1,6 @@
-﻿using RestApiModeloDDD.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Delivery.Domain.Entities;
 
-namespace RestApiModeloDDD.Core.Interfaces.Services
+namespace Delivery.Domain.Core.Interfaces.Services
 {
-    public interface IserviceCliente:IServiceBase<Cliente>
-    {  
-    }
+  public interface IServiceCliente : IServiceBase<Cliente> { }
 }

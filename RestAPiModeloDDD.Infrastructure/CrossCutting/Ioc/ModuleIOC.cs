@@ -1,14 +1,12 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace RestAPiModeloDDD.Infrastructure.CrossCutting.Ioc
+namespace Delivery.Infrastructure.CrossCutting.IOC
 {
-    public class ModuleIOC: Module {
-        protected override void Load(ContainerBuilder builder)
-        {
-            ConfigurationIoc.Load(builder);
-        }
+  public class ModuleIOC : Module
+  {
+    protected override void Load(ContainerBuilder builder)
+    {
+      ConfigurationIOC.Load(builder);
     }
+  }
 }
