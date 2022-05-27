@@ -1,9 +1,7 @@
-﻿using Delivery.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Linq;
-using DbContext = Microsoft.EntityFrameworkCore.DbContext;
-using EntityState = Microsoft.EntityFrameworkCore.EntityState;
+using Delivery.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Delivery.Infrastructure.Data
 {
@@ -15,30 +13,28 @@ namespace Delivery.Infrastructure.Data
 
     public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
 
-    public Microsoft.EntityFrameworkCore.DbSet<Cliente> Clientes { get; set; }
-    public Microsoft.EntityFrameworkCore.DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
 
-    // Esse método chamará automaticamente DetectChanges()
-    // para descobrir quaisquer alterações em instâncias de entidade antes de salvar no banco de dados subjacente.
-    public override int SaveChanges()
-    {
-      foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
-      {
-        if (entry.State == EntityState.Added)
-        {
-          entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+    //Esse método chamará automaticamente DetectChanges()
+    //para descobrir quaisquer alterações em instâncias de entidade antes de salvar no banco de dados subjacente.
+    //public override int SaveChanges()
+    //{
+    //  foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+    //  {
+    //    if (entry.State == EntityState.Added)
+    //    {
+    //      entry.Property("DataCadastro").CurrentValue = DateTime.Now;
 
-        }
+    //    }
 
-        if (entry.State == EntityState.Modified)
-        {
-          entry.Property("DataCadastro").IsModified = false;
+    //    if (entry.State == EntityState.Modified)
+    //    {
+    //      entry.Property("DataCadastro").IsModified = false;
 
-        }
-      }
-
-      return base.SaveChanges();
-    }
-
+    //    }
+    //  }
+    //  return base.SaveChanges();
+    //}
   }
 }

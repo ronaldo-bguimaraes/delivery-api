@@ -10,10 +10,10 @@ namespace Delivery.Application
     private readonly IServiceCliente serviceCliente;
     private readonly IMapperCliente mapperCliente;
 
-    public ApplicationServiceCliente(IServiceCliente serviceCliente, IMapperCliente _mapperCliente)
+    public ApplicationServiceCliente(IServiceCliente _serviceCliente, IMapperCliente _mapperCliente)
     {
-      this.serviceCliente = serviceCliente;
-      this.mapperCliente = _mapperCliente;
+      serviceCliente = _serviceCliente;
+      mapperCliente = _mapperCliente;
     }
     public void Add(ClienteDto clienteDto)
     {
@@ -24,14 +24,12 @@ namespace Delivery.Application
     public IEnumerable<ClienteDto> GetAll()
     {
       var clientes = serviceCliente.GetAll();
-      return mapperCliente.MapperlistClientesDto(clientes);
-
-
+      return mapperCliente.MapperEntitiesToDtos(clientes);
     }
 
     public ClienteDto GetById(int id)
     {
-      var cliente = serviceCliente.GetTById(id);
+      var cliente = serviceCliente.GetById(id);
       return mapperCliente.MapperEntityToDto(cliente);
     }
 

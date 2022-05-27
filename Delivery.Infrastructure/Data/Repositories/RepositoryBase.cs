@@ -47,7 +47,7 @@ namespace Delivery.Infrastructure.Data.Repositories
       return sqlContext.Set<T>().ToList();
     }
 
-    public T GetTById(int id)
+    public T GetById(int id)
     {
       return sqlContext.Set<T>().Find(id);
     }
@@ -56,7 +56,8 @@ namespace Delivery.Infrastructure.Data.Repositories
     {
       try
       {
-        sqlContext.Entry(obj).State = EntityState.Modified;
+        sqlContext.Set<T>().Update(obj);
+        // sqlContext.Entry(obj).State = EntityState.Modified;
         sqlContext.SaveChanges();
       }
       catch (Exception ex)
@@ -64,7 +65,5 @@ namespace Delivery.Infrastructure.Data.Repositories
         throw ex;
       }
     }
-
-
   }
 }

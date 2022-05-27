@@ -2,5 +2,5 @@
 
 namespace Delivery.Domain.Core.Interfaces.Services
 {
-  public interface IServiceProduto : IServiceBase<Usuario> { }
+  public interface IServiceUsuario : IServiceBase<Usuario> { }
 }

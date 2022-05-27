@@ -28,9 +28,9 @@ namespace Delivery.Domain.Core.Services
       return repository.GetAll();
     }
 
-    public T GetTById(int id)
+    public T GetById(int id)
     {
-      return repository.GetTById(id);
+      return repository.GetById(id);
     }
 
     public void Update(T obj)

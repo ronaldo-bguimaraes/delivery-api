@@ -7,7 +7,7 @@ namespace Delivery.Infrastructure.CrossCutting.Interface
   public interface IMapperCliente //MapeamentoDTO para entidade
   {
     Cliente MapperDtoToEntity(ClienteDto clientedto);
-    IEnumerable<ClienteDto> MapperlistClientesDto(IEnumerable<Cliente> clientes);
+    IEnumerable<ClienteDto> MapperEntitiesToDtos(IEnumerable<Cliente> clientes);
     ClienteDto MapperEntityToDto(Cliente cliente);
   }
 }

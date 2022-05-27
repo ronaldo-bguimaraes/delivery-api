@@ -26,6 +26,7 @@ namespace Delivery.Api
     public void ConfigureServices(IServiceCollection services)
     {
       var connection = Configuration["SqlConnection:SqlConnectionString"];
+      services.AddCors();
       services.AddDbContext<SqlContext>(options => options.UseSqlServer(connection));
       services.AddControllers();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -56,7 +57,7 @@ namespace Delivery.Api
       app.UseRouting();
       app.UseCors(options =>
       {
-        options.AllowAnyOrigin();
+        options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       });
       app.UseAuthorization();
       app.UseEndpoints(endpoints =>

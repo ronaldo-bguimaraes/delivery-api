@@ -1,4 +1,5 @@
-﻿using Delivery.Dtos;
+﻿using Delivery.Application;
+using Delivery.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,16 +8,16 @@ namespace Delivery.Api.Controllers
 {
   [Route("[controller]")]
   [ApiController]
-  public class ClienteController : Controller
+  public class ClientesController : Controller
   {
     // Fazer um controller para chamar a applicationService
     private readonly IApplicationServiceCliente applicationServiceCliente;
 
-
-    public ClienteController(IApplicationServiceCliente applicationServiceCliente)
+    public ClientesController(IApplicationServiceCliente _applicationServiceCliente)
     {
-      this.applicationServiceCliente = applicationServiceCliente;
+      applicationServiceCliente = _applicationServiceCliente;
     }
+
     // GET api/values
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
@@ -33,62 +34,58 @@ namespace Delivery.Api.Controllers
 
     // POST api/values
     [HttpPost]
-    public ActionResult Post([FromBody] ClienteDto clienteDTO)
+    public ActionResult Post([FromBody] ClienteDto clienteDto)
     {
       try
       {
-        if (clienteDTO == null)
+        if (clienteDto == null)
+        {
           return NotFound();
-
-        applicationServiceCliente.Add(clienteDTO);
+        }
+        applicationServiceCliente.Add(clienteDto);
         return Ok("Cliente Cadastrado com sucesso!");
       }
       catch (Exception ex)
       {
-
         throw ex;
       }
-
-
     }
 
     // PUT api/values/5
     [HttpPut]
-    public ActionResult Put([FromBody] ClienteDto clienteDTO)
+    public ActionResult Put([FromBody] ClienteDto clienteDto)
     {
       try
       {
-        if (clienteDTO == null)
+        if (clienteDto == null)
           return NotFound();
 
-        applicationServiceCliente.Update(clienteDTO);
+        applicationServiceCliente.Update(clienteDto);
         return Ok("Cliente Atualizado com sucesso!");
       }
       catch (Exception)
       {
-
         throw;
       }
     }
 
     // DELETE api/values/5
     [HttpDelete()]
-    public ActionResult Delete([FromBody] ClienteDto clienteDTO)
+    public ActionResult Delete([FromBody] ClienteDto clienteDto)
     {
       try
       {
-        if (clienteDTO == null)
+        if (clienteDto == null)
+        {
           return NotFound();
-
-        applicationServiceCliente.Remove(clienteDTO);
+        }
+        applicationServiceCliente.Remove(clienteDto);
         return Ok("Cliente Removido com sucesso!");
       }
       catch (Exception ex)
       {
-
         throw ex;
       }
-
     }
   }
 }

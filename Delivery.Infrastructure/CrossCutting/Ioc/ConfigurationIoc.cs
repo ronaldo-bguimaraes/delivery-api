@@ -15,14 +15,16 @@ namespace Delivery.Infrastructure.CrossCutting.Ioc
     public static void Load(ContainerBuilder builder)
     {
       builder.RegisterType<ApplicationServiceCliente>().As<IApplicationServiceCliente>();
-      builder.RegisterType<ApplicationServiceProduto>().As<IApplicationServiceProduto>();
+      builder.RegisterType<ApplicationServiceUsuario>().As<IApplicationServiceUsuario>();
+      //
       builder.RegisterType<ServiceCliente>().As<IServiceCliente>();
-      builder.RegisterType<ServiceProduto>().As<IServiceProduto>();
+      builder.RegisterType<ServiceUsuario>().As<IServiceUsuario>();
+      //
       builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
       builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
+      //
       builder.RegisterType<MapperCliente>().As<IMapperCliente>();
       builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
     }
-
   }
 }

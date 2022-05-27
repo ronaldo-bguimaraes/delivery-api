@@ -8,6 +8,6 @@ namespace Delivery.Domain.Core.Interfaces.Services
     void Update(T obj);
     void Remove(T obj);
     IEnumerable<T> GetAll();   //Pode ser usado uma lista, mas o Ienumerable funciona melhor
-    T GetTById(int id);
+    T GetById(int id);
   }
 }

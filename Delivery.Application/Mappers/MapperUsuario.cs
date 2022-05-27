@@ -10,12 +10,12 @@ namespace Delivery.Infrastructure.CrossCutting.Map
   {
     public Usuario MapperDtoToEntity(UsuarioDto usuarioDto)
     {
-      var usuario = new Usuario()
+      var usuario = new Usuario
       {
         Id = usuarioDto.Id,
         Nome = usuarioDto.Nome,
         Telefone = usuarioDto.Telefone,
-        Email =  usuarioDto.Email,
+        Email = usuarioDto.Email,
         Senha = usuarioDto.Senha,
       };
       return usuario;
@@ -23,20 +23,20 @@ namespace Delivery.Infrastructure.CrossCutting.Map
 
     public UsuarioDto MapperEntityToDto(Usuario usuario)
     {
-      var usuarioDto = new UsuarioDto()
+      var usuarioDto = new UsuarioDto
       {
-          Id = usuario.Id,
-          Nome = usuario.Nome,
-          Telefone = usuario.Telefone,
-          Email = usuario.Email,
-          Senha = usuario.Senha,
+        Id = usuario.Id,
+        Nome = usuario.Nome,
+        Telefone = usuario.Telefone,
+        Email = usuario.Email,
+        Senha = usuario.Senha,
       };
       return usuarioDto;
     }
 
-    public IEnumerable<UsuarioDto> MapperlistClientesDto(IEnumerable<Usuario> usuarios)
+    public IEnumerable<UsuarioDto> MapperEntitiesToDtos(IEnumerable<Usuario> usuarios)
     {
-      var dto = usuarios.Select(usuario => new UsuarioDto
+      var usuarioDtos = usuarios.Select(usuario => new UsuarioDto
       {
         Id = usuario.Id,
         Nome = usuario.Nome,
@@ -44,7 +44,20 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Email = usuario.Email,
         Senha = usuario.Senha,
       });
-      return dto;
+      return usuarioDtos;
+    }
+
+    public IEnumerable<Usuario> MapperDtosToEntities(IEnumerable<UsuarioDto> usuarioDtos)
+    {
+      var usuarios = usuarioDtos.Select(usuarioDto => new Usuario
+      {
+        Id = usuarioDto.Id,
+        Nome = usuarioDto.Nome,
+        Telefone = usuarioDto.Telefone,
+        Email = usuarioDto.Email,
+        Senha = usuarioDto.Senha,
+      });
+      return usuarios;
     }
 
   }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Delivery.Application
 {
-  public interface IApplicationServiceProduto
+  public interface IApplicationServiceUsuario
   {
 
-    void Add(UsuarioDto produtoDto);
+    void Add(UsuarioDto usuarioDto);
 
-    void Update(UsuarioDto produtoDto);
+    void Update(UsuarioDto usuarioDto);
 
-    void Remove(UsuarioDto produtoDto);
+    void Remove(UsuarioDto usuarioDto);
 
     IEnumerable<UsuarioDto> GetAll();
 
