@@ -9,38 +9,38 @@ namespace Delivery.Application.Mappers
   {
 
     private readonly IServiceProduto serviceProduto;
-    private readonly IMapperProduto mapperProduto;
-    public ApplicationServiceProduto(IServiceProduto _serviceproduto, IMapperProduto _mapperProduto)
+    private readonly IMapperUsuario mapperProduto;
+    public ApplicationServiceProduto(IServiceProduto _serviceproduto, IMapperUsuario _mapperProduto)
     {
       serviceProduto = _serviceproduto;
       mapperProduto = _mapperProduto;
     }
 
-    public void Add(ProdutoDto produtoDto)
+    public void Add(UsuarioDto produtoDto)
     {
       var produto = mapperProduto.MapperDtoToEntity(produtoDto);
       serviceProduto.Add(produto);
     }
 
-    public IEnumerable<ProdutoDto> GetAll()
+    public IEnumerable<UsuarioDto> GetAll()
     {
       var produto = serviceProduto.GetAll();
       return mapperProduto.MapperlistClientesDto(produto);
     }
 
-    public ProdutoDto GetById(int id)
+    public UsuarioDto GetById(int id)
     {
       var produto = serviceProduto.GetTById(id);
       return mapperProduto.MapperEntityToDto(produto);
     }
 
-    public void Remove(ProdutoDto produtoDto)
+    public void Remove(UsuarioDto produtoDto)
     {
       var produto = mapperProduto.MapperDtoToEntity(produtoDto);
       serviceProduto.Remove(produto);
     }
 
-    public void Update(ProdutoDto produtoDto)
+    public void Update(UsuarioDto produtoDto)
     {
       var cliente = mapperProduto.MapperDtoToEntity(produtoDto);
       serviceProduto.Update(cliente);

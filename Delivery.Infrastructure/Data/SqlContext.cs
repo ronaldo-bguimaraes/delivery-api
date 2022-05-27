@@ -15,8 +15,8 @@ namespace Delivery.Infrastructure.Data
 
     public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
 
-    public Microsoft.EntityFrameworkCore.DbSet<Cliente> Cliente { get; set; }
-    public Microsoft.EntityFrameworkCore.DbSet<Produto> Produto { get; set; }
+    public Microsoft.EntityFrameworkCore.DbSet<Cliente> Clientes { get; set; }
+    public Microsoft.EntityFrameworkCore.DbSet<Usuario> Usuarios { get; set; }
 
     // Esse método chamará automaticamente DetectChanges()
     // para descobrir quaisquer alterações em instâncias de entidade antes de salvar no banco de dados subjacente.

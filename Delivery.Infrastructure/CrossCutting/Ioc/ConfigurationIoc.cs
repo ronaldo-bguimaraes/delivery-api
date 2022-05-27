@@ -19,9 +19,9 @@ namespace Delivery.Infrastructure.CrossCutting.Ioc
       builder.RegisterType<ServiceCliente>().As<IServiceCliente>();
       builder.RegisterType<ServiceProduto>().As<IServiceProduto>();
       builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
-      builder.RegisterType<RepositoryProduto>().As<IRepositoryProduto>();
+      builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
       builder.RegisterType<MapperCliente>().As<IMapperCliente>();
-      builder.RegisterType<MapperProduto>().As<IMapperProduto>();
+      builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
     }
 
   }

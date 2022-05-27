@@ -4,7 +4,7 @@ using Delivery.Domain.Entities;
 
 namespace Delivery.Domain.Core.Services
 {
-  public class ServiceProduto : ServiceBase<Produto>, IServiceProduto
+  public class ServiceProduto : ServiceBase<Usuario>, IServiceProduto
 
   {
     private readonly IRepositoryProduto repositoryProduto;

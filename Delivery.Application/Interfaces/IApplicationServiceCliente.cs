@@ -1,7 +1,7 @@
 ﻿using Delivery.Dtos;
 using System.Collections.Generic;
 
-namespace Delivery
+namespace Delivery.Application
 {
   public interface IApplicationServiceCliente
   {

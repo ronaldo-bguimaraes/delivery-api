@@ -34,7 +34,7 @@ namespace Delivery.Api.Controllers
 
     // POST api/values
     [HttpPost]
-    public ActionResult Post([FromBody] ProdutoDto produtoDTO)
+    public ActionResult Post([FromBody] UsuarioDto produtoDTO)
     {
       try
       {
@@ -54,7 +54,7 @@ namespace Delivery.Api.Controllers
 
     // PUT api/values/5
     [HttpPut]
-    public ActionResult Put([FromBody] ProdutoDto produtoDTO)
+    public ActionResult Put([FromBody] UsuarioDto produtoDTO)
     {
 
       try
@@ -75,7 +75,7 @@ namespace Delivery.Api.Controllers
 
     // DELETE api/values/5
     [HttpDelete()]
-    public ActionResult Delete([FromBody] ProdutoDto produtoDTO)
+    public ActionResult Delete([FromBody] UsuarioDto produtoDTO)
     {
       try
       {

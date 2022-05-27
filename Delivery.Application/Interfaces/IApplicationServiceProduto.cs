@@ -6,14 +6,14 @@ namespace Delivery.Application
   public interface IApplicationServiceProduto
   {
 
-    void Add(ProdutoDto produtoDto);
+    void Add(UsuarioDto produtoDto);
 
-    void Update(ProdutoDto produtoDto);
+    void Update(UsuarioDto produtoDto);
 
-    void Remove(ProdutoDto produtoDto);
+    void Remove(UsuarioDto produtoDto);
 
-    IEnumerable<ProdutoDto> GetAll();
+    IEnumerable<UsuarioDto> GetAll();
 
-    ProdutoDto GetById(int id);
+    UsuarioDto GetById(int id);
   }
 }

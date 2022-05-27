@@ -1,7 +1,9 @@
-﻿namespace Delivery.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Delivery.Domain.Entities
 {
-  public class Base
+  public interface Base
   {
-    public int Id { get; set; }
+        public int Id { get; set; }
   }
 }
