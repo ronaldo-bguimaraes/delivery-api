@@ -13,7 +13,7 @@ namespace Delivery.Application
     void Remove(UsuarioDto usuarioDto);
 
     IEnumerable<UsuarioDto> GetAll();
-
+    string Authenticate(string email, string senha);
     UsuarioDto GetById(int id);
   }
 }

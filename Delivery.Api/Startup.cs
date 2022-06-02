@@ -1,14 +1,20 @@
 using Autofac;
+using Delivery.Application;
 using Delivery.Infrastructure.CrossCutting.Ioc;
 using Delivery.Infrastructure.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace Delivery.Api
 {
@@ -29,11 +35,42 @@ namespace Delivery.Api
       services.AddCors();
       services.AddDbContext<SqlContext>(options => options.UseSqlServer(connection));
       services.AddControllers();
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-      services.AddSwaggerGen(options =>
+      services.AddMvc(config =>
+      {
+          var policy = new AuthorizationPolicyBuilder()
+                          .RequireAuthenticatedUser()
+                          .Build();
+          config.Filters.Add(new AuthorizeFilter(policy));
+      }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
+                options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
+            });
+
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+            services.AddSwaggerGen(options =>
       {
         options.SwaggerDoc("v1", new OpenApiInfo { Title = "Delivery Api", Version = "v1" });
       });
+
     }
 
     public void ConfigureContainer(ContainerBuilder builder)
@@ -59,7 +96,9 @@ namespace Delivery.Api
       {
         options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       });
-      app.UseAuthorization();
+
+      app.UseAuthentication();
+      //app.UseAuthorization();
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();

@@ -1,5 +1,6 @@
 ﻿using Delivery.Application;
 using Delivery.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -51,8 +52,28 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    // PUT api/values/5
-    [HttpPut]
+        [HttpPost("login")]
+        [AllowAnonymous]
+        public IActionResult Authenticate([FromBody] UsuarioDto usuarioDto)
+        {
+            try
+            {
+                
+                var token = applicationServiceUsuario.Authenticate(usuarioDto.Email, usuarioDto.Senha);
+
+                if (token == null)
+                    return BadRequest(new { message = "Usuário ou senha inválidos" });
+
+                return Ok(token);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        // PUT api/values/5
+        [HttpPut]
     public ActionResult Put([FromBody] UsuarioDto usuarioDto)
     {
       try
@@ -68,9 +89,8 @@ namespace Delivery.Api.Controllers
         throw;
       }
     }
-
-    // DELETE api/values/5
-    [HttpDelete()]
+        // DELETE api/values/5
+        [HttpDelete()]
     public ActionResult Delete([FromBody] UsuarioDto UsuarioDto)
     {
       try
@@ -87,5 +107,6 @@ namespace Delivery.Api.Controllers
         throw ex;
       }
     }
-  }
+    
+    }
 }

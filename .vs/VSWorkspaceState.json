@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Delivery.Api",
+    "\\Delivery.Api\\Controllers",
     "\\Delivery.Application",
     "\\Delivery.Application\\Dtos"
   ],
-  "SelectedNode": "\\Delivery.sln",
+  "SelectedNode": "\\Delivery.Api\\Controllers\\ClientesController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,7 +1,13 @@
 ﻿using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Dtos;
 using Delivery.Infrastructure.CrossCutting.Interface;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
 
 namespace Delivery.Application.Mappers
 {
@@ -45,5 +51,29 @@ namespace Delivery.Application.Mappers
       var cliente = mapperUsuario.MapperDtoToEntity(UsuarioDto);
       serviceUsuario.Update(cliente);
     }
-  }
+        public string Authenticate(string email, string senha)
+        {
+            var user = serviceUsuario.GetAll().Where(x => x.Email == email && x.Senha == senha).FirstOrDefault();
+
+            if (user == null)
+                return null;
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Email),
+                    new Claim("Store", "user")
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+               return tokenHandler.WriteToken(token);
+        }
+
+
+    }
 }
