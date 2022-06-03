@@ -6279,19 +6279,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\João Carlos\\.nuget\\packages\\": {}
+    "C:\\Users\\Ronaldo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\ProjetoDeliveryDDD\\Delivery.Domain\\Delivery.Domain.csproj",
+      "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj",
       "projectName": "Delivery.Domain",
-      "projectPath": "E:\\C#\\ProjetoDeliveryDDD\\Delivery.Domain\\Delivery.Domain.csproj",
-      "packagesPath": "C:\\Users\\João Carlos\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\ProjetoDeliveryDDD\\Delivery.Domain\\obj\\",
+      "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj",
+      "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
+      "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\João Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6345,7 +6345,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -52,28 +52,29 @@ namespace Delivery.Api.Controllers
       }
     }
 
-        [HttpPost("login")]
-        [AllowAnonymous]
-        public IActionResult Authenticate([FromBody] UsuarioDto usuarioDto)
+    [HttpPost("login")]
+    [AllowAnonymous]
+    public IActionResult Authenticate([FromBody] UsuarioDto usuarioDto)
+    {
+      try
+      {
+        var user = applicationServiceUsuario.Authenticate(usuarioDto);
+
+        if (user == null)
         {
-            try
-            {
-                
-                var token = applicationServiceUsuario.Authenticate(usuarioDto.Email, usuarioDto.Senha);
-
-                if (token == null)
-                    return BadRequest(new { message = "Usuário ou senha inválidos" });
-
-                return Ok(token);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
+          return BadRequest(new { message = "Usuário ou senha inválidos" });
         }
 
-        // PUT api/values/5
-        [HttpPut]
+        return Ok(user);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex);
+      }
+    }
+
+    // PUT api/values/5
+    [HttpPut]
     public ActionResult Put([FromBody] UsuarioDto usuarioDto)
     {
       try
@@ -89,8 +90,8 @@ namespace Delivery.Api.Controllers
         throw;
       }
     }
-        // DELETE api/values/5
-        [HttpDelete()]
+    // DELETE api/values/5
+    [HttpDelete()]
     public ActionResult Delete([FromBody] UsuarioDto UsuarioDto)
     {
       try
@@ -107,6 +108,6 @@ namespace Delivery.Api.Controllers
         throw ex;
       }
     }
-    
-    }
+
+  }
 }

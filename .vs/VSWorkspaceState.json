@@ -6,6 +6,6 @@
     "\\Delivery.Application",
     "\\Delivery.Application\\Dtos"
   ],
-  "SelectedNode": "\\Delivery.Api\\Controllers\\ClientesController.cs",
+  "SelectedNode": "\\Delivery.Api\\Controllers\\UsuariosController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -13,7 +13,9 @@ namespace Delivery.Application
     void Remove(UsuarioDto usuarioDto);
 
     IEnumerable<UsuarioDto> GetAll();
-    string Authenticate(string email, string senha);
+
+    string Authenticate(UsuarioDto usuarioDto);
+
     UsuarioDto GetById(int id);
   }
 }

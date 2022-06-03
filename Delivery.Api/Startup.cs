@@ -37,36 +37,37 @@ namespace Delivery.Api
       services.AddControllers();
       services.AddMvc(config =>
       {
-          var policy = new AuthorizationPolicyBuilder()
-                          .RequireAuthenticatedUser()
-                          .Build();
-          config.Filters.Add(new AuthorizeFilter(policy));
+        var policy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser()
+        .Build();
+        config.Filters.Add(new AuthorizeFilter(policy));
       }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
-                options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
-            });
 
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
-            services.AddSwaggerGen(options =>
+      services.AddAuthorization(options =>
+      {
+        options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
+        options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
+      });
+
+      var key = Encoding.ASCII.GetBytes(Settings.Secret);
+      services.AddAuthentication(x =>
+      {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+      })
+      .AddJwtBearer(x =>
+      {
+        x.RequireHttpsMetadata = false;
+        x.SaveToken = true;
+        x.TokenValidationParameters = new TokenValidationParameters
+        {
+          ValidateIssuerSigningKey = true,
+          IssuerSigningKey = new SymmetricSecurityKey(key),
+          ValidateIssuer = false,
+          ValidateAudience = false
+        };
+      });
+      services.AddSwaggerGen(options =>
       {
         options.SwaggerDoc("v1", new OpenApiInfo { Title = "Delivery Api", Version = "v1" });
       });
@@ -92,13 +93,14 @@ namespace Delivery.Api
       });
       app.UseHttpsRedirection();
       app.UseRouting();
+
       app.UseCors(options =>
       {
         options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       });
 
       app.UseAuthentication();
-      //app.UseAuthorization();
+
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();

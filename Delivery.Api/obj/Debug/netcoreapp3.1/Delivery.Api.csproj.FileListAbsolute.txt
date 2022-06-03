@@ -245,3 +245,4 @@ E:\C#\ProjetoDeliveryDDD\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.cspro
 E:\C#\ProjetoDeliveryDDD\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.dll
 E:\C#\ProjetoDeliveryDDD\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.pdb
 E:\C#\ProjetoDeliveryDDD\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.genruntimeconfig.cache
+C:\github\ronaldobgui\delivery-api\Delivery.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
