@@ -12,5 +12,10 @@ namespace Delivery.Domain.Core.Services
     {
       repositoryCliente = _repositoryCliente;
     }
+
+    public Cliente GetByUsuarioId(int usuarioId)
+    {
+      return repositoryCliente.GetByUsuarioId(usuarioId);
+    }
   }
 }

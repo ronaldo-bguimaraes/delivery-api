@@ -8,8 +8,7 @@ namespace Delivery.Domain.Entities
   [Table("Usuario")]
   public class Usuario : IBase
   {
-    [Key]
-    [Column("usuario_id")]
+    [Key, Column("usuario_id")]
     public int Id { get; set; }
 
     [Column("nome")]

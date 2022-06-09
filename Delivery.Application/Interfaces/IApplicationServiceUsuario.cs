@@ -14,7 +14,7 @@ namespace Delivery.Application
 
     IEnumerable<UsuarioDto> GetAll();
 
-    string Authenticate(UsuarioDto usuarioDto);
+    UsuarioDto Authenticate(UsuarioDto usuarioDto);
 
     UsuarioDto GetById(int id);
   }

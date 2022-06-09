@@ -8,19 +8,14 @@ namespace Delivery.Infrastructure.CrossCutting.Map
 {
   public class MapperCliente : IMapperCliente
   {
-    private readonly IMapperUsuario mapperUsuario;
-    public MapperCliente(IMapperUsuario _mapperUsuario)
-    {
-      mapperUsuario = _mapperUsuario;
-    }
-    public Cliente MapperDtoToEntity(ClienteDto clientedto)
+    public Cliente MapperDtoToEntity(ClienteDto clienteDto)
     {
       var cliente = new Cliente
       {
-        Id = clientedto.Id,
-        Cpf = clientedto.Cpf,
-        DataNascimento = clientedto.DataNascimento,
-        Usuario = mapperUsuario.MapperDtoToEntity(clientedto.Usuario)
+        Id = clienteDto.Id,
+        Cpf = clienteDto.Cpf,
+        DataNascimento = clienteDto.DataNascimento,
+        UsuarioId = clienteDto.UsuarioId,
       };
       return cliente;
     }
@@ -32,8 +27,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Id = cliente.Id,
         Cpf = cliente.Cpf,
         DataNascimento = cliente.DataNascimento,
-        Usuario = mapperUsuario.MapperEntityToDto(cliente.Usuario)
-
+        UsuarioId = cliente.UsuarioId,
       };
       return clienteDto;
     }
@@ -45,7 +39,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
         DataNascimento = clienteDto.DataNascimento,
-        Usuario = mapperUsuario.MapperEntityToDto(clienteDto.Usuario)
+        UsuarioId = clienteDto.UsuarioId,
       });
       return clienteDtos;
     }
@@ -57,7 +51,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Id = cliente.Id,
         Cpf = cliente.Cpf,
         DataNascimento = cliente.DataNascimento,
-        Usuario = mapperUsuario.MapperDtoToEntity(cliente.Usuario)
+        UsuarioId = cliente.UsuarioId,
       });
       return clientes;
     }
