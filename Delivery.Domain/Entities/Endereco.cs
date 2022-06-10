@@ -17,18 +17,18 @@ namespace Delivery.Domain.Entities
         [Column("apelido")]
         public string Apelido { get; set; }
 
-        [ForeignKey("usuario_id"), Column("usuario_id")]
-        public int UsuarioId { get; set; }
         [Column("complemento")]
         public string Complemento { get; set; }
         [Column("descricao")]
         public string Descricao { get; set; }
         [Column("latitude")]
-        public double Latidude { get; set; }
+        public double Latitude { get; set; }
         [Column("longitude")]
         public double Longitude { get; set; }
 
+        [ForeignKey("usuario_id"), Column("usuario_id")]
+        public int UsuarioId { get; set; }
 
         // public virtual Usuario Usuario { get; set; }
-    }
+  }
 }

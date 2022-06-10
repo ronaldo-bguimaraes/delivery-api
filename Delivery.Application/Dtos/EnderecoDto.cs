@@ -16,7 +16,7 @@ namespace Delivery.Dtos
         public int UsuarioId { get; set; }
         public string Complemento { get; set; }
         public string Descricao { get; set; }
-        public double Latidude { get; set; }
+        public double Latitude { get; set; }
         public double Longitude { get; set; }
        
     }

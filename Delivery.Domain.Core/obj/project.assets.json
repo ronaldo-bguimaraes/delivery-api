@@ -6300,19 +6300,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\João Carlos\\.nuget\\packages\\": {}
+    "C:\\Users\\Ronaldo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\C#\\DDDDeliveryAPI\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
+      "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
       "projectName": "Delivery.Domain.Core",
-      "projectPath": "E:\\C#\\DDDDeliveryAPI\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
-      "packagesPath": "C:\\Users\\João Carlos\\.nuget\\packages\\",
-      "outputPath": "E:\\C#\\DDDDeliveryAPI\\Delivery.Domain.Core\\obj\\",
+      "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
+      "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
+      "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\João Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6326,8 +6326,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\C#\\DDDDeliveryAPI\\Delivery.Domain\\Delivery.Domain.csproj": {
-              "projectPath": "E:\\C#\\DDDDeliveryAPI\\Delivery.Domain\\Delivery.Domain.csproj"
+            "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
+              "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj"
             }
           }
         }
@@ -6370,7 +6370,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

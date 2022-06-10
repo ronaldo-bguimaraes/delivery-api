@@ -17,6 +17,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Telefone = usuarioDto.Telefone,
         Email = usuarioDto.Email,
         Senha = usuarioDto.Senha,
+        DataCadastro = usuarioDto.DataCadastro,
       };
       return usuario;
     }
@@ -29,6 +30,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Nome = usuario.Nome,
         Telefone = usuario.Telefone,
         Email = usuario.Email,
+        DataCadastro = usuario.DataCadastro,
       };
       return usuarioDto;
     }
@@ -41,6 +43,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Nome = usuario.Nome,
         Telefone = usuario.Telefone,
         Email = usuario.Email,
+        DataCadastro = usuario.DataCadastro,
       });
       return usuarioDtos;
     }
@@ -54,6 +57,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Telefone = usuarioDto.Telefone,
         Email = usuarioDto.Email,
         Senha = usuarioDto.Senha,
+        DataCadastro = usuarioDto.DataCadastro,
       });
       return usuarios;
     }

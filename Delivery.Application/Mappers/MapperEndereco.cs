@@ -17,7 +17,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
                 Nome = enderecoDto.Nome,
                 Complemento = enderecoDto.Complemento,
                 Descricao = enderecoDto.Descricao,
-                Latidude = enderecoDto.Latidude,
+                Latitude = enderecoDto.Latitude,
                 Longitude = enderecoDto.Longitude,
                 UsuarioId = enderecoDto.UsuarioId,
 
@@ -34,7 +34,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
                 Nome = endereco.Nome,
                 Complemento = endereco.Complemento,
                 Descricao = endereco.Descricao,
-                Latidude = endereco.Latidude,
+                Latitude = endereco.Latitude,
                 Longitude = endereco.Longitude,
                 UsuarioId = endereco.UsuarioId,
              
@@ -52,7 +52,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
                 Nome = enderecoDto.Nome,
                 Complemento = enderecoDto.Complemento,
                 Descricao = enderecoDto.Descricao,
-                Latidude = enderecoDto.Latidude,
+                Latitude = enderecoDto.Latitude,
                 Longitude = enderecoDto.Longitude,
                 UsuarioId = enderecoDto.UsuarioId,
             });
@@ -68,7 +68,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
                 Nome = endereco.Nome,
                 Complemento = endereco.Complemento,
                 Descricao = endereco.Descricao,
-                Latidude = endereco.Latidude,
+                Latitude = endereco.Latitude,
                 Longitude = endereco.Longitude,
                 UsuarioId = endereco.UsuarioId,
             });
