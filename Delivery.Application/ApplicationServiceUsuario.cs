@@ -54,7 +54,7 @@ namespace Delivery.Application.Mappers
 
     public UsuarioDto Authenticate(UsuarioDto usuarioDto)
     {
-      var user = GetAll().Where(x => (x.Email == usuarioDto.Email || x.Telefone == usuarioDto.Telefone) && x.Senha == usuarioDto.Senha).FirstOrDefault();
+      var user = serviceUsuario.GetAll().Where(x => (x.Email == usuarioDto.Email || x.Telefone == usuarioDto.Telefone) && x.Senha == usuarioDto.Senha).FirstOrDefault();
 
       if (user == null)
       {
@@ -76,9 +76,12 @@ namespace Delivery.Application.Mappers
       };
 
       var token = tokenHandler.CreateToken(tokenDescriptor);
-      user.Token = tokenHandler.WriteToken(token);
 
-      return user;
+      var userDto = mapperUsuario.MapperEntityToDto(user);
+
+      userDto.Token = tokenHandler.WriteToken(token);
+
+      return userDto;
     }
   }
 }

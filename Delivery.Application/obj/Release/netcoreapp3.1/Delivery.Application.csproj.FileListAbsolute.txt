@@ -1,0 +1,17 @@
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Application.deps.json
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Application.dll
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Application.pdb
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Domain.Core.dll
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Domain.Core.Services.dll
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Domain.dll
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Domain.Core.pdb
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Domain.Core.Services.pdb
+C:\github\ronaldobgui\delivery-api\Delivery.Application\bin\Release\netcoreapp3.1\Delivery.Domain.pdb
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.csproj.AssemblyReference.cache
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.AssemblyInfoInputs.cache
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.AssemblyInfo.cs
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.csproj.CoreCompileInputs.cache
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.csproj.CopyComplete
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.dll
+C:\github\ronaldobgui\delivery-api\Delivery.Application\obj\Release\netcoreapp3.1\Delivery.Application.pdb
