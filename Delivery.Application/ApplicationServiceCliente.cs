@@ -33,6 +33,12 @@ namespace Delivery.Application
       return mapperCliente.MapperEntityToDto(cliente);
     }
 
+    public ClienteDto GetByUsuarioId(int id)
+    {
+      var cliente = serviceCliente.GetByUsuarioId(id);
+      return mapperCliente.MapperEntityToDto(cliente);
+    }
+
     public void Remove(ClienteDto clienteDto)
     {
       var cliente = mapperCliente.MapperDtoToEntity(clienteDto);

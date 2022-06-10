@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Delivery.Domain.Entities;
+﻿using Delivery.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Delivery.Infrastructure.Data
@@ -9,12 +7,27 @@ namespace Delivery.Infrastructure.Data
   // conduzem as alterações no banco de dados quando Save Changes é chamado. 
   public class SqlContext : DbContext
   {
-    public SqlContext() { }
+    public SqlContext()
+    {
+    }
 
     public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
 
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      //modelBuilder.Entity<Usuario>()
+      //  .HasOne(u => u.Cliente)
+      //  .WithOne(c => c.Usuario)
+      //  .HasForeignKey<Cliente>(u => u.UsuarioId);
+    }
 
     //Esse método chamará automaticamente DetectChanges()
     //para descobrir quaisquer alterações em instâncias de entidade antes de salvar no banco de dados subjacente.

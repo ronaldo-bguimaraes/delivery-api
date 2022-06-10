@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Delivery.Domain.Core.Services
 {
-  public class ServiceBase<T> : IServiceBase<T> where T : class
+  public abstract class ServiceBase<T> : IServiceBase<T> where T : class
   {
     private readonly IRepositoryBase<T> repository;
 
@@ -13,27 +13,27 @@ namespace Delivery.Domain.Core.Services
       repository = _repository;
     }
 
-    public void Add(T obj)
+    public virtual void Add(T obj)
     {
       repository.Add(obj);
-
     }
-    public void Remove(T obj)
+
+    public virtual void Remove(T obj)
     {
       repository.Remove(obj);
     }
 
-    public IEnumerable<T> GetAll()
+    public virtual IEnumerable<T> GetAll()
     {
       return repository.GetAll();
     }
 
-    public T GetById(int id)
+    public virtual T GetById(int id)
     {
       return repository.GetById(id);
     }
 
-    public void Update(T obj)
+    public virtual void Update(T obj)
     {
       repository.Update(obj);
     }

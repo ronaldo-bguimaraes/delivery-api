@@ -35,6 +35,7 @@ namespace Delivery.Api.Controllers
 
     // POST api/values
     [HttpPost]
+    [AllowAnonymous]
     public ActionResult Post([FromBody] UsuarioDto usuarioDto)
     {
       try
@@ -85,9 +86,9 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Update(usuarioDto);
         return Ok("Usuario Atualizado com sucesso!");
       }
-      catch (Exception)
+      catch (Exception ex)
       {
-        throw;
+        throw ex;
       }
     }
     // DELETE api/values/5

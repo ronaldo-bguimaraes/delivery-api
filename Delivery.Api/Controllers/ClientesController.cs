@@ -1,5 +1,6 @@
 ﻿using Delivery.Application;
 using Delivery.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,12 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceCliente.GetById(id));
     }
 
+    [HttpGet("usuarios/{usuarioId}")]
+    public ActionResult<string> GetByUsuarioId(int usuarioId)
+    {
+      return Ok(applicationServiceCliente.GetByUsuarioId(usuarioId));
+    }
+
     // POST api/values
     [HttpPost]
     public ActionResult Post([FromBody] ClienteDto clienteDto)
@@ -58,14 +65,15 @@ namespace Delivery.Api.Controllers
       try
       {
         if (clienteDto == null)
+        {
           return NotFound();
-
+        }
         applicationServiceCliente.Update(clienteDto);
         return Ok("Cliente Atualizado com sucesso!");
       }
-      catch (Exception)
+      catch (Exception ex)
       {
-        throw;
+        throw ex;
       }
     }
 

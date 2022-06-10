@@ -12,7 +12,10 @@ namespace Delivery.Application
     void Remove(ClienteDto clienteDto);
 
     IEnumerable<ClienteDto> GetAll();
+
     ClienteDto GetById(int id);
+
+    ClienteDto GetByUsuarioId(int id);
 
   }
 }
