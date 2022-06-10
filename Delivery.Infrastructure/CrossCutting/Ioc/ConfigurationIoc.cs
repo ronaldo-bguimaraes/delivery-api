@@ -10,21 +10,28 @@ using Delivery.Infrastructure.Data.Repositories;
 
 namespace Delivery.Infrastructure.CrossCutting.Ioc
 {
-  public class ConfigurationIoc
-  {
-    public static void Load(ContainerBuilder builder)
+    public class ConfigurationIoc
     {
-      builder.RegisterType<ApplicationServiceCliente>().As<IApplicationServiceCliente>();
-      builder.RegisterType<ApplicationServiceUsuario>().As<IApplicationServiceUsuario>();
-      //
-      builder.RegisterType<ServiceCliente>().As<IServiceCliente>();
-      builder.RegisterType<ServiceUsuario>().As<IServiceUsuario>();
-      //
-      builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
-      builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
-      //
-      builder.RegisterType<MapperCliente>().As<IMapperCliente>();
-      builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
+        public static void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<ApplicationServiceCliente>().As<IApplicationServiceCliente>();
+            builder.RegisterType<ApplicationServiceUsuario>().As<IApplicationServiceUsuario>();
+            builder.RegisterType<ApplicationServiceEndereco>().As<IApplicationServiceEndereco>();
+            //
+            builder.RegisterType<ServiceCliente>().As<IServiceCliente>();
+            builder.RegisterType<ServiceUsuario>().As<IServiceUsuario>();
+            builder.RegisterType<ServiceEndereco>().As<IServiceEndereco>();
+            //
+            builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
+            builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
+            builder.RegisterType<RepositoryEndereco>().As<IRepositoryEndereco>();
+
+            //
+            builder.RegisterType<MapperCliente>().As<IMapperCliente>();
+            builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
+            builder.RegisterType<MapperEndereco>().As<IMapperEndereco>();
+
+
+        }
     }
-  }
 }
