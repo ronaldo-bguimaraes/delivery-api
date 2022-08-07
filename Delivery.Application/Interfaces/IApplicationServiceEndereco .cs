@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace Delivery.Application
 {
-    public interface IApplicationServiceEndereco
-    {
-        void Add(EnderecoDto enderecoDto);
+  public interface IApplicationServiceEndereco
+  {
+    void Add(EnderecoDto enderecoDto);
 
-        void Update(EnderecoDto enderecoDto);
+    void Update(EnderecoDto enderecoDto);
 
-        void Remove(EnderecoDto enderecoDto);
+    void Remove(EnderecoDto enderecoDto);
 
-        IEnumerable<EnderecoDto> GetAll();
+    IEnumerable<EnderecoDto> GetAll();
 
-        EnderecoDto GetById(int id);
+    EnderecoDto GetById(int id);
 
-        IEnumerable<EnderecoDto> GetByUsuarioId(int id);
+    IEnumerable<EnderecoDto> GetByUsuarioId(int id);
 
-    }
+  }
 }
