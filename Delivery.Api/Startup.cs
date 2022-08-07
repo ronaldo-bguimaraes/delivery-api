@@ -31,17 +31,19 @@ namespace Delivery.Api
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      var connection = Configuration["SqlConnection:SqlConnectionString"];
+      var connectionString = Configuration.GetConnectionString("DeliveryDatabase");
       services.AddCors();
-      services.AddDbContext<SqlContext>(options => options.UseSqlServer(connection));
+      services.AddDbContext<SqlContext>(options => options.UseSqlServer(connectionString));
       services.AddControllers();
+
       services.AddMvc(config =>
       {
         var policy = new AuthorizationPolicyBuilder()
         .RequireAuthenticatedUser()
         .Build();
         config.Filters.Add(new AuthorizeFilter(policy));
-      }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+      })
+      .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
       services.AddAuthorization(options =>
       {
@@ -50,6 +52,7 @@ namespace Delivery.Api
       });
 
       var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
       services.AddAuthentication(x =>
       {
         x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

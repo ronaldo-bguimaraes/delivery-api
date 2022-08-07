@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj": {}
+    "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Application\\Delivery.Application.csproj": {
+    "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Application\\Delivery.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Application\\Delivery.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Application\\Delivery.Application.csproj",
         "projectName": "Delivery.Application",
-        "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Application\\Delivery.Application.csproj",
+        "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Application\\Delivery.Application.csproj",
         "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Application\\obj\\",
+        "outputPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -28,11 +31,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj"
               },
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj"
               }
             }
           }
@@ -48,6 +51,12 @@
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.25, )"
             },
@@ -75,19 +84,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj": {
+    "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj",
         "projectName": "Delivery.Domain.Core.Services",
-        "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj",
+        "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core.Services\\Delivery.Domain.Core.Services.csproj",
         "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core.Services\\obj\\",
+        "outputPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -103,8 +115,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj"
               }
             }
           }
@@ -120,6 +132,12 @@
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.25, )"
             },
@@ -147,19 +165,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
+    "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
         "projectName": "Delivery.Domain.Core",
-        "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
+        "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj",
         "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\obj\\",
+        "outputPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -175,8 +196,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj"
               }
             }
           }
@@ -192,6 +213,12 @@
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.25, )"
             },
@@ -219,19 +246,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
+    "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj",
         "projectName": "Delivery.Domain",
-        "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj",
+        "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj",
         "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -263,6 +293,12 @@
               "target": "Package",
               "version": "[3.1.25, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.25, )"
@@ -287,19 +323,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj": {
+    "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj",
         "projectName": "Delivery.Infrastructure",
-        "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Infrastructure\\Delivery.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Ronaldo\\.nuget\\packages\\",
-        "outputPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ronaldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -315,14 +354,14 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Application\\Delivery.Application.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Application\\Delivery.Application.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Application\\Delivery.Application.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Application\\Delivery.Application.csproj"
               },
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain.Core\\Delivery.Domain.Core.csproj"
               },
-              "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
-                "projectPath": "C:\\github\\ronaldobgui\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj"
+              "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj": {
+                "projectPath": "C:\\Users\\Ronaldo\\Documents\\GitHub\\delivery-api\\Delivery.Domain\\Delivery.Domain.csproj"
               }
             }
           }
@@ -341,17 +380,29 @@
               "target": "Package",
               "version": "[6.3.0, )"
             },
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.25, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[3.1.13, )"
             },
             "Microsoft.NETCore.App": {
               "target": "Package",
@@ -373,7 +424,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
