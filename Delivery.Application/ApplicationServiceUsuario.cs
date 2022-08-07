@@ -84,6 +84,6 @@ namespace Delivery.Application.Mappers
       return userDto;
     }
 
-        
-    }
+
+  }
 }
