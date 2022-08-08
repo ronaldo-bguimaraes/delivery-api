@@ -41,9 +41,7 @@ namespace Delivery.Api
 
       services.AddMvc(config =>
       {
-        var policy = new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build();
+        var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
         config.Filters.Add(new AuthorizeFilter(policy));
       })
       .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

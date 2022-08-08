@@ -24,11 +24,23 @@ namespace Delivery.Api.Controllers
       return Ok($"Running mode: [{Env.EnvironmentName}]");
     }
 
-    [HttpPost("{text}")]
+    [HttpGet("{text}")]
     [AllowAnonymous]
-    public ActionResult<string> Post(int text)
+    public ActionResult<string> Get(string text)
     {
       return Ok($"Text: [{text}]");
     }
+
+    [HttpPost()]
+    [AllowAnonymous]
+    public ActionResult<string> Post([FromBody] TesteBody teste)
+    {
+      return Ok($"Text: [{teste.Message}]");
+    }
+  }
+
+  public class TesteBody
+  {
+    public string Message { get; set; }
   }
 }
