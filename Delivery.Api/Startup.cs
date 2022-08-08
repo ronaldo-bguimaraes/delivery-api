@@ -15,7 +15,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Net;
 using System.Text;
 
 namespace Delivery.Api
@@ -23,19 +22,20 @@ namespace Delivery.Api
   //Swagger (OpenAPI) is a language-agnostic specification for describing REST APIs
   public class Startup
   {
+    public IConfiguration Configuration { get; }
+
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
     }
 
-    public IConfiguration Configuration { get; }
-
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      var connectionString = Configuration.GetConnectionString("DeliveryDatabase");
+      var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
       services.AddCors();
+
       services.AddDbContext<SqlContext>(options => options.UseSqlServer(connectionString));
       services.AddControllers();
 
@@ -78,16 +78,6 @@ namespace Delivery.Api
       {
         options.SwaggerDoc("v1", new OpenApiInfo { Title = "Delivery Api", Version = "v1" });
       });
-
-      services.Configure<ForwardedHeadersOptions>(options =>
-      {
-        options.KnownProxies.Add(IPAddress.Parse("54.213.153.250"));
-      });
-    }
-
-    public void ConfigureContainer(ContainerBuilder builder)
-    {
-      builder.RegisterModule(new ModuleIoc());
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -25,13 +25,10 @@ namespace Delivery.Infrastructure.CrossCutting.Ioc
       builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
       builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
       builder.RegisterType<RepositoryEndereco>().As<IRepositoryEndereco>();
-
       //
       builder.RegisterType<MapperCliente>().As<IMapperCliente>();
       builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
       builder.RegisterType<MapperEndereco>().As<IMapperEndereco>();
-
-
     }
   }
 }

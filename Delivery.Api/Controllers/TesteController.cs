@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 
 namespace Delivery.Api.Controllers
@@ -8,15 +10,18 @@ namespace Delivery.Api.Controllers
   [ApiController]
   public class TesteController : Controller
   {
-    public TesteController() { }
+    public IWebHostEnvironment Env { get; }
+    public TesteController(IWebHostEnvironment env)
+    {
+      Env = env;
+    }
 
     // GET api/values
     [HttpGet]
     [AllowAnonymous]
     public ActionResult<string> Get()
     {
-      var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-      return Ok($"Is running on: [{environment}]");
+      return Ok($"Running mode: [{Env.EnvironmentName}]");
     }
   }
 }
