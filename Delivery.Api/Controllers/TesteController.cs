@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Delivery.Api.Controllers
 {
@@ -14,7 +15,8 @@ namespace Delivery.Api.Controllers
     [AllowAnonymous]
     public ActionResult<string> Get()
     {
-      return Ok("Delivery Api ir running...");
+      var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+      return Ok($"Is running on: [{environment}]");
     }
   }
 }
