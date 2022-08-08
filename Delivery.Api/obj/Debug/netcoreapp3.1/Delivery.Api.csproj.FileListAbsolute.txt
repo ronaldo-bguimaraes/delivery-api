@@ -246,7 +246,6 @@ C:\github\ronaldobgui\delivery-api\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery
 C:\github\ronaldobgui\delivery-api\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.dll
 C:\github\ronaldobgui\delivery-api\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.pdb
 C:\github\ronaldobgui\delivery-api\Delivery.Api\obj\Debug\netcoreapp3.1\Delivery.Api.genruntimeconfig.cache
-C:\Users\Ronaldo\Documents\GitHub\delivery-api\Delivery.Api\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Ronaldo\Documents\GitHub\delivery-api\Delivery.Api\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Ronaldo\Documents\GitHub\delivery-api\Delivery.Api\bin\Debug\netcoreapp3.1\Delivery.Api.exe
 C:\Users\Ronaldo\Documents\GitHub\delivery-api\Delivery.Api\bin\Debug\netcoreapp3.1\Delivery.Api.deps.json

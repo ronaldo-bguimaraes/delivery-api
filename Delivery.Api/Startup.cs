@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Net;
 using System.Text;
 
 namespace Delivery.Api
@@ -77,12 +78,16 @@ namespace Delivery.Api
       {
         options.SwaggerDoc("v1", new OpenApiInfo { Title = "Delivery Api", Version = "v1" });
       });
+
+      services.Configure<ForwardedHeadersOptions>(options =>
+      {
+        options.KnownProxies.Add(IPAddress.Parse("54.213.153.250"));
+      });
     }
 
     public void ConfigureContainer(ContainerBuilder builder)
     {
-      var module = new ModuleIoc();
-      builder.RegisterModule(module);
+      builder.RegisterModule(new ModuleIoc());
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
