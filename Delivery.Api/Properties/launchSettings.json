@@ -12,19 +12,26 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "usuarios",
+      "launchUrl": "teste",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Delivery.Api": {
+    "Delivery.Api (Development)": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "clientes",
+      "launchUrl": "teste",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+      }
+    },
+    "Delivery.Api (Production)": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "teste",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
     }
   }
 }
