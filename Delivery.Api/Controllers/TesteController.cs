@@ -23,5 +23,12 @@ namespace Delivery.Api.Controllers
     {
       return Ok($"Running mode: [{Env.EnvironmentName}]");
     }
+
+    [HttpPost("{text}")]
+    [AllowAnonymous]
+    public ActionResult<string> Post(int text)
+    {
+      return Ok($"Text: [{text}]");
+    }
   }
 }
