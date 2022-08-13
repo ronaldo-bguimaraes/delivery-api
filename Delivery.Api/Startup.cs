@@ -1,6 +1,4 @@
-using Autofac;
 using Delivery.Application;
-using Delivery.Infrastructure.CrossCutting.Ioc;
 using Delivery.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -36,7 +34,10 @@ namespace Delivery.Api
 
       services.AddCors();
 
-      services.AddDbContext<SqlContext>(options => options.UseSqlServer(connectionString));
+      services.AddDbContext<SqlContext>(options =>
+        options.UseSqlServer(connectionString, x => x.MigrationsAssembly("Delivery.Api"))
+      );
+      
       services.AddControllers();
 
       services.AddMvc(config =>

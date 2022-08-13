@@ -1,29 +1,16 @@
-﻿using Delivery.Domain.Interfaces.Entities;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Delivery.Domain.Entities
 {
-  [Table("Usuario")]
-  public class Usuario : IBase
+  public class Usuario
   {
-    [Key, Column("usuario_id")]
-    public int Id { get; set; }
-
-    [Column("nome")]
+    public int UsuarioId { get; set; }
     public string Nome { get; set; }
-
-    [Column("telefone")]
     public string Telefone { get; set; }
-
-    [Column("email")]
     public string Email { get; set; }
-
-    [Column("senha")]
     public string Senha { get; set; }
-
-    [Column("dt_cadastro")]
     public DateTime DataCadastro { get; set; }
+    public ICollection<Endereco> Enderecos { get; set; }
   }
 }

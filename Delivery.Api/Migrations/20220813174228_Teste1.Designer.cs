@@ -7,117 +7,121 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Delivery.Infrastructure.Migrations
+namespace Delivery.Api.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20220807221632_Initial")]
-    partial class Initial
+    [Migration("20220813174228_Teste1")]
+    partial class Teste1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.25")
+                .HasAnnotation("ProductVersion", "3.1.27")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Delivery.Domain.Entities.Cliente", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ClienteId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("cliente_id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Cpf")
-                        .HasColumnName("cpf")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnName("dt_nascimento")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UsuarioId")
-                        .HasColumnName("usuario_id")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ClienteId");
 
-                    b.ToTable("Cliente");
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("Delivery.Domain.Entities.Endereco", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EnderecoId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("endereco_id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apelido")
-                        .HasColumnName("apelido")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Complemento")
-                        .HasColumnName("complemento")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descricao")
-                        .HasColumnName("descricao")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Latitude")
-                        .HasColumnName("latitude")
                         .HasColumnType("float");
 
                     b.Property<double>("Longitude")
-                        .HasColumnName("longitude")
                         .HasColumnType("float");
 
                     b.Property<string>("Nome")
-                        .HasColumnName("nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UsuarioId")
-                        .HasColumnName("usuario_id")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("EnderecoId");
 
-                    b.ToTable("Endereco");
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Enderecos");
                 });
 
             modelBuilder.Entity("Delivery.Domain.Entities.Usuario", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UsuarioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("usuario_id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnName("dt_cadastro")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnName("email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
-                        .HasColumnName("nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Senha")
-                        .HasColumnName("senha")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
-                        .HasColumnName("telefone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UsuarioId");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Delivery.Domain.Entities.Cliente", b =>
+                {
+                    b.HasOne("Delivery.Domain.Entities.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Delivery.Domain.Entities.Endereco", b =>
+                {
+                    b.HasOne("Delivery.Domain.Entities.Usuario", "Usuario")
+                        .WithMany("Enderecos")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
