@@ -44,7 +44,7 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceUsuario.Add(usuarioDto);
+        applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario Cadastrado com sucesso!");
       }
       catch (Exception ex)
@@ -80,10 +80,10 @@ namespace Delivery.Api.Controllers
     {
       try
       {
-        if (usuarioDto == null)
+        if (usuarioDto == null) {
           return NotFound();
-
-        applicationServiceUsuario.Update(usuarioDto);
+        }
+        applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario Atualizado com sucesso!");
       }
       catch (Exception ex)
@@ -109,6 +109,5 @@ namespace Delivery.Api.Controllers
         throw ex;
       }
     }
-
   }
 }
