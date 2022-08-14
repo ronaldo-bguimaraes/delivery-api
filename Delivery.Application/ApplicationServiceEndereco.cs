@@ -22,6 +22,19 @@ namespace Delivery.Application
       serviceEndereco.Add(endereco);
     }
 
+    public void Save(EnderecoDto enderecoDto)
+    {
+      var endereco = mapperEndereco.MapperDtoToEntity(enderecoDto);
+      if (serviceEndereco.GetById(endereco.EnderecoId) == null)
+      {
+        serviceEndereco.Add(endereco);
+      }
+      else
+      {
+        serviceEndereco.Update(endereco);
+      }
+    }
+
     public IEnumerable<EnderecoDto> GetAll()
     {
       var enderecos = serviceEndereco.GetAll();

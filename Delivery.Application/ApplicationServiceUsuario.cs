@@ -1,4 +1,5 @@
 ﻿using Delivery.Domain.Core.Interfaces.Services;
+using Delivery.Domain.Entities;
 using Delivery.Dtos;
 using Delivery.Infrastructure.CrossCutting.Interface;
 using Microsoft.IdentityModel.Tokens;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
-namespace Delivery.Application.Mappers
+namespace Delivery.Application
 {
   public class ApplicationServiceUsuario : IApplicationServiceUsuario
   {
@@ -24,8 +25,21 @@ namespace Delivery.Application.Mappers
 
     public void Add(UsuarioDto usuarioDto)
     {
-      var Usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
-      serviceUsuario.Add(Usuario);
+      var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
+      serviceUsuario.Add(usuario);
+    }
+
+    public void Save(UsuarioDto usuarioDto)
+    {
+      var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
+      if (serviceUsuario.GetById(usuario.UsuarioId) == null)
+      {
+        serviceUsuario.Add(usuario);
+      }
+      else
+      {
+        serviceUsuario.Update(usuario);
+      }
     }
 
     public IEnumerable<UsuarioDto> GetAll()
@@ -52,11 +66,40 @@ namespace Delivery.Application.Mappers
       serviceUsuario.Update(usuario);
     }
 
+    private Usuario getClaimType(UsuarioDto usuarioDto)
+    {
+      Usuario usuario = null;
+
+      var query = serviceUsuario.GetAll().Where(x => x.Senha == Security.CreateMD5Hash(usuarioDto.Senha));
+
+      if (usuarioDto.Email != null)
+      {
+        usuario = query.Where(x => x.Email == usuarioDto.Email).FirstOrDefault();
+        if (usuario != null)
+        {
+          usuario.Claim = new Claim(ClaimTypes.Email, usuario.Email);
+          return usuario;
+        }
+      }
+
+      if (usuarioDto.Telefone != null)
+      {
+        usuario = query.Where(x => x.Telefone == usuarioDto.Telefone).FirstOrDefault();
+        if (usuario != null)
+        {
+          usuario.Claim = new Claim(ClaimTypes.MobilePhone, usuario.Telefone);
+          return usuario;
+        }
+      }
+
+      return usuario;
+    }
+
     public UsuarioDto Authenticate(UsuarioDto usuarioDto)
     {
-      var user = serviceUsuario.GetAll().Where(x => (x.Email == usuarioDto.Email || x.Telefone == usuarioDto.Telefone) && x.Senha == usuarioDto.Senha).FirstOrDefault();
+      var usuario = getClaimType(usuarioDto);
 
-      if (user == null)
+      if (usuario == null)
       {
         return null;
       }
@@ -65,25 +108,18 @@ namespace Delivery.Application.Mappers
       var key = Encoding.ASCII.GetBytes(Settings.Secret);
       var tokenDescriptor = new SecurityTokenDescriptor
       {
-        Subject = new ClaimsIdentity(new Claim[]
-          {
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim("Store", "user")
-          }
-        ),
+        Subject = new ClaimsIdentity(new Claim[] { usuario.Claim, new Claim("Store", "User") }),
         Expires = DateTime.UtcNow.AddDays(7),
         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
       };
 
       var token = tokenHandler.CreateToken(tokenDescriptor);
 
-      var userDto = mapperUsuario.MapperEntityToDto(user);
+      var userDto = mapperUsuario.MapperEntityToDto(usuario);
 
       userDto.Token = tokenHandler.WriteToken(token);
 
       return userDto;
     }
-
-
   }
 }

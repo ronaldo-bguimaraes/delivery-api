@@ -15,10 +15,24 @@ namespace Delivery.Application
       serviceCliente = _serviceCliente;
       mapperCliente = _mapperCliente;
     }
+
     public void Add(ClienteDto clienteDto)
     {
       var cliente = mapperCliente.MapperDtoToEntity(clienteDto);
       serviceCliente.Add(cliente);
+    }
+
+    public void Save(ClienteDto clienteDto)
+    {
+      var cliente = mapperCliente.MapperDtoToEntity(clienteDto);
+      if (serviceCliente.GetById(cliente.ClienteId) == null)
+      {
+        serviceCliente.Add(cliente);
+      }
+      else
+      {
+        serviceCliente.Update(cliente);
+      }
     }
 
     public IEnumerable<ClienteDto> GetAll()

@@ -37,7 +37,7 @@ namespace Delivery.Api
       services.AddDbContext<SqlContext>(options =>
         options.UseSqlServer(connectionString, x => x.MigrationsAssembly("Delivery.Api"))
       );
-      
+
       services.AddControllers();
 
       services.AddMvc(config =>
@@ -49,8 +49,8 @@ namespace Delivery.Api
 
       services.AddAuthorization(options =>
       {
-        options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
-        options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
+        options.AddPolicy("User", policy => policy.RequireClaim("Store", "User"));
+        options.AddPolicy("Admin", policy => policy.RequireClaim("Store", "Admin"));
       });
 
       var key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -93,23 +93,23 @@ namespace Delivery.Api
       }
 
       app.UseSwagger();
-      app.UseSwaggerUI(c =>
+      app.UseSwaggerUI(options =>
       {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Delivery Api");
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Delivery Api");
       });
 
       app.UseRouting();
 
-      app.UseCors(options =>
+      app.UseCors(builder =>
       {
-        options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
       });
 
       app.UseAuthentication();
 
-      app.UseEndpoints(endpoints =>
+      app.UseEndpoints(builder =>
       {
-        endpoints.MapControllers();
+        builder.MapControllers();
       });
     }
   }
