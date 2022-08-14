@@ -5,7 +5,6 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceUsuario
   {
-
     void Add(UsuarioDto usuarioDto);
 
     void Update(UsuarioDto usuarioDto);

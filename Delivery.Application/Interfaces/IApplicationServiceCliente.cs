@@ -16,6 +16,5 @@ namespace Delivery.Application
     ClienteDto GetById(int id);
 
     ClienteDto GetByUsuarioId(int id);
-
   }
 }

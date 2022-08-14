@@ -16,6 +16,5 @@ namespace Delivery.Application
     EnderecoDto GetById(int id);
 
     IEnumerable<EnderecoDto> GetByUsuarioId(int id);
-
   }
 }

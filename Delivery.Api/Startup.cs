@@ -37,7 +37,7 @@ namespace Delivery.Api
       services.AddDbContext<SqlContext>(options =>
         options.UseSqlServer(connectionString, x => x.MigrationsAssembly("Delivery.Api"))
       );
-      
+
       services.AddControllers();
 
       services.AddMvc(config =>
