@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Delivery.Application;
-using Delivery.Application.Mappers;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Core.Services;

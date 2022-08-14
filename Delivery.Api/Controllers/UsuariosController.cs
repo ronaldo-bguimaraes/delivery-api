@@ -3,12 +3,11 @@ using Delivery.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 
 namespace Delivery.Api.Controllers
 {
-  [Route("[controller]")]
   [ApiController]
+  [Route("[controller]")]
   public class UsuariosController : Controller
   {
     // Fazer um controller para chamar a applicationService
@@ -19,21 +18,23 @@ namespace Delivery.Api.Controllers
       applicationServiceUsuario = _applicationServiceUsuario;
     }
 
-    // GET api/values
+
     [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
+    [Authorize(Policy = "User")]
+    public ActionResult Get()
     {
       return Ok(applicationServiceUsuario.GetAll());
     }
 
-    // GET api/values/5
+
     [HttpGet("{id}")]
-    public ActionResult<string> Get(int id)
+    [Authorize(Policy = "User")]
+    public ActionResult Get(int id)
     {
       return Ok(applicationServiceUsuario.GetById(id));
     }
 
-    // POST api/values
+
     [HttpPost]
     [AllowAnonymous]
     public ActionResult Post([FromBody] UsuarioDto usuarioDto)
@@ -44,8 +45,8 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceUsuario.Add(usuarioDto);
-        return Ok("Usuario Cadastrado com sucesso!");
+        applicationServiceUsuario.Save(usuarioDto);
+        return Ok("Usuario cadastrado com sucesso!");
       }
       catch (Exception ex)
       {
@@ -74,8 +75,27 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    // PUT api/values/5
+    [HttpPost("save")]
+    [Authorize(Policy = "User")]
+    public ActionResult Save([FromBody] UsuarioDto usuarioDto)
+    {
+      try
+      {
+        if (usuarioDto == null)
+        {
+          return NotFound();
+        }
+        applicationServiceUsuario.Save(usuarioDto);
+        return Ok("Usuario salvo com sucesso!");
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
     [HttpPut]
+    [Authorize(Policy = "User")]
     public ActionResult Put([FromBody] UsuarioDto usuarioDto)
     {
       try
@@ -83,16 +103,17 @@ namespace Delivery.Api.Controllers
         if (usuarioDto == null)
           return NotFound();
 
-        applicationServiceUsuario.Update(usuarioDto);
-        return Ok("Usuario Atualizado com sucesso!");
+        applicationServiceUsuario.Save(usuarioDto);
+        return Ok("Usuario atualizado com sucesso!");
       }
       catch (Exception ex)
       {
         throw ex;
       }
     }
-    // DELETE api/values/5
-    [HttpDelete()]
+
+    [HttpDelete]
+    [Authorize(Policy = "User")]
     public ActionResult Delete([FromBody] UsuarioDto UsuarioDto)
     {
       try
@@ -102,13 +123,12 @@ namespace Delivery.Api.Controllers
           return NotFound();
         }
         applicationServiceUsuario.Remove(UsuarioDto);
-        return Ok("Usuario Removido com sucesso!");
+        return Ok("Usuario removido com sucesso!");
       }
       catch (Exception ex)
       {
         throw ex;
       }
     }
-
   }
 }

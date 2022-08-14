@@ -1,13 +1,13 @@
 ﻿using Delivery.Application;
 using Delivery.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 
 namespace Delivery.Api.Controllers
 {
-  [Route("[controller]")]
   [ApiController]
+  [Route("[controller]")]
   public class EnderecosController : Controller
   {
     // Fazer um controller para chamar a applicationService
@@ -18,29 +18,31 @@ namespace Delivery.Api.Controllers
       applicationServiceEndereco = _applicationServiceEndereco;
     }
 
-    // GET api/values
+    
     [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
+    [Authorize(Policy = "User")]
+    public ActionResult Get()
     {
       return Ok(applicationServiceEndereco.GetAll());
     }
 
-    // GET api/values/5
+    
     [HttpGet("{id}")]
-    public ActionResult<string> Get(int id)
+    [Authorize(Policy = "User")]
+    public ActionResult Get(int id)
     {
       return Ok(applicationServiceEndereco.GetById(id));
     }
 
-    // não está funcionando
     [HttpGet("usuarios/{usuarioId}")]
-    public ActionResult<IEnumerable<string>> GetByUsuarioId(int usuarioId)
+    [Authorize(Policy = "User")]
+    public ActionResult GetByUsuarioId(int usuarioId)
     {
       return Ok(applicationServiceEndereco.GetByUsuarioId(usuarioId));
     }
 
-    // POST api/values
     [HttpPost]
+    [Authorize(Policy = "User")]
     public ActionResult Post([FromBody] EnderecoDto enderecoDto)
     {
       try
@@ -49,8 +51,8 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceEndereco.Add(enderecoDto);
-        return Ok("Endereço Cadastrado com sucesso!");
+        applicationServiceEndereco.Save(enderecoDto);
+        return Ok("Endereço cadastrado com sucesso!");
       }
       catch (Exception ex)
       {
@@ -58,8 +60,27 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    // PUT api/values/5
+    [HttpPost("save")]
+    [Authorize(Policy = "User")]
+    public ActionResult Save([FromBody] EnderecoDto enderecoDto)
+    {
+      try
+      {
+        if (enderecoDto == null)
+        {
+          return NotFound();
+        }
+        applicationServiceEndereco.Save(enderecoDto);
+        return Ok("Endereço salvo com sucesso!");
+      }
+      catch (Exception ex)
+      {
+        throw ex;
+      }
+    }
+
     [HttpPut]
+    [Authorize(Policy = "User")]
     public ActionResult Put([FromBody] EnderecoDto enderecoDto)
     {
       try
@@ -68,8 +89,8 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceEndereco.Update(enderecoDto);
-        return Ok("Endereço Atualizado com sucesso!");
+        applicationServiceEndereco.Save(enderecoDto);
+        return Ok("Endereço atualizado com sucesso!");
       }
       catch (Exception ex)
       {
@@ -77,8 +98,8 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    // DELETE api/values/5
-    [HttpDelete()]
+    [HttpDelete]
+    [Authorize(Policy = "User")]
     public ActionResult Delete([FromBody] EnderecoDto enderecoDto)
     {
       try
@@ -88,7 +109,7 @@ namespace Delivery.Api.Controllers
           return NotFound();
         }
         applicationServiceEndereco.Remove(enderecoDto);
-        return Ok("Endereço Removido com sucesso!");
+        return Ok("Endereço removido com sucesso!");
       }
       catch (Exception ex)
       {
