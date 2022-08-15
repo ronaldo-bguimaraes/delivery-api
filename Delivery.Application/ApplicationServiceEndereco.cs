@@ -19,7 +19,7 @@ namespace Delivery.Application
     public void Save(EnderecoDto enderecoDto)
     {
       var endereco = mapperEndereco.MapperDtoToEntity(enderecoDto);
-      if (serviceEndereco.GetById(endereco.EnderecoId) == null)
+      if (serviceEndereco.GetById(endereco.Id) == null)
       {
         serviceEndereco.Add(endereco);
       }

@@ -26,7 +26,7 @@ namespace Delivery.Application
     public void Save(UsuarioDto usuarioDto)
     {
       var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
-      if (serviceUsuario.GetById(usuario.UsuarioId) == null)
+      if (serviceUsuario.GetById(usuario.Id) == null)
       {
         serviceUsuario.Add(usuario);
       }

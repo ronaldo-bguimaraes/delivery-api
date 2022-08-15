@@ -12,7 +12,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var produto = new Produto
       {
-        ProdutoId = produtoDto.Id,
+        Id = produtoDto.Id,
         Descricao = produtoDto.Descricao,
         Valor = produtoDto.Valor,
         Ingredientes = produtoDto.Ingredientes,
@@ -25,7 +25,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var produtoDto = new ProdutoDto
       {
-        Id = produto.ProdutoId,
+        Id = produto.Id,
         Descricao = produto.Descricao,
         Valor = produto.Valor,
         Ingredientes = produto.Ingredientes,
@@ -38,7 +38,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var produtoDtos = produtos.Select(produto => new ProdutoDto
       {
-        Id = produto.ProdutoId,
+        Id = produto.Id,
         Descricao = produto.Descricao,
         Valor = produto.Valor,
         Ingredientes = produto.Ingredientes,
@@ -51,7 +51,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var produtos = produtoDtos.Select(produtoDto => new Produto
       {
-        ProdutoId = produtoDto.Id,
+        Id = produtoDto.Id,
         Descricao = produtoDto.Descricao,
         Valor = produtoDto.Valor,
         Ingredientes = produtoDto.Ingredientes,

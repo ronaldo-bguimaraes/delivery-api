@@ -15,8 +15,9 @@ namespace Delivery.Infrastructure.Data.Repositories
 
     public override void Update(Usuario usuario)
     {
-      sqlContext.Set<Usuario>().Update(usuario);
-      sqlContext.Entry(usuario).Property(x => x.DataCadastro).IsModified = false;
+      var entity = sqlContext.Set<Usuario>().Find(usuario.Id);
+      sqlContext.Entry(entity).CurrentValues.SetValues(usuario);
+      sqlContext.Entry(entity).Property(x => x.DataCadastro).IsModified = false;
       sqlContext.SaveChanges();
     }
   }

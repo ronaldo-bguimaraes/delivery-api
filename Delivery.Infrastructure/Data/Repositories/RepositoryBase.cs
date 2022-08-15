@@ -1,10 +1,12 @@
 ﻿using Delivery.Domain.Core.Interfaces.Repositories;
+using Delivery.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Delivery.Infrastructure.Data.Repositories
 {
-  public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+  public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : EntityBase
   {
     private readonly SqlContext sqlContext;
 
@@ -21,7 +23,8 @@ namespace Delivery.Infrastructure.Data.Repositories
 
     public virtual void Remove(T obj)
     {
-      sqlContext.Set<T>().Remove(obj);
+      var entity = sqlContext.Set<T>().Find(obj.Id);
+      sqlContext.Set<T>().Remove(entity);
       sqlContext.SaveChanges();
     }
 
@@ -37,7 +40,8 @@ namespace Delivery.Infrastructure.Data.Repositories
 
     public virtual void Update(T obj)
     {
-      sqlContext.Set<T>().Update(obj);
+      var entity = sqlContext.Set<T>().Find(obj.Id);
+      sqlContext.Entry(entity).CurrentValues.SetValues(obj);
       sqlContext.SaveChanges();
     }
   }
