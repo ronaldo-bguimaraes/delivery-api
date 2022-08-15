@@ -7,7 +7,7 @@ namespace Delivery.Domain.Core.Interfaces.Services
     void Add(T obj);
     void Update(T obj);
     void Remove(T obj);
-    IEnumerable<T> GetAll();   //Pode ser usado uma lista, mas o Ienumerable funciona melhor
+    ICollection<T> GetAll();   //Pode ser usado uma lista, mas o Ienumerable funciona melhor
     T GetById(int id);
   }
 }

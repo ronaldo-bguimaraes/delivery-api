@@ -18,7 +18,6 @@ namespace Delivery.Api.Controllers
       applicationServiceUsuario = _applicationServiceUsuario;
     }
 
-
     [HttpGet]
     [Authorize(Policy = "User")]
     public ActionResult Get()
@@ -26,14 +25,12 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceUsuario.GetAll());
     }
 
-
     [HttpGet("{id}")]
     [Authorize(Policy = "User")]
     public ActionResult Get(int id)
     {
       return Ok(applicationServiceUsuario.GetById(id));
     }
-
 
     [HttpPost]
     [AllowAnonymous]
@@ -75,33 +72,15 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    [HttpPost("save")]
-    [AllowAnonymous]
-    public ActionResult Save([FromBody] UsuarioDto usuarioDto)
-    {
-      try
-      {
-        if (usuarioDto == null)
-        {
-          return NotFound();
-        }
-        applicationServiceUsuario.Save(usuarioDto);
-        return Ok("Usuario salvo com sucesso!");
-      }
-      catch (Exception ex)
-      {
-        throw ex;
-      }
-    }
-
     [HttpPut]
     [Authorize(Policy = "User")]
     public ActionResult Put([FromBody] UsuarioDto usuarioDto)
     {
       try
       {
-        if (usuarioDto == null)
+        if (usuarioDto == null) {
           return NotFound();
+        }
 
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario atualizado com sucesso!");
