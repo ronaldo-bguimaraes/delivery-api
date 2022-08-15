@@ -6,10 +6,11 @@ using System.Security.Claims;
 
 namespace Delivery.Domain.Entities
 {
-  public class Usuario
+  public class Usuario : EntityBase
   {
     [Key]
-    public int UsuarioId { get; set; }
+    [Column("UsuarioId")]
+    public override int Id { get; set; }
 
     [Column(TypeName = "varchar(100)")]
     public string Nome { get; set; }
