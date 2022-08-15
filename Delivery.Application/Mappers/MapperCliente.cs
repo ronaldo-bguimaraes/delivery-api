@@ -12,7 +12,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var cliente = new Cliente
       {
-        ClienteId = clienteDto.Id,
+        Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
         DataNascimento = clienteDto.DataNascimento,
         UsuarioId = clienteDto.UsuarioId,
@@ -24,7 +24,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var clienteDto = new ClienteDto
       {
-        Id = cliente.ClienteId,
+        Id = cliente.Id,
         Cpf = cliente.Cpf,
         DataNascimento = cliente.DataNascimento,
         UsuarioId = cliente.UsuarioId,
@@ -36,7 +36,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var clienteDtos = clientes.Select(clienteDto => new ClienteDto
       {
-        Id = clienteDto.ClienteId,
+        Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
         DataNascimento = clienteDto.DataNascimento,
         UsuarioId = clienteDto.UsuarioId,
@@ -48,7 +48,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var clientes = clienteDtos.Select(cliente => new Cliente
       {
-        ClienteId = cliente.Id,
+        Id = cliente.Id,
         Cpf = cliente.Cpf,
         DataNascimento = cliente.DataNascimento,
         UsuarioId = cliente.UsuarioId,

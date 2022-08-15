@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
 {
-  public class Endereco
+  public class Endereco : EntityBase
   {
     [Key]
-    public int EnderecoId { get; set; }
+    [Column("EnderecoId")]
+    public override int Id { get; set; }
 
     [Column(TypeName = "varchar(100)")]
     public string Apelido { get; set; }

@@ -19,7 +19,7 @@ namespace Delivery.Application
     public void Save(ProdutoDto produtoDto)
     {
       var produto = mapperProduto.MapperDtoToEntity(produtoDto);
-      if (serviceProduto.GetById(produto.ProdutoId) == null)
+      if (serviceProduto.GetById(produto.Id) == null)
       {
         serviceProduto.Add(produto);
       }

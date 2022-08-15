@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
 {
-  public class Fornecedor
+  public class Fornecedor : EntityBase
   {
     [Key]
-    public int FornecedorId { get; set; }
+    [Column("FornecedorId")]
+    public override int Id { get; set; }
 
     [Column(TypeName = "char(14)")]
     public string Cnpj { get; set; }
