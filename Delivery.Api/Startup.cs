@@ -106,6 +106,7 @@ namespace Delivery.Api
       });
 
       app.UseAuthentication();
+      app.UseAuthorization();
 
       app.UseEndpoints(builder =>
       {

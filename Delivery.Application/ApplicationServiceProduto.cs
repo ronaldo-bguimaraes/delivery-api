@@ -16,12 +16,6 @@ namespace Delivery.Application
       mapperProduto = _mapperProduto;
     }
 
-    public void Add(ProdutoDto enderecoDto)
-    {
-      var endereco = mapperProduto.MapperDtoToEntity(enderecoDto);
-      serviceProduto.Add(endereco);
-    }
-
     public void Save(ProdutoDto produtoDto)
     {
       var produto = mapperProduto.MapperDtoToEntity(produtoDto);
@@ -51,12 +45,6 @@ namespace Delivery.Application
     {
       var endereco = mapperProduto.MapperDtoToEntity(enderecoDto);
       serviceProduto.Remove(endereco);
-    }
-
-    public void Update(ProdutoDto enderecoDto)
-    {
-      var endereco = mapperProduto.MapperDtoToEntity(enderecoDto);
-      serviceProduto.Update(endereco);
     }
   }
 }

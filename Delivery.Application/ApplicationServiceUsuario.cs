@@ -23,12 +23,6 @@ namespace Delivery.Application
       mapperUsuario = _mapperUsuario;
     }
 
-    public void Add(UsuarioDto usuarioDto)
-    {
-      var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
-      serviceUsuario.Add(usuario);
-    }
-
     public void Save(UsuarioDto usuarioDto)
     {
       var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
@@ -58,12 +52,6 @@ namespace Delivery.Application
     {
       var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
       serviceUsuario.Remove(usuario);
-    }
-
-    public void Update(UsuarioDto usuarioDto)
-    {
-      var usuario = mapperUsuario.MapperDtoToEntity(usuarioDto);
-      serviceUsuario.Update(usuario);
     }
 
     private Usuario getClaimType(UsuarioDto usuarioDto)
