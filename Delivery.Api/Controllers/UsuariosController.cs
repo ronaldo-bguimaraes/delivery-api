@@ -76,7 +76,7 @@ namespace Delivery.Api.Controllers
     }
 
     [HttpPost("save")]
-    [Authorize(Policy = "User")]
+    [AllowAnonymous]
     public ActionResult Save([FromBody] UsuarioDto usuarioDto)
     {
       try

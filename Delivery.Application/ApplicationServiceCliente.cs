@@ -16,12 +16,6 @@ namespace Delivery.Application
       mapperCliente = _mapperCliente;
     }
 
-    public void Add(ClienteDto clienteDto)
-    {
-      var cliente = mapperCliente.MapperDtoToEntity(clienteDto);
-      serviceCliente.Add(cliente);
-    }
-
     public void Save(ClienteDto clienteDto)
     {
       var cliente = mapperCliente.MapperDtoToEntity(clienteDto);
@@ -57,12 +51,6 @@ namespace Delivery.Application
     {
       var cliente = mapperCliente.MapperDtoToEntity(clienteDto);
       serviceCliente.Remove(cliente);
-    }
-
-    public void Update(ClienteDto clienteDto)
-    {
-      var cliente = mapperCliente.MapperDtoToEntity(clienteDto);
-      serviceCliente.Update(cliente);
     }
   }
 }
