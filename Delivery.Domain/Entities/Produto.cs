@@ -5,7 +5,7 @@ namespace Delivery.Domain.Entities
 {
   public class Produto
   {
-    [Key]
+    [Key()]
     public int ProdutoId { get; set; }
 
     [Column(TypeName = "varchar(100)")]
