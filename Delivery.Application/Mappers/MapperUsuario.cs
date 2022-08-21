@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
-  public class MapperUsuario : IMapperUsuario
+  public class MapperUsuario : IMapperFormaPagamento
   {
     public Usuario MapperDtoToEntity(UsuarioDto usuarioDto)
     {

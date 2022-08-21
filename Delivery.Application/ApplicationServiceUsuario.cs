@@ -14,9 +14,9 @@ namespace Delivery.Application.Mappers
   public class ApplicationServiceUsuario : IApplicationServiceUsuario
   {
     private readonly IServiceUsuario serviceUsuario;
-    private readonly IMapperUsuario mapperUsuario;
+    private readonly IMapperFormaPagamento mapperUsuario;
 
-    public ApplicationServiceUsuario(IServiceUsuario _serviceUsuario, IMapperUsuario _mapperUsuario)
+    public ApplicationServiceUsuario(IServiceUsuario _serviceUsuario, IMapperFormaPagamento _mapperUsuario)
     {
       serviceUsuario = _serviceUsuario;
       mapperUsuario = _mapperUsuario;

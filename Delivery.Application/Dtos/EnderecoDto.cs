@@ -3,7 +3,6 @@
 
   public class EnderecoDto
   {
-
     public int Id { get; set; }
     public string Apelido { get; set; }
     public int UsuarioId { get; set; }

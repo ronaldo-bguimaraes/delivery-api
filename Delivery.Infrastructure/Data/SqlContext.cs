@@ -15,6 +15,6 @@ namespace Delivery.Infrastructure.Data
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<Endereco> Enderecos { get; set; }
     public DbSet<Fornecedor> Fornecedores { get; set; }
-    public DbSet<Produto> Produtos { get; set; }
+    public DbSet<Venda> Produtos { get; set; }
   }
 }
