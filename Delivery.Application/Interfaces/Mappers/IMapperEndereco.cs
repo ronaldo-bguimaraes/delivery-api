@@ -6,8 +6,8 @@ namespace Delivery.Infrastructure.CrossCutting.Interface
 {
   public interface IMapperEndereco //MapeamentoDTO para entidade
   {
-    Endereco MapperDtoToEntity(EnderecoDto enderecodto);
-    IEnumerable<EnderecoDto> MapperEntitiesToDtos(IEnumerable<Endereco> endereco);
+    Endereco MapperDtoToEntity(EnderecoDto enderecoDto);
+    IEnumerable<EnderecoDto> MapperEntitiesToDtos(IEnumerable<Endereco> enderecos);
     EnderecoDto MapperEntityToDto(Endereco endereco);
   }
 }

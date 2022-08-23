@@ -13,21 +13,25 @@ namespace Delivery.Infrastructure.CrossCutting.Ioc
   {
     public static void Load(ContainerBuilder builder)
     {
-      builder.RegisterType<ApplicationServiceCliente>().As<IApplicationServiceCliente>();
-      builder.RegisterType<ApplicationServiceUsuario>().As<IApplicationServiceUsuario>();
-      builder.RegisterType<ApplicationServiceEndereco>().As<IApplicationServiceEndereco>();
+      builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
+      builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
+      builder.RegisterType<RepositoryEndereco>().As<IRepositoryEndereco>();
+      builder.RegisterType<RepositoryProduto>().As<IRepositoryProduto>();
       //
       builder.RegisterType<ServiceCliente>().As<IServiceCliente>();
       builder.RegisterType<ServiceUsuario>().As<IServiceUsuario>();
       builder.RegisterType<ServiceEndereco>().As<IServiceEndereco>();
-      //
-      builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
-      builder.RegisterType<RepositoryUsuario>().As<IRepositoryUsuario>();
-      builder.RegisterType<RepositoryEndereco>().As<IRepositoryEndereco>();
+      builder.RegisterType<ServiceProduto>().As<IServiceProduto>();
       //
       builder.RegisterType<MapperCliente>().As<IMapperCliente>();
       builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
       builder.RegisterType<MapperEndereco>().As<IMapperEndereco>();
+      builder.RegisterType<MapperProduto>().As<IMapperProduto>();
+      //
+      builder.RegisterType<ApplicationServiceCliente>().As<IApplicationServiceCliente>();
+      builder.RegisterType<ApplicationServiceUsuario>().As<IApplicationServiceUsuario>();
+      builder.RegisterType<ApplicationServiceEndereco>().As<IApplicationServiceEndereco>();
+      builder.RegisterType<ApplicationServiceProduto>().As<IApplicationServiceProduto>();
     }
   }
 }

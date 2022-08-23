@@ -18,5 +18,10 @@ namespace Delivery.Domain.Entities
     public string Ingredientes { get; set; }
 
     public bool Disponivel { get; set; }
+
+    [ForeignKey("FornecedorId")]
+    public int FornecedorId { get; set; }
+
+    public virtual Fornecedor Fornecedor { get; set; }
   }
 }

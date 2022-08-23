@@ -6,8 +6,8 @@ namespace Delivery.Infrastructure.CrossCutting.Interface
 {
   public interface IMapperUsuario //MapeamentoDTO para entidade
   {
-    Usuario MapperDtoToEntity(UsuarioDto clientedto);
-    IEnumerable<UsuarioDto> MapperEntitiesToDtos(IEnumerable<Usuario> produto);
-    UsuarioDto MapperEntityToDto(Usuario produto);
+    Usuario MapperDtoToEntity(UsuarioDto usuarioDto);
+    IEnumerable<UsuarioDto> MapperEntitiesToDtos(IEnumerable<Usuario> usuarios);
+    UsuarioDto MapperEntityToDto(Usuario usuario);
   }
 }

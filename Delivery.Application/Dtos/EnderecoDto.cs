@@ -1,6 +1,5 @@
 ﻿namespace Delivery.Dtos
 {
-
   public class EnderecoDto
   {
     public int Id { get; set; }

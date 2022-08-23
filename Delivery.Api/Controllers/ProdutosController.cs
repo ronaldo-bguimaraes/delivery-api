@@ -3,49 +3,50 @@ using Delivery.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 
 namespace Delivery.Api.Controllers
 {
-  [Route("[controller]")]
   [ApiController]
-  public class Produtosontroller : Controller
+  [Route("[controller]")]
+  public class ProdutosController : Controller
   {
     // Fazer um controller para chamar a applicationService
-    private readonly IApplicationServiceUsuario applicationServiceUsuario;
+    private readonly IApplicationServiceProduto applicationServiceProduto;
 
-    public Produtosontroller(IApplicationServiceUsuario _applicationServiceUsuario)
+    public ProdutosController(IApplicationServiceProduto _applicationServiceProduto)
     {
-      applicationServiceUsuario = _applicationServiceUsuario;
+      applicationServiceProduto = _applicationServiceProduto;
     }
 
-    // GET api/values
+
     [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
+    [Authorize(Policy = "User")]
+    public ActionResult Get()
     {
-      return Ok(applicationServiceUsuario.GetAll());
+      return Ok(applicationServiceProduto.GetAll());
     }
 
-    // GET api/values/5
+
     [HttpGet("{id}")]
-    public ActionResult<string> Get(int id)
+    [Authorize(Policy = "User")]
+    public ActionResult Get(int id)
     {
-      return Ok(applicationServiceUsuario.GetById(id));
+      return Ok(applicationServiceProduto.GetById(id));
     }
 
-    // POST api/values
+
     [HttpPost]
-    [AllowAnonymous]
-    public ActionResult Post([FromBody] UsuarioDto usuarioDto)
+    [Authorize(Policy = "User")]
+    public ActionResult Post([FromBody] ProdutoDto enderecoDto)
     {
       try
       {
-        if (usuarioDto == null)
+        if (enderecoDto == null)
         {
           return NotFound();
         }
-        applicationServiceUsuario.Save(usuarioDto);
-        return Ok("Usuario Cadastrado com sucesso!");
+        applicationServiceProduto.Save(enderecoDto);
+        return Ok("Produto cadastrado com sucesso!");
       }
       catch (Exception ex)
       {
@@ -53,56 +54,57 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    [HttpPost("login")]
-    [AllowAnonymous]
-    public IActionResult Authenticate([FromBody] UsuarioDto usuarioDto)
+    [HttpPost("save")]
+    [Authorize(Policy = "User")]
+    public ActionResult Save([FromBody] ProdutoDto produtoDto)
     {
       try
       {
-        var user = applicationServiceUsuario.Authenticate(usuarioDto);
-
-        if (user == null)
+        if (produtoDto == null)
         {
-          return BadRequest(new { message = "Usuário ou senha inválidos" });
+          return NotFound();
         }
-
-        return Ok(user);
+        applicationServiceProduto.Save(produtoDto);
+        return Ok("Produto salvo com sucesso!");
       }
       catch (Exception ex)
       {
-        return BadRequest(ex);
+        throw ex;
       }
     }
 
-    // PUT api/values/5
     [HttpPut]
-    public ActionResult Put([FromBody] UsuarioDto usuarioDto)
+    [Authorize(Policy = "User")]
+    public ActionResult Put([FromBody] ProdutoDto enderecoDto)
     {
       try
       {
-        if (usuarioDto == null) {
+        if (enderecoDto == null)
+        {
           return NotFound();
         }
-        applicationServiceUsuario.Save(usuarioDto);
-        return Ok("Usuario Atualizado com sucesso!");
+        applicationServiceProduto.Save(enderecoDto);
+        return Ok("Produto atualizado com sucesso!");
       }
       catch (Exception ex)
       {
         throw ex;
       }
     }
-    // DELETE api/values/5
-    [HttpDelete()]
-    public ActionResult Delete([FromBody] UsuarioDto UsuarioDto)
+
+
+    [HttpDelete]
+    [Authorize(Policy = "User")]
+    public ActionResult Delete([FromBody] ProdutoDto enderecoDto)
     {
       try
       {
-        if (UsuarioDto == null)
+        if (enderecoDto == null)
         {
           return NotFound();
         }
-        applicationServiceUsuario.Remove(UsuarioDto);
-        return Ok("Usuario Removido com sucesso!");
+        applicationServiceProduto.Remove(enderecoDto);
+        return Ok("Produto removido com sucesso!");
       }
       catch (Exception ex)
       {
