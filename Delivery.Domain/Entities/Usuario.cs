@@ -7,7 +7,7 @@ namespace Delivery.Domain.Entities
   public class Usuario
   {
     public int UsuarioId { get; set; }
-    
+
     [Column(TypeName = "varchar(100)")]
     public string Nome { get; set; }
 
@@ -21,6 +21,7 @@ namespace Delivery.Domain.Entities
     public string Senha { get; set; }
 
     public DateTime DataCadastro { get; set; }
+    
     public ICollection<Endereco> Enderecos { get; set; }
   }
 }

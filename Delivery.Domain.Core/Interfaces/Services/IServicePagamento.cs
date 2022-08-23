@@ -2,5 +2,5 @@
 
 namespace Delivery.Domain.Core.Interfaces.Services
 {
-    public interface IServicePagamento : IServiceBase<Pagamento> { }
+  public interface IServicePagamento : IServiceBase<Pagamento> { }
 }

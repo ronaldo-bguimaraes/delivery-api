@@ -11,9 +11,9 @@ namespace Delivery.Api.Controllers
   public class EnderecosController : Controller
   {
     // Fazer um controller para chamar a applicationService
-    private readonly IApplicationServiceVenda applicationServiceEndereco;
+    private readonly IApplicationServiceEndereco applicationServiceEndereco;
 
-    public EnderecosController(IApplicationServiceVenda _applicationServiceEndereco)
+    public EnderecosController(IApplicationServiceEndereco _applicationServiceEndereco)
     {
       applicationServiceEndereco = _applicationServiceEndereco;
     }
