@@ -11,5 +11,7 @@ namespace Delivery.Dtos
     public string Ingredientes { get; set; }
 
     public bool Disponivel { get; set; }
+
+    public int FornecedorId { get; set; }
   }
 }

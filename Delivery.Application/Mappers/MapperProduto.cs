@@ -16,7 +16,8 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Descricao = produtoDto.Descricao,
         Valor = produtoDto.Valor,
         Ingredientes = produtoDto.Ingredientes,
-        Disponivel = produtoDto.Disponivel
+        Disponivel = produtoDto.Disponivel,
+        FornecedorId = produtoDto.FornecedorId
       };
       return produto;
     }
@@ -29,7 +30,8 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Descricao = produto.Descricao,
         Valor = produto.Valor,
         Ingredientes = produto.Ingredientes,
-        Disponivel = produto.Disponivel
+        Disponivel = produto.Disponivel,
+        FornecedorId = produto.FornecedorId
       };
       return produtoDto;
     }
@@ -42,7 +44,8 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Descricao = produto.Descricao,
         Valor = produto.Valor,
         Ingredientes = produto.Ingredientes,
-        Disponivel = produto.Disponivel
+        Disponivel = produto.Disponivel,
+        FornecedorId = produto.FornecedorId
       });
       return produtoDtos;
     }
@@ -55,10 +58,10 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Descricao = produtoDto.Descricao,
         Valor = produtoDto.Valor,
         Ingredientes = produtoDto.Ingredientes,
-        Disponivel = produtoDto.Disponivel
+        Disponivel = produtoDto.Disponivel,
+        FornecedorId = produtoDto.FornecedorId
       });
       return produtos;
     }
-
   }
 }
