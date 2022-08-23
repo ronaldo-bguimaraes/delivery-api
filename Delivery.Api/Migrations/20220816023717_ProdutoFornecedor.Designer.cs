@@ -4,14 +4,16 @@ using Delivery.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Delivery.Api.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    partial class SqlContextModelSnapshot : ModelSnapshot
+    [Migration("20220816023717_ProdutoFornecedor")]
+    partial class ProdutoFornecedor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,6 +88,9 @@ namespace Delivery.Api.Migrations
 
                     b.Property<string>("Cnpj")
                         .HasColumnType("char(14)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("RazaoSocial")
                         .HasColumnType("varchar(100)");

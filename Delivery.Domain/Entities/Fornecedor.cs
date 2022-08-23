@@ -15,9 +15,6 @@ namespace Delivery.Domain.Entities
     [Column(TypeName = "varchar(100)")]
     public string RazaoSocial { get; set; }
 
-    [Column(TypeName = "varchar(100)")]
-    public string Email { get; set; }
-
     [ForeignKey("UsuarioId")]
     public int UsuarioId { get; set; }
 
