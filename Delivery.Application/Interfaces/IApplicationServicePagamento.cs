@@ -6,15 +6,12 @@ namespace Delivery.Application
 {
   public interface IApplicationPagamento
   {
-
-    void Add(PagamentoDto pagamentoDto);
-
-    void Update(PagamentoDto pagamentoDto);
+    void Save(PagamentoDto pagamentoDto);
 
     void Remove(PagamentoDto pagamentoDto);
 
     IEnumerable<PagamentoDto> GetAll();
 
-   PagamentoDto GetById(int id);
+    PagamentoDto GetById(int id);
   }
 }

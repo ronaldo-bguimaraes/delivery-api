@@ -6,8 +6,8 @@ namespace Delivery.Infrastructure.CrossCutting.Interface
 {
   public interface IMapperFormaPagamento //MapeamentoDTO para entidade
   {
-    FormaPagamento MapperDtoToEntity(FormaPagamentoDto clientedto);
-    IEnumerable<FormaPagamentoDto> MapperEntitiesToDtos(IEnumerable<FormaPagamento> formaPagamento);
+    FormaPagamento MapperDtoToEntity(FormaPagamentoDto formaPagamentoDto);
+    IEnumerable<FormaPagamentoDto> MapperEntitiesToDtos(IEnumerable<FormaPagamento> formasPagamento);
     FormaPagamentoDto MapperEntityToDto(FormaPagamento formaPagamento);
   }
 }

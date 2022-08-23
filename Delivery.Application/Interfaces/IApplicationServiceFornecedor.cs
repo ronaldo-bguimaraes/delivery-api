@@ -6,9 +6,7 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceFornecedor
   {
-    void Add(FornecedorDto fornecedorDto);
-
-    void Update(FornecedorDto fornecedorDto);
+    void Save(FornecedorDto fornecedorDto);
 
     void Remove(FornecedorDto fornecedorDto);
 

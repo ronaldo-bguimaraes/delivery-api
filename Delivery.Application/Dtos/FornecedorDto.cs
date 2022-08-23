@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Delivery.Domain.Entities
+﻿namespace Delivery.Dtos
 {
   public class FornecedorDto
   {
@@ -10,6 +7,5 @@ namespace Delivery.Domain.Entities
     public string RazaoSocial { get; set; }
     public string Email { get; set; }
     public int UsuarioId { get; set; }
-    public virtual Usuario Usuario { get; set; }
   }
 }

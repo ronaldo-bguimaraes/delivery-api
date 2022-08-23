@@ -1,14 +1,11 @@
-﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
+﻿using Delivery.Dtos;
 using System.Collections.Generic;
 
 namespace Delivery.Application
 {
   public interface IApplicationFormaPagamento
   {
-    void Add(FormaPagamentoDto formaPagamentoDto);
-
-    void Update(FormaPagamentoDto formaPagamentoDto);
+    void Save(FormaPagamentoDto formaPagamentoDto);
 
     void Remove(FormaPagamentoDto formaPagamentoDto);
 

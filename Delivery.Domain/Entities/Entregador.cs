@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
 {
-  public class Entregador
+  public class Entregador : EntityBase
   {
-    public int entregador_id { get; set; }
+    [Key]
+    [Column("EntregadorId")]
+    public override int Id { get; set; }
     public int cpf { get; set; }
     public string sexo { get; set; }
     public bool verificado { get; set; }

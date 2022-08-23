@@ -6,7 +6,7 @@ namespace Delivery.Infrastructure.CrossCutting.Interface
 {
   public interface IMapperEntregador //MapeamentoDTO para entidade
   {
-    Entregador MapperDtoToEntity(EntregadorDto entregadordto);
+    Entregador MapperDtoToEntity(EntregadorDto entregadorDto);
     IEnumerable<EntregadorDto> MapperEntitiesToDtos(IEnumerable<Entregador> entregadores);
     EntregadorDto MapperEntityToDto(Entregador entregador);
   }

@@ -6,7 +6,7 @@ namespace Delivery.Infrastructure.CrossCutting.Interface
 {
   public interface IMapperVenda //MapeamentoDTO para entidade
   {
-    Venda MapperDtoToEntity(VendaDto Vendadto);
+    Venda MapperDtoToEntity(VendaDto vendaDto);
     IEnumerable<VendaDto> MapperEntitiesToDtos(IEnumerable<Venda> vendas);
     VendaDto MapperEntityToDto(Venda venda);
   }

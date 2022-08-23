@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
 {
-  public class ItemProduto
+  public class ItemProduto : EntityBase
   {
-    public int itemProduto_id { get; set; }
+    [Key]
+    [Column("ItemProdutoId")]
+    public override int Id { get; set; }
     public double valor { get; set; }
     public int quantidade { get; set; }
     public Produto produto_id { get; set; }

@@ -6,9 +6,7 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceItemProduto
   {
-    void Add(ItemProdutoDto itemProdutoDto);
-
-    void Update(ItemProdutoDto itemProdutoDto);
+    void Save(ItemProdutoDto itemProdutoDto);
 
     void Remove(ItemProdutoDto itemProdutoDto);
 

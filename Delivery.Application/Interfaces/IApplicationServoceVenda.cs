@@ -7,9 +7,7 @@ namespace Delivery.Application
   public interface IApplicationVenda
   {
 
-    void Add(VendaDto vendaDto);
-
-    void Update(VendaDto vendaDto);
+    void Save(VendaDto vendaDto);
 
     void Remove(VendaDto vendaDto);
 

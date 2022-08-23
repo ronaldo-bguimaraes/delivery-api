@@ -3,6 +3,5 @@ using System.Collections.Generic;
 
 namespace Delivery.Domain.Core.Interfaces.Repositories
 {
-  public interface IRepositoryVenda : IRepositoryBase<Venda> {
-    }
+  public interface IRepositoryVenda : IRepositoryBase<Venda> { }
 }

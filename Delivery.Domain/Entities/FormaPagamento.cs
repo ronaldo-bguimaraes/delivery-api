@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
 {
-  public class FormaPagamento
+  public class FormaPagamento : EntityBase
   {
-    public int formaPagamento_id { get; set; }
+    [Key]
+    [Column("FormaPagamentoId")]
+    public override int Id { get; set; }
     public string descricao { get; set; }
   }
 }
