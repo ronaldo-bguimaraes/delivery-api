@@ -16,9 +16,10 @@ namespace Delivery.Infrastructure.CrossCutting.Ioc
       builder.RegisterType<ApplicationServiceCliente>().As<IApplicationServiceCliente>();
       builder.RegisterType<ApplicationServiceUsuario>().As<IApplicationServiceUsuario>();
       builder.RegisterType<ApplicationServiceEndereco>().As<IApplicationServiceEndereco>();
-      //
+
+
+       //
       builder.RegisterType<ServiceCliente>().As<IServiceCliente>();
-      builder.RegisterType<ServiceUsuario>().As<IServiceUsuario>();
       builder.RegisterType<ServiceEndereco>().As<IServiceEndereco>();
       //
       builder.RegisterType<RepositoryCliente>().As<IRepositoryCliente>();
@@ -26,7 +27,7 @@ namespace Delivery.Infrastructure.CrossCutting.Ioc
       builder.RegisterType<RepositoryEndereco>().As<IRepositoryEndereco>();
       //
       builder.RegisterType<MapperCliente>().As<IMapperCliente>();
-      builder.RegisterType<MapperUsuario>().As<IMapperUsuario>();
+      builder.RegisterType<MapperUsuario>().As<IMapperFormaPagamento>();
       builder.RegisterType<MapperEndereco>().As<IMapperEndereco>();
     }
   }

@@ -1,5 +1,5 @@
-﻿using Delivery.Dtos;
 using System.Collections.Generic;
+using Delivery.Dtos;
 
 namespace Delivery.Application
 {

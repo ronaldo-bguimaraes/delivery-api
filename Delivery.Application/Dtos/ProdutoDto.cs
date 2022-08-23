@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace Delivery.Dtos
 {
   public class ProdutoDto
@@ -11,7 +9,7 @@ namespace Delivery.Dtos
     public double Valor { get; set; }
 
     public string Ingredientes { get; set; }
-    
+
     public bool Disponivel { get; set; }
   }
 }
