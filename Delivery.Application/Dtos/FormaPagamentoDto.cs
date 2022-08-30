@@ -2,7 +2,7 @@
 {
   public class FormaPagamentoDto
   {
-    public int formaPagamento_id { get; set; }
-    public string descricao { get; set; }
+    public int Id { get; set; }
+    public string Descricao { get; set; }
   }
 }
