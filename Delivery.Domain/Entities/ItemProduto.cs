@@ -8,10 +8,19 @@ namespace Delivery.Domain.Entities
     [Key]
     [Column("ItemProdutoId")]
     public override int Id { get; set; }
-    public double valor { get; set; }
-    public int quantidade { get; set; }
-    public Produto produto_id { get; set; }
-    public Venda venda { get; set; }
-    public int venda_id { get; set; }
+
+    public double Valor { get; set; }
+
+    public int Quantidade { get; set; }
+
+    [ForeignKey("ProdutoId")]
+    public int ProdutoId { get; set; }
+
+    public virtual Produto Produto { get; set; }
+
+    [ForeignKey("VendaId")]
+    public int VendaId { get; set; }
+
+    public virtual Venda Venda { get; set; }
   }
 }
