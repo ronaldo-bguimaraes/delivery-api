@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
@@ -8,9 +9,12 @@ namespace Delivery.Domain.Entities
     [Key]
     [Column("PagamentoId")]
     public override int Id { get; set; }
-    public double valor { get; set; }
-    public string dt_pagamento { get; set; }
-    public int formaPagamento_id { get; set; }
-    public FormaPagamento formaPagamento { get; set; }
+
+    public double Valor { get; set; }
+
+    public DateTime DataPagamento { get; set; }
+
+    [Column(TypeName = "int")]
+    public FormaPagamento FormaPagamento { get; set; }
   }
 }

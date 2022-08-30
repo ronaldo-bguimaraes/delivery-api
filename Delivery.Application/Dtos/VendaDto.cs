@@ -4,14 +4,24 @@ namespace Delivery.Dtos
 {
   public class VendaDto
   {
-    public int cliente_id { get; set; }
-    public double subtotal { get; set; }
-    public double frete { get; set; }
-    public double total { get; set; }
-    public String data_venda { get; set; }
-    public double desconto { get; set; }
-    public bool condicao { get; set; }
-    public int entregador_id { get; set; }
-    public int pagamento_id { get; set; }
+    public int Id { get; set; }
+
+    public double Subtotal { get; set; }
+
+    public double Frete { get; set; }
+
+    public double Total { get; set; }
+
+    public DateTime DataVenda { get; set; }
+
+    public double Desconto { get; set; }
+
+    public int Condicao { get; set; }
+
+    public int ClienteId { get; set; }
+
+    public int EntregadorId { get; set; }
+    
+    public int PagamentoId { get; set; }
   }
 }
