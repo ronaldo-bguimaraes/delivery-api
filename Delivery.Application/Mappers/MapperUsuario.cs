@@ -19,7 +19,6 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Telefone = usuarioDto.Telefone,
         Email = usuarioDto.Email,
         Senha = Security.CreateMD5Hash(usuarioDto.Senha),
-        DataCadastro = DateTime.Now,
       };
       return usuario;
     }
@@ -59,7 +58,6 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Telefone = usuarioDto.Telefone,
         Email = usuarioDto.Email,
         Senha = Security.CreateMD5Hash(usuarioDto.Senha),
-        DataCadastro = DateTime.Now,
       });
       return usuarios;
     }
