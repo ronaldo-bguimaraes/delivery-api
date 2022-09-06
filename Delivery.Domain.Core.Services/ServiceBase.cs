@@ -1,10 +1,11 @@
 ﻿using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
+using Delivery.Domain.Entities;
 using System.Collections.Generic;
 
 namespace Delivery.Domain.Core.Services
 {
-  public abstract class ServiceBase<T> : IServiceBase<T> where T : class
+  public abstract class ServiceBase<T> : IServiceBase<T> where T : EntityBase
   {
     private readonly IRepositoryBase<T> repository;
 

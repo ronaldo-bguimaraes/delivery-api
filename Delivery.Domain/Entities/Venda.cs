@@ -24,7 +24,7 @@ namespace Delivery.Domain.Entities
     public double Desconto { get; set; }
 
     [Column(TypeName = "int")]
-    public Condicao Condicao { get; set; }
+    public CondicaoVenda Condicao { get; set; }
 
     public ICollection<ItemProduto> ItensProduto { get; set; }
 

@@ -1,6 +1,6 @@
-﻿using Delivery.Domain.Core.Interfaces.Repositories;
+﻿using System;
+using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace Delivery.Infrastructure.Data.Repositories
 {
