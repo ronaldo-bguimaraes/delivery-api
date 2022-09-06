@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace Delivery.Infrastructure.CrossCutting.Ioc
+namespace Delivery.Infrastructure.CrossCutting
 {
   public class ModuleIoc : Module
   {
