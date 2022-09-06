@@ -1,6 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Delivery.Infrastructure.CrossCutting.Ioc;
+using Delivery.Infrastructure.CrossCutting;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
