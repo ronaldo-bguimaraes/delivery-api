@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using Autofac.Core;
-using Delivery.Application;
-using Delivery.Domain.Core.Interfaces.Services;
-using Delivery.Domain.Entities;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
