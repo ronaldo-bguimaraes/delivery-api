@@ -4,5 +4,6 @@ namespace Delivery.Domain.Enums
   {
     Masculino = 0,
     Feminino = 1,
+    Outro = 2,
   }
 }
