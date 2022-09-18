@@ -10,6 +10,9 @@ namespace Delivery.Domain.Entities
     public override int Id { get; set; }
 
     [Column(TypeName = "varchar(100)")]
+    public string Nome { get; set; }
+
+    [Column(TypeName = "varchar(100)")]
     public string Apelido { get; set; }
 
     [Column(TypeName = "varchar(200)")]

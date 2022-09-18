@@ -13,6 +13,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       var endereco = new Endereco
       {
         Id = enderecoDto.Id,
+        Nome = enderecoDto.Nome,
         Apelido = enderecoDto.Apelido,
         Complemento = enderecoDto.Complemento,
         Descricao = enderecoDto.Descricao,
@@ -29,6 +30,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       var enderecoDto = new EnderecoDto
       {
         Id = endereco.Id,
+        Nome = endereco.Nome,
         Apelido = endereco.Apelido,
         Complemento = endereco.Complemento,
         Descricao = endereco.Descricao,
@@ -44,6 +46,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       var enderecoDtos = enderecos.Select(enderecoDto => new EnderecoDto
       {
         Id = enderecoDto.Id,
+        Nome = enderecoDto.Nome,
         Apelido = enderecoDto.Apelido,
         Complemento = enderecoDto.Complemento,
         Descricao = enderecoDto.Descricao,
@@ -59,6 +62,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       var enderecos = enderecoDtos.Select(endereco => new Endereco
       {
         Id = endereco.Id,
+        Nome = endereco.Nome,
         Apelido = endereco.Apelido,
         Complemento = endereco.Complemento,
         Descricao = endereco.Descricao,
