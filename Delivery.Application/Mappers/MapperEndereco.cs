@@ -35,8 +35,6 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Latitude = endereco.Latitude,
         Longitude = endereco.Longitude,
         UsuarioId = endereco.UsuarioId,
-
-
       };
       return enderecoDto;
     }

@@ -18,14 +18,12 @@ namespace Delivery.Api.Controllers
       applicationServiceEndereco = _applicationServiceEndereco;
     }
 
-    
     [HttpGet]
     [Authorize(Policy = "User")]
     public ActionResult Get()
     {
       return Ok(applicationServiceEndereco.GetAll());
     }
-
     
     [HttpGet("{id}")]
     [Authorize(Policy = "User")]
