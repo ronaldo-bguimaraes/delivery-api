@@ -1,12 +1,14 @@
-﻿namespace Delivery.Dtos
+﻿using Delivery.Domain.Enums;
+
+namespace Delivery.Dtos
 {
   public class EntregadorDto
   {
     public int Id { get; set; }
 
-    public int Cpf { get; set; }
+    public string Cpf { get; set; }
 
-    public string Sexo { get; set; }
+    public Sexo Sexo { get; set; }
 
     public bool Verificado { get; set; }
     

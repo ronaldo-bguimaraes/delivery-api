@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Delivery.Domain.Enums;
+using System;
 
 namespace Delivery.Dtos
 {
@@ -16,7 +17,7 @@ namespace Delivery.Dtos
 
     public double Desconto { get; set; }
 
-    public int Condicao { get; set; }
+    public CondicaoVenda Condicao { get; set; }
 
     public int? ClienteId { get; set; }
 
