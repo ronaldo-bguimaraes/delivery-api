@@ -26,7 +26,7 @@ namespace Delivery.Domain.Entities
     public double Longitude { get; set; }
 
     [ForeignKey("UsuarioId")]
-    public int UsuarioId { get; set; }
+    public int? UsuarioId { get; set; }
 
     public virtual Usuario Usuario { get; set; }
   }

@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Delivery.Infrastructure.Data
 {
-  // Db context  rastreia as alterações feitas em entidades. Essas entidades rastreadas, por sua vez,
-  // conduzem as alterações no banco de dados quando Save Changes é chamado.
   public class SqlContext : DbContext
   {
     public SqlContext() { }

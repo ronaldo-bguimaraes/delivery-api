@@ -14,7 +14,7 @@ namespace Delivery.Infrastructure.Data.Repositories
       sqlContext = _sqlcontext;
     }
 
-    public ICollection<Endereco> GetByUsuarioId(int usuarioId)
+    public IEnumerable<Endereco> GetByUsuarioId(int usuarioId)
     {
       return sqlContext.Set<Endereco>().Where(e => e.UsuarioId == usuarioId).ToList();
     }

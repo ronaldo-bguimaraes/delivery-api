@@ -18,10 +18,10 @@ namespace Delivery.Dtos
 
     public int Condicao { get; set; }
 
-    public int ClienteId { get; set; }
+    public int? ClienteId { get; set; }
 
-    public int EntregadorId { get; set; }
+    public int? EntregadorId { get; set; }
     
-    public int PagamentoId { get; set; }
+    public int? PagamentoId { get; set; }
   }
 }

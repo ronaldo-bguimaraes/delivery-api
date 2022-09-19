@@ -10,6 +10,6 @@
 
     public bool Verificado { get; set; }
     
-    public int UsuarioId { get; set; }
+    public int? UsuarioId { get; set; }
   }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,20 +25,20 @@ namespace Delivery.Domain.Entities
     [Column(TypeName = "int")]
     public CondicaoVenda Condicao { get; set; }
 
-    public ICollection<ItemProduto> ItensProduto { get; set; }
+    public virtual IEnumerable<ItemProduto> ItensProduto { get; set; }
 
     [ForeignKey("ClienteId")]
-    public int ClienteId { get; set; }
+    public int? ClienteId { get; set; }
 
     public virtual Cliente Cliente { get; set; }
 
     [ForeignKey("EntregadorId")]
-    public int EntregadorId { get; set; }
+    public int? EntregadorId { get; set; }
 
     public virtual Entregador Entregador { get; set; }
 
     [ForeignKey("PagamentoId")]
-    public int PagamentoId { get; set; }
+    public int? PagamentoId { get; set; }
 
     public virtual Pagamento Pagamento { get; set; }
   }
