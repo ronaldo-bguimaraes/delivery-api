@@ -10,6 +10,6 @@ namespace Delivery.Dtos
 
     public DateTime DataNascimento { get; set; }
 
-    public int UsuarioId { get; set; }
+    public int? UsuarioId { get; set; }
   }
 }

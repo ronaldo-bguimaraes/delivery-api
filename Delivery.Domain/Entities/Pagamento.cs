@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,5 +17,7 @@ namespace Delivery.Domain.Entities
 
     [Column(TypeName = "int")]
     public FormaPagamento FormaPagamento { get; set; }
+
+    public virtual IEnumerable<Venda> Vendas { get; set; }
   }
 }

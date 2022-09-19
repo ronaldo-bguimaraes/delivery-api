@@ -10,6 +10,9 @@ namespace Delivery.Domain.Entities
     public override int Id { get; set; }
 
     [Column(TypeName = "varchar(100)")]
+    public string Nome { get; set; }
+
+    [Column(TypeName = "varchar(100)")]
     public string Apelido { get; set; }
 
     [Column(TypeName = "varchar(200)")]
@@ -23,7 +26,7 @@ namespace Delivery.Domain.Entities
     public double Longitude { get; set; }
 
     [ForeignKey("UsuarioId")]
-    public int UsuarioId { get; set; }
+    public int? UsuarioId { get; set; }
 
     public virtual Usuario Usuario { get; set; }
   }

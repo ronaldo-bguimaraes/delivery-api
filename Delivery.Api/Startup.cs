@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -44,8 +43,7 @@ namespace Delivery.Api
       {
         var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
         config.Filters.Add(new AuthorizeFilter(policy));
-      })
-      .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+      });
 
       services.AddAuthorization(options =>
       {

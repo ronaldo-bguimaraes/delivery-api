@@ -24,7 +24,7 @@ namespace Delivery.Domain.Core.Services
       repository.Remove(obj);
     }
 
-    public virtual ICollection<T> GetAll()
+    public virtual IEnumerable<T> GetAll()
     {
       return repository.GetAll();
     }

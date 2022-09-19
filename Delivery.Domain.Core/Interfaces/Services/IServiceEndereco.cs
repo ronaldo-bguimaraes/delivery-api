@@ -5,6 +5,6 @@ namespace Delivery.Domain.Core.Interfaces.Services
 {
   public interface IServiceEndereco : IServiceBase<Endereco>
   {
-    ICollection<Endereco> GetByUsuarioId(int usuarioId);
+    IEnumerable<Endereco> GetByUsuarioId(int usuarioId);
   }
 }

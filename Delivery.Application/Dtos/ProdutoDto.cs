@@ -12,6 +12,6 @@ namespace Delivery.Dtos
 
     public bool Disponivel { get; set; }
 
-    public int FornecedorId { get; set; }
+    public int? FornecedorId { get; set; }
   }
 }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace Delivery.Api.Migrations
 {
-    public partial class Change : Migration
+    public partial class Test2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
