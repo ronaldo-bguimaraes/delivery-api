@@ -10,7 +10,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
   {
     public Cliente MapperDtoToEntity(ClienteDto clienteDto)
     {
-      var cliente = new Cliente
+      var cliente = new Cliente()
       {
         Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
