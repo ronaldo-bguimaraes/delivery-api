@@ -2,8 +2,5 @@
 
 namespace Delivery.Domain.Core.Interfaces.Repositories
 {
-  public interface IRepositoryItemProduto : IRepositoryBase<ItemProduto>
-  {
-        
-  }
+  public interface IRepositoryItemProduto : IRepositoryBase<ItemProduto> { }
 }

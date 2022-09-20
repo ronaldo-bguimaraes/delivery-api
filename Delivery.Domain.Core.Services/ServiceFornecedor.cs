@@ -1,23 +1,21 @@
-﻿// using Delivery.Domain.Core.Interfaces.Repositories;
-// using Delivery.Domain.Core.Interfaces.Services;
-// using Delivery.Domain.Entities;
-// using System.Collections.Generic;
+﻿using Delivery.Domain.Core.Interfaces.Repositories;
+using Delivery.Domain.Core.Interfaces.Services;
+using Delivery.Domain.Entities;
 
-// namespace Delivery.Domain.Core.Services
-// {
-//   public class ServiceEndereco : ServiceBase<Endereco>, IServiceEndereco
-//   {
-//     private readonly IRepositoryEndereco repositoryEndereco;
+namespace Delivery.Domain.Core.Services
+{
+  public class ServiceFornecedor : ServiceBase<Fornecedor>, IServiceFornecedor
+  {
+    private readonly IRepositoryFornecedor repositoryFornecedor;
 
-//     public ServiceEndereco(IRepositoryEndereco _repositoryEndereco) : base(_repositoryEndereco)
-//     {
-//       repositoryEndereco = _repositoryEndereco;
-//     }
+    public ServiceFornecedor(IRepositoryFornecedor _repositoryFornecedor) : base(_repositoryFornecedor)
+    {
+      repositoryFornecedor = _repositoryFornecedor;
+    }
 
-//     // não está funcionando
-//     public ICollection<Endereco> GetByUsuarioId(int usuarioId)
-//     {
-//       return repositoryEndereco.GetByUsuarioId(usuarioId);
-//     }
-//   }
-// }
+    public Fornecedor GetByUsuarioId(int usuarioId)
+    {
+      return repositoryFornecedor.GetByUsuarioId(usuarioId);
+    }
+  }
+}
