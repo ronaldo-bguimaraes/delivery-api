@@ -2,8 +2,8 @@
 
 namespace Delivery.Domain.Core.Interfaces.Repositories
 {
-  public interface IRepositoryEntregador : IRepositoryBase<Entregador> {
-        
-        
-    }
+  public interface IRepositoryEntregador : IRepositoryBase<Entregador>
+  {
+    Entregador GetByUsuarioId(int usuarioId);
+  }
 }
