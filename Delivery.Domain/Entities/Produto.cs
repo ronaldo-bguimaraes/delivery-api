@@ -14,7 +14,7 @@ namespace Delivery.Domain.Entities
 
     public double Valor { get; set; }
 
-    [Column(TypeName = "varchar(100)")]
+    [Column(TypeName = "varchar(200)")]
     public string Ingredientes { get; set; }
 
     public bool Disponivel { get; set; }
