@@ -18,14 +18,14 @@ namespace Delivery.Api.Controllers
     }
 
     [HttpGet]
-    [Authorize(Policy = "Admin")]
+    [Authorize(Policy = "User")]
     public ActionResult Get()
     {
       return Ok(applicationServiceCliente.GetAll());
     }
 
     [HttpGet("{id}")]
-    [Authorize(Policy = "Admin")]
+    [Authorize(Policy = "User")]
     public ActionResult Get(int id)
     {
       return Ok(applicationServiceCliente.GetById(id));
