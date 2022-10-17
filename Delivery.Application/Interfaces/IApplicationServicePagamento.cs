@@ -1,5 +1,4 @@
-﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
+﻿using Delivery.Dtos;
 using System.Collections.Generic;
 
 namespace Delivery.Application
