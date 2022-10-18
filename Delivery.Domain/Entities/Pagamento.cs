@@ -18,6 +18,6 @@ namespace Delivery.Domain.Entities
     [Column(TypeName = "int")]
     public FormaPagamento FormaPagamento { get; set; }
 
-    public virtual IEnumerable<Venda> Vendas { get; set; }
+    public virtual ICollection<Venda> Vendas { get; set; }
   }
 }

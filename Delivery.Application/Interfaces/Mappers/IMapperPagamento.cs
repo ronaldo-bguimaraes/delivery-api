@@ -1,13 +1,7 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using System.Collections.Generic;
+using Delivery.Application.Dtos;
 
-namespace Delivery.Infrastructure.CrossCutting.Interface
+namespace Delivery.Application.Interfaces.Mappers
 {
-  public interface IMapperPagamento //MapeamentoDTO para entidade
-  {
-    Pagamento MapperDtoToEntity(PagamentoDto pagamentodto);
-    IEnumerable<PagamentoDto> MapperEntitiesToDtos(IEnumerable<Pagamento> pagamentos);
-    PagamentoDto MapperEntityToDto(Pagamento pagamento);
-  }
+  public interface IMapperPagamento : IMapperBase<PagamentoDto, Pagamento> { }
 }

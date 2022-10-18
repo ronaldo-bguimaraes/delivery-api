@@ -1,7 +1,7 @@
 ﻿using Delivery.Domain.Core.Interfaces.Services;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Application
 {
@@ -29,7 +29,7 @@ namespace Delivery.Application
       }
     }
 
-    public IEnumerable<ProdutoDto> GetAll()
+    public ICollection<ProdutoDto> GetAll()
     {
       var enderecos = serviceProduto.GetAll();
       return mapperProduto.MapperEntitiesToDtos(enderecos);

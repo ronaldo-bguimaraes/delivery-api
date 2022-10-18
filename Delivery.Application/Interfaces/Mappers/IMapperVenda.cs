@@ -1,13 +1,7 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using System.Collections.Generic;
+using Delivery.Application.Dtos;
 
-namespace Delivery.Infrastructure.CrossCutting.Interface
+namespace Delivery.Application.Interfaces.Mappers
 {
-  public interface IMapperVenda //MapeamentoDTO para entidade
-  {
-    Venda MapperDtoToEntity(VendaDto vendaDto);
-    IEnumerable<VendaDto> MapperEntitiesToDtos(IEnumerable<Venda> vendas);
-    VendaDto MapperEntityToDto(Venda venda);
-  }
+  public interface IMapperVenda : IMapperBase<VendaDto, Venda> { }
 }

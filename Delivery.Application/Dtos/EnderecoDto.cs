@@ -1,9 +1,7 @@
-﻿namespace Delivery.Dtos
+﻿namespace Delivery.Application.Dtos
 {
-  public class EnderecoDto
+  public class EnderecoDto : EntityDto
   {
-    public int Id { get; set; }
-
     public string Nome { get; set; }
 
     public string Apelido { get; set; }

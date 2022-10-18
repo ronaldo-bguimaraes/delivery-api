@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace Delivery.Dtos
+namespace Delivery.Application.Dtos
 {
-  public class ClienteDto
+  public class ClienteDto : EntityDto
   {
-    public int Id { get; set; }
-
     public string Cpf { get; set; }
 
     public DateTime DataNascimento { get; set; }
