@@ -14,7 +14,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
         Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
-        DataNascimento = clienteDto.DataNascimento,
+        DataNascimento = clienteDto.DataNascimento.ToUniversalTime(),
         UsuarioId = clienteDto.UsuarioId,
       };
       return cliente;
@@ -26,7 +26,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
         Id = cliente.Id,
         Cpf = cliente.Cpf,
-        DataNascimento = cliente.DataNascimento,
+        DataNascimento = cliente.DataNascimento.ToUniversalTime(),
         UsuarioId = cliente.UsuarioId,
       };
       return clienteDto;
@@ -36,10 +36,17 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var clienteDtos = clientes.Select(clienteDto => new ClienteDto
       {
+<<<<<<< Updated upstream
         Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
         DataNascimento = clienteDto.DataNascimento,
         UsuarioId = clienteDto.UsuarioId,
+=======
+        Id = cliente.Id,
+        Cpf = cliente.Cpf,
+        DataNascimento = cliente.DataNascimento.ToUniversalTime(),
+        UsuarioId = cliente.UsuarioId,
+>>>>>>> Stashed changes
       });
       return clienteDtos;
     }
@@ -48,10 +55,17 @@ namespace Delivery.Infrastructure.CrossCutting.Map
     {
       var clientes = clienteDtos.Select(cliente => new Cliente
       {
+<<<<<<< Updated upstream
         Id = cliente.Id,
         Cpf = cliente.Cpf,
         DataNascimento = cliente.DataNascimento,
         UsuarioId = cliente.UsuarioId,
+=======
+        Id = clienteDto.Id,
+        Cpf = clienteDto.Cpf,
+        DataNascimento = clienteDto.DataNascimento.ToUniversalTime(),
+        UsuarioId = clienteDto.UsuarioId,
+>>>>>>> Stashed changes
       });
       return clientes;
     }

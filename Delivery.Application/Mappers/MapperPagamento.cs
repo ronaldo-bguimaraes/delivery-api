@@ -15,7 +15,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
          Id = pagamentoDto.Id,
          FormaPagamento = pagamentoDto.FormaPagamento,
-         DataPagamento = pagamentoDto.DataPagamento,
+         DataPagamento = pagamentoDto.DataPagamento.ToUniversalTime(),
          Valor = pagamentoDto.Valor        
       };
       return pagamento;
@@ -26,7 +26,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       var pagamentoDto = new PagamentoDto
       {
        Id = pagamento.Id,
-       DataPagamento = pagamento.DataPagamento,
+       DataPagamento = pagamento.DataPagamento.ToUniversalTime(),
        Valor = pagamento.Valor,
        FormaPagamento = pagamento.FormaPagamento
       };
@@ -38,7 +38,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       var pagamentoDtos = pagamentos.Select(pagamento => new PagamentoDto
       {
           Id = pagamento.Id,
-          DataPagamento = pagamento.DataPagamento,
+          DataPagamento = pagamento.DataPagamento.ToUniversalTime(),
           Valor = pagamento.Valor,
           FormaPagamento = pagamento.FormaPagamento
       });
@@ -51,7 +51,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
           Id = pagamentoDto.Id,
           FormaPagamento = pagamentoDto.FormaPagamento,
-          DataPagamento = pagamentoDto.DataPagamento,
+          DataPagamento = pagamentoDto.DataPagamento.ToUniversalTime(),
           Valor = pagamentoDto.Valor
       });
       return pagamentos;

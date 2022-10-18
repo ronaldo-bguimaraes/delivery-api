@@ -30,6 +30,15 @@ namespace Delivery.Domain.Core.Services
     {
       try
       {
+<<<<<<< Updated upstream
+=======
+        venda.Condicao = CondicaoVenda.Solicitada;
+        foreach (var itemProduto in venda.ItensProduto)
+        {
+          serviceItemProduto.Add(itemProduto);
+        }
+        venda.DataVenda = DateTime.Now.ToUniversalTime();
+>>>>>>> Stashed changes
         processarVenda(venda);
         venda.Condicao = CondicaoVenda.Solicitada;
         validarVenda(venda);
