@@ -15,7 +15,7 @@ namespace Delivery.Infrastructure.Data.Repositories
     }
 
     public virtual void Add(T obj)
-    {
+      {
       sqlContext.Set<T>().Add(obj);
       sqlContext.SaveChanges();
     }
