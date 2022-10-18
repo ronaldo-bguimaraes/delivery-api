@@ -8,7 +8,6 @@ namespace Delivery.Infrastructure.CrossCutting.Map
 {
   public class MapperCliente : IMapperCliente
  {
-    public IMapperCliente m;
     public Cliente MapperDtoToEntity(ClienteDto clienteDto)
     {
       var cliente = new Cliente()

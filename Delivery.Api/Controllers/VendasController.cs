@@ -65,7 +65,7 @@ namespace Delivery.Api.Controllers
           return NotFound();
         }
         applicationServiceVenda.Save(produtoDto);
-        return Ok("Venda salva com sucesso!");
+        return Ok("Venda cadastrada com sucesso!");
       }
       catch (Exception ex)
       {
