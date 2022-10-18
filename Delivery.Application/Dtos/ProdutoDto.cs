@@ -1,9 +1,7 @@
-namespace Delivery.Dtos
+namespace Delivery.Application.Dtos
 {
-  public class ProdutoDto
+  public class ProdutoDto : EntityDto
   {
-    public int Id { get; set; }
-
     public string Descricao { get; set; }
 
     public double Valor { get; set; }

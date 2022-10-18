@@ -1,4 +1,4 @@
-﻿using Delivery.Dtos;
+﻿using Delivery.Application.Dtos;
 using System.Collections.Generic;
 
 namespace Delivery.Application
@@ -10,7 +10,7 @@ namespace Delivery.Application
 
     void Remove(VendaDto vendaDto);
 
-    IEnumerable<VendaDto> GetAll();
+    ICollection<VendaDto> GetAll();
 
     VendaDto GetById(int id);
   }

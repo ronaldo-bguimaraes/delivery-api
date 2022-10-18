@@ -1,5 +1,5 @@
 ﻿using Delivery.Application;
-using Delivery.Dtos;
+using Delivery.Application.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;

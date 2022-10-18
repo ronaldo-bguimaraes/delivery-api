@@ -1,12 +1,11 @@
 ﻿using Delivery.Domain.Enums;
 using System;
+using System.Collections.Generic;
 
-namespace Delivery.Dtos
+namespace Delivery.Application.Dtos
 {
-  public class VendaDto
+  public class VendaDto : EntityDto
   {
-    public int Id { get; set; }
-
     public double Subtotal { get; set; }
 
     public double Frete { get; set; }
@@ -19,10 +18,12 @@ namespace Delivery.Dtos
 
     public CondicaoVenda Condicao { get; set; }
 
+    public ICollection<ItemProdutoDto> ItensProduto { get; set; }
+
     public int? ClienteId { get; set; }
 
     public int? EntregadorId { get; set; }
-    
+
     public int? PagamentoId { get; set; }
   }
 }

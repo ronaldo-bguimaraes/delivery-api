@@ -1,8 +1,8 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
@@ -41,25 +41,9 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       return enderecoDto;
     }
 
-    public IEnumerable<EnderecoDto> MapperEntitiesToDtos(IEnumerable<Endereco> enderecos)
+    public ICollection<EnderecoDto> MapperEntitiesToDtos(ICollection<Endereco> enderecos)
     {
-      var enderecoDtos = enderecos.Select(enderecoDto => new EnderecoDto
-      {
-        Id = enderecoDto.Id,
-        Nome = enderecoDto.Nome,
-        Apelido = enderecoDto.Apelido,
-        Complemento = enderecoDto.Complemento,
-        Descricao = enderecoDto.Descricao,
-        Latitude = enderecoDto.Latitude,
-        Longitude = enderecoDto.Longitude,
-        UsuarioId = enderecoDto.UsuarioId,
-      });
-      return enderecoDtos;
-    }
-
-    public IEnumerable<Endereco> MapperDtosToEntities(IEnumerable<EnderecoDto> enderecoDtos)
-    {
-      var enderecos = enderecoDtos.Select(endereco => new Endereco
+      var enderecoDtos = enderecos.Select(endereco => new EnderecoDto
       {
         Id = endereco.Id,
         Nome = endereco.Nome,
@@ -70,7 +54,23 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Longitude = endereco.Longitude,
         UsuarioId = endereco.UsuarioId,
       });
-      return enderecos;
+      return enderecoDtos.ToList();
+    }
+
+    public ICollection<Endereco> MapperDtosToEntities(ICollection<EnderecoDto> enderecoDtos)
+    {
+      var enderecos = enderecoDtos.Select(enderecoDto => new Endereco
+      {
+        Id = enderecoDto.Id,
+        Nome = enderecoDto.Nome,
+        Apelido = enderecoDto.Apelido,
+        Complemento = enderecoDto.Complemento,
+        Descricao = enderecoDto.Descricao,
+        Latitude = enderecoDto.Latitude,
+        Longitude = enderecoDto.Longitude,
+        UsuarioId = enderecoDto.UsuarioId,
+      });
+      return enderecos.ToList();
     }
   }
 }

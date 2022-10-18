@@ -1,7 +1,7 @@
 ﻿using Delivery.Domain.Core.Interfaces.Services;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Application
 {
@@ -16,35 +16,35 @@ namespace Delivery.Application
       mapperVenda = _mapperVenda;
     }
 
-    public void Save(VendaDto produtoDto)
+    public void Save(VendaDto vendaDto)
     {
-      var produto = mapperVenda.MapperDtoToEntity(produtoDto);
-      if (serviceVenda.GetById(produto.Id) == null)
+      var venda = mapperVenda.MapperDtoToEntity(vendaDto);
+      if (serviceVenda.GetById(venda.Id) == null)
       {
-        serviceVenda.Add(produto);
+        serviceVenda.realizarVenda(venda);
       }
       else
       {
-        serviceVenda.Update(produto);
+        serviceVenda.Update(venda);
       }
     }
 
-    public IEnumerable<VendaDto> GetAll()
+    public ICollection<VendaDto> GetAll()
     {
-      var enderecos = serviceVenda.GetAll();
-      return mapperVenda.MapperEntitiesToDtos(enderecos);
+      var vendas = serviceVenda.GetAll();
+      return mapperVenda.MapperEntitiesToDtos(vendas);
     }
 
     public VendaDto GetById(int id)
     {
-      var endereco = serviceVenda.GetById(id);
-      return mapperVenda.MapperEntityToDto(endereco);
+      var venda = serviceVenda.GetById(id);
+      return mapperVenda.MapperEntityToDto(venda);
     }
 
-    public void Remove(VendaDto enderecoDto)
+    public void Remove(VendaDto vendaDto)
     {
-      var endereco = mapperVenda.MapperDtoToEntity(enderecoDto);
-      serviceVenda.Remove(endereco);
+      var venda = mapperVenda.MapperDtoToEntity(vendaDto);
+      serviceVenda.Remove(venda);
     }
   }
 }

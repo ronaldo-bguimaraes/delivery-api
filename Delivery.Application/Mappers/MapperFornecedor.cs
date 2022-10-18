@@ -1,10 +1,8 @@
-﻿using Delivery.Application;
-using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
-using System;
+﻿using Delivery.Domain.Entities;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
@@ -34,28 +32,28 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       return fornecedorDto;
     }
 
-    public IEnumerable<FornecedorDto> MapperEntitiesToDtos(IEnumerable<Fornecedor> fornecedores)
+    public ICollection<FornecedorDto> MapperEntitiesToDtos(ICollection<Fornecedor> fornecedores)
     {
       var fornecedorDtos = fornecedores.Select(fornecedor => new FornecedorDto
       {
-          Id = fornecedor.Id,
-          Cnpj = fornecedor.Cnpj,
-          RazaoSocial = fornecedor.RazaoSocial,
-          UsuarioId = fornecedor.UsuarioId,
+        Id = fornecedor.Id,
+        Cnpj = fornecedor.Cnpj,
+        RazaoSocial = fornecedor.RazaoSocial,
+        UsuarioId = fornecedor.UsuarioId,
       });
-      return fornecedorDtos;
+      return fornecedorDtos.ToList();
     }
 
-    public IEnumerable<Fornecedor> MapperDtosToEntities(IEnumerable<FornecedorDto> fornecedorDtos)
+    public ICollection<Fornecedor> MapperDtosToEntities(ICollection<FornecedorDto> fornecedorDtos)
     {
       var fornecedores = fornecedorDtos.Select(fornecedorDto => new Fornecedor
       {
-          Id = fornecedorDto.Id,
-          Cnpj = fornecedorDto.Cnpj,
-          RazaoSocial = fornecedorDto.RazaoSocial,
-          UsuarioId = fornecedorDto.UsuarioId,
+        Id = fornecedorDto.Id,
+        Cnpj = fornecedorDto.Cnpj,
+        RazaoSocial = fornecedorDto.RazaoSocial,
+        UsuarioId = fornecedorDto.UsuarioId,
       });
-      return fornecedores;
+      return fornecedores.ToList();
     }
   }
 }

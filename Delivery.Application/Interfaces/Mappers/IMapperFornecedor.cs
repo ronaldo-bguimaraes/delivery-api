@@ -1,13 +1,7 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using System.Collections.Generic;
+using Delivery.Application.Dtos;
 
-namespace Delivery.Infrastructure.CrossCutting.Interface
+namespace Delivery.Application.Interfaces.Mappers
 {
-  public interface IMapperFornecedor //MapeamentoDTO para entidade
-    {
-    Fornecedor MapperDtoToEntity(FornecedorDto fornecedorDto);
-    IEnumerable<FornecedorDto> MapperEntitiesToDtos(IEnumerable<Fornecedor> fornecedores);
-    FornecedorDto MapperEntityToDto(Fornecedor fornecedor);
-  }
+  public interface IMapperFornecedor : IMapperBase<FornecedorDto, Fornecedor> { }
 }

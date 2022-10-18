@@ -25,7 +25,7 @@ namespace Delivery.Domain.Entities
     [Column(TypeName = "int")]
     public CondicaoVenda Condicao { get; set; }
 
-    public virtual IEnumerable<ItemProduto> ItensProduto { get; set; }
+    public virtual ICollection<ItemProduto> ItensProduto { get; set; }
 
     [ForeignKey("ClienteId")]
     public int? ClienteId { get; set; }

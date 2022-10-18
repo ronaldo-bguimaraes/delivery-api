@@ -1,8 +1,8 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
@@ -36,7 +36,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       return produtoDto;
     }
 
-    public IEnumerable<ProdutoDto> MapperEntitiesToDtos(IEnumerable<Produto> produtos)
+    public ICollection<ProdutoDto> MapperEntitiesToDtos(ICollection<Produto> produtos)
     {
       var produtoDtos = produtos.Select(produto => new ProdutoDto
       {
@@ -47,10 +47,10 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Disponivel = produto.Disponivel,
         FornecedorId = produto.FornecedorId
       });
-      return produtoDtos;
+      return produtoDtos.ToList();
     }
 
-    public IEnumerable<Produto> MapperDtosToEntities(IEnumerable<ProdutoDto> produtoDtos)
+    public ICollection<Produto> MapperDtosToEntities(ICollection<ProdutoDto> produtoDtos)
     {
       var produtos = produtoDtos.Select(produtoDto => new Produto
       {
@@ -61,7 +61,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Disponivel = produtoDto.Disponivel,
         FornecedorId = produtoDto.FornecedorId
       });
-      return produtos;
+      return produtos.ToList();
     }
   }
 }

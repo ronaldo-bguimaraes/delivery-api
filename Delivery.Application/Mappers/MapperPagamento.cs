@@ -1,8 +1,8 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
@@ -33,7 +33,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       return pagamentoDto;
     }
 
-    public IEnumerable<PagamentoDto> MapperEntitiesToDtos(IEnumerable<Pagamento> pagamentos)
+    public ICollection<PagamentoDto> MapperEntitiesToDtos(ICollection<Pagamento> pagamentos)
     {
       var pagamentoDtos = pagamentos.Select(pagamento => new PagamentoDto
       {
@@ -42,10 +42,10 @@ namespace Delivery.Infrastructure.CrossCutting.Map
           Valor = pagamento.Valor,
           FormaPagamento = pagamento.FormaPagamento
       });
-      return pagamentoDtos;
+      return pagamentoDtos.ToList();
     }
 
-    public IEnumerable<Pagamento> MapperDtosToEntities(IEnumerable<PagamentoDto> pagamentoDtos)
+    public ICollection<Pagamento> MapperDtosToEntities(ICollection<PagamentoDto> pagamentoDtos)
     {
       var pagamentos = pagamentoDtos.Select(pagamentoDto => new Pagamento
       {
@@ -54,7 +54,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
           DataPagamento = pagamentoDto.DataPagamento,
           Valor = pagamentoDto.Valor
       });
-      return pagamentos;
+      return pagamentos.ToList();
     }
   }
 }

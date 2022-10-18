@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Delivery.Dtos;
+using Delivery.Application.Dtos;
 
 namespace Delivery.Application
 {
@@ -9,7 +9,7 @@ namespace Delivery.Application
 
     void Remove(ProdutoDto produtoDto);
 
-    IEnumerable<ProdutoDto> GetAll();
+    ICollection<ProdutoDto> GetAll();
 
     ProdutoDto GetById(int id);
   }

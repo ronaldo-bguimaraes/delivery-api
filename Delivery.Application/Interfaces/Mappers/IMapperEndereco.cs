@@ -1,13 +1,7 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using System.Collections.Generic;
+using Delivery.Application.Dtos;
 
-namespace Delivery.Infrastructure.CrossCutting.Interface
+namespace Delivery.Application.Interfaces.Mappers
 {
-  public interface IMapperEndereco //MapeamentoDTO para entidade
-  {
-    Endereco MapperDtoToEntity(EnderecoDto enderecoDto);
-    IEnumerable<EnderecoDto> MapperEntitiesToDtos(IEnumerable<Endereco> enderecos);
-    EnderecoDto MapperEntityToDto(Endereco endereco);
-  }
+  public interface IMapperEndereco : IMapperBase<EnderecoDto, Endereco> { }
 }
