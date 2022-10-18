@@ -1,5 +1,5 @@
 ﻿using Delivery.Application;
-using Delivery.Dtos;
+using Delivery.Application.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -65,7 +65,7 @@ namespace Delivery.Api.Controllers
           return NotFound();
         }
         applicationServiceVenda.Save(produtoDto);
-        return Ok("Venda salva com sucesso!");
+        return Ok("Venda cadastrada com sucesso!");
       }
       catch (Exception ex)
       {

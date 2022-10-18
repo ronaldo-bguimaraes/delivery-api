@@ -1,13 +1,13 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
   public class MapperCliente : IMapperCliente
-  {
+ {
     public Cliente MapperDtoToEntity(ClienteDto clienteDto)
     {
       var cliente = new Cliente()
@@ -32,42 +32,28 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       return clienteDto;
     }
 
-    public IEnumerable<ClienteDto> MapperEntitiesToDtos(IEnumerable<Cliente> clientes)
+    public ICollection<ClienteDto> MapperEntitiesToDtos(ICollection<Cliente> clientes)
     {
-      var clienteDtos = clientes.Select(clienteDto => new ClienteDto
+      var clienteDtos = clientes.Select(cliente => new ClienteDto
       {
-<<<<<<< Updated upstream
-        Id = clienteDto.Id,
-        Cpf = clienteDto.Cpf,
-        DataNascimento = clienteDto.DataNascimento,
-        UsuarioId = clienteDto.UsuarioId,
-=======
         Id = cliente.Id,
         Cpf = cliente.Cpf,
         DataNascimento = cliente.DataNascimento.ToUniversalTime(),
         UsuarioId = cliente.UsuarioId,
->>>>>>> Stashed changes
       });
-      return clienteDtos;
+      return clienteDtos.ToList();
     }
 
-    public IEnumerable<Cliente> MapperDtosToEntities(IEnumerable<ClienteDto> clienteDtos)
+    public ICollection<Cliente> MapperDtosToEntities(ICollection<ClienteDto> clienteDtos)
     {
-      var clientes = clienteDtos.Select(cliente => new Cliente
+      var clientes = clienteDtos.Select(clienteDto => new Cliente
       {
-<<<<<<< Updated upstream
-        Id = cliente.Id,
-        Cpf = cliente.Cpf,
-        DataNascimento = cliente.DataNascimento,
-        UsuarioId = cliente.UsuarioId,
-=======
         Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
-        DataNascimento = clienteDto.DataNascimento.ToUniversalTime(),
+        DataNascimento = clienteDto.DataNascimento,
         UsuarioId = clienteDto.UsuarioId,
->>>>>>> Stashed changes
       });
-      return clientes;
+      return clientes.ToList();
     }
   }
 }

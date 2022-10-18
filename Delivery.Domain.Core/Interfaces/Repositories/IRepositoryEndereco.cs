@@ -5,6 +5,6 @@ namespace Delivery.Domain.Core.Interfaces.Repositories
 {
   public interface IRepositoryEndereco : IRepositoryBase<Endereco>
   {
-    IEnumerable<Endereco> GetByUsuarioId(int usuarioId);
+    ICollection<Endereco> GetByUsuarioId(int usuarioId);
   }
 }

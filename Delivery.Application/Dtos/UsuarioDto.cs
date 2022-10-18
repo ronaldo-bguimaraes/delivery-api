@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace Delivery.Dtos
+namespace Delivery.Application.Dtos
 {
-  public class UsuarioDto
+  public class UsuarioDto : EntityDto
   {
-    public int Id { get; set; }
-
     public string Nome { get; set; }
 
     public string Telefone { get; set; }

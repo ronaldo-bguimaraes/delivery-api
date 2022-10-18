@@ -11,37 +11,34 @@ namespace Delivery.Domain.Core.Services
   public class ServiceVenda : ServiceBase<Venda>, IServiceVenda
   {
     private readonly IRepositoryVenda repositoryVenda;
+    private readonly IServiceItemProduto serviceItemProduto;
     private readonly IServicePagamento servicePagamento;
 
-    public ServiceVenda(IRepositoryVenda _repositoryVenda, IServicePagamento _servicePagamento) : base(_repositoryVenda)
+    public ServiceVenda(IRepositoryVenda _repositoryVenda, IServiceItemProduto _serviceItemProduto, IServicePagamento _servicePagamento) : base(_repositoryVenda)
     {
       repositoryVenda = _repositoryVenda;
+      serviceItemProduto = _serviceItemProduto;
       servicePagamento = _servicePagamento;
-    }
-
-    public override void Add(Venda venda)
-    {
-      processarVenda(venda);
-      venda.DataVenda = DateTime.Now;
-      base.Add(venda);
     }
 
     public void realizarVenda(Venda venda)
     {
       try
       {
-<<<<<<< Updated upstream
-=======
         venda.Condicao = CondicaoVenda.Solicitada;
         foreach (var itemProduto in venda.ItensProduto)
         {
           serviceItemProduto.Add(itemProduto);
         }
         venda.DataVenda = DateTime.Now.ToUniversalTime();
->>>>>>> Stashed changes
         processarVenda(venda);
         venda.Condicao = CondicaoVenda.Solicitada;
-        validarVenda(venda);
+        foreach (var itemProduto in venda.ItensProduto)
+        {
+          serviceItemProduto.Add(itemProduto);
+        }
+        venda.DataVenda = DateTime.Now;
+        processarVenda(venda);
         base.Add(venda);
       }
       catch (Exception)

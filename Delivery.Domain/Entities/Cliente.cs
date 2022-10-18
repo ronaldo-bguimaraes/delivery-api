@@ -21,6 +21,6 @@ namespace Delivery.Domain.Entities
 
     public virtual Usuario Usuario { get; set; }
 
-    public virtual IEnumerable<Venda> Vendas { get; set; }
+    public virtual ICollection<Venda> Vendas { get; set; }
   }
 }

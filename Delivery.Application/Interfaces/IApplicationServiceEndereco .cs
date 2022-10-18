@@ -1,4 +1,4 @@
-﻿using Delivery.Dtos;
+﻿using Delivery.Application.Dtos;
 using System.Collections.Generic;
 
 namespace Delivery.Application
@@ -9,10 +9,10 @@ namespace Delivery.Application
 
     void Remove(EnderecoDto enderecoDto);
 
-    IEnumerable<EnderecoDto> GetAll();
+    ICollection<EnderecoDto> GetAll();
 
     EnderecoDto GetById(int id);
 
-    IEnumerable<EnderecoDto> GetByUsuarioId(int id);
+    ICollection<EnderecoDto> GetByUsuarioId(int id);
   }
 }

@@ -1,13 +1,14 @@
 ﻿using System;
 using Delivery.Domain.Entities;
 
-namespace Delivery.Dtos
+namespace Delivery.Application.Dtos
 {
-  public class PagamentoDto
+  public class PagamentoDto : EntityDto
   {
-    public int Id { get; set; }
     public double Valor { get; set; }
+
     public DateTime DataPagamento { get; set; }
+    
     public FormaPagamento FormaPagamento { get; set; }
   }
 }

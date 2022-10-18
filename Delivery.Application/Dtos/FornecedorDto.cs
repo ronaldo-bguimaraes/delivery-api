@@ -1,9 +1,7 @@
-﻿namespace Delivery.Dtos
+﻿namespace Delivery.Application.Dtos
 {
-  public class FornecedorDto
+  public class FornecedorDto : EntityDto
   {
-    public int Id { get; set; }
-
     public string Cnpj { get; set; }
 
     public string RazaoSocial { get; set; }

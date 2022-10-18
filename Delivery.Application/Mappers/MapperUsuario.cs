@@ -1,10 +1,9 @@
-﻿using Delivery.Application;
-using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
-using System;
+﻿using Delivery.Domain.Entities;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Application.Interfaces.Mappers;
+using Delivery.Application;
 
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
@@ -36,7 +35,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       return usuarioDto;
     }
 
-    public IEnumerable<UsuarioDto> MapperEntitiesToDtos(IEnumerable<Usuario> usuarios)
+    public ICollection<UsuarioDto> MapperEntitiesToDtos(ICollection<Usuario> usuarios)
     {
       var usuarioDtos = usuarios.Select(usuario => new UsuarioDto
       {
@@ -46,10 +45,10 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Email = usuario.Email,
         DataCadastro = usuario.DataCadastro.ToUniversalTime(),
       });
-      return usuarioDtos;
+      return usuarioDtos.ToList();
     }
 
-    public IEnumerable<Usuario> MapperDtosToEntities(IEnumerable<UsuarioDto> usuarioDtos)
+    public ICollection<Usuario> MapperDtosToEntities(ICollection<UsuarioDto> usuarioDtos)
     {
       var usuarios = usuarioDtos.Select(usuarioDto => new Usuario
       {
@@ -59,7 +58,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Email = usuarioDto.Email,
         Senha = Security.CreateMD5Hash(usuarioDto.Senha),
       });
-      return usuarios;
+      return usuarios.ToList();
     }
   }
 }

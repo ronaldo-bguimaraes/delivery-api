@@ -1,7 +1,7 @@
 ﻿using Delivery.Domain.Core.Interfaces.Services;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Application
 {
@@ -29,7 +29,7 @@ namespace Delivery.Application
       }
     }
 
-    public IEnumerable<EnderecoDto> GetAll()
+    public ICollection<EnderecoDto> GetAll()
     {
       var enderecos = serviceEndereco.GetAll();
       return mapperEndereco.MapperEntitiesToDtos(enderecos);
@@ -41,7 +41,7 @@ namespace Delivery.Application
       return mapperEndereco.MapperEntityToDto(endereco);
     }
 
-    public IEnumerable<EnderecoDto> GetByUsuarioId(int id)
+    public ICollection<EnderecoDto> GetByUsuarioId(int id)
     {
       var enderecos = serviceEndereco.GetByUsuarioId(id);
       return mapperEndereco.MapperEntitiesToDtos(enderecos);

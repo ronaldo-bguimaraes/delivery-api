@@ -1,70 +1,66 @@
 ﻿using Delivery.Domain.Entities;
-using Delivery.Dtos;
-using Delivery.Infrastructure.CrossCutting.Interface;
-using System;
+using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Delivery.Application.Interfaces.Mappers;
 
 namespace Delivery.Application.Mappers
 {
-    public class MapperItemProduto: IMapperItemProduto
+  public class MapperItemProduto : IMapperItemProduto
+  {
+
+    public ItemProduto MapperDtoToEntity(ItemProdutoDto itemProdutoDto)
     {
-
-        public ItemProduto MapperDtoToEntity(ItemProdutoDto itemProdutoDto)
-        {
-            var itemProduto = new ItemProduto
-            {
-                Id = itemProdutoDto.Id,
-                ProdutoId = itemProdutoDto.ProdutoId,
-                VendaId = itemProdutoDto.VendaId,
-                Valor = itemProdutoDto.Valor,
-
-            };
-            return itemProduto;
-        }
-
-        public ItemProdutoDto MapperEntityToDto(ItemProduto itemProduto)
-        {
-            var itemProdutoDto = new ItemProdutoDto
-            {
-                Id = itemProduto.Id,
-                ProdutoId = itemProduto.ProdutoId,
-                VendaId = itemProduto.VendaId,
-                Valor = itemProduto.Valor,
-            };
-            return itemProdutoDto;
-        }
-
-        public IEnumerable<ItemProdutoDto> MapperEntitiesToDtos(IEnumerable<ItemProduto> itemProdutos)
-        {
-            var itemProdutoDtos = itemProdutos.Select(itemProduto => new ItemProdutoDto
-            {
-                Id = itemProduto.Id,
-                ProdutoId = itemProduto.ProdutoId,
-                VendaId = itemProduto.VendaId,
-                Valor = itemProduto.Valor,
-            });
-            return itemProdutoDtos;
-        }
-
-        public IEnumerable<ItemProduto> MapperDtosToEntities(IEnumerable<ItemProdutoDto> itemProdutoDtos)
-        {
-            var itemProduto = itemProdutoDtos.Select(itemProdutoDto => new ItemProduto
-            {
-                Id = itemProdutoDto.Id,
-                ProdutoId = itemProdutoDto.ProdutoId,
-                VendaId = itemProdutoDto.VendaId,
-                Valor = itemProdutoDto.Valor,
-            });
-            return itemProduto;
-        }
-
-        IEnumerable<ItemProduto> IMapperItemProduto.MapperEntitiesToDtos(IEnumerable<ItemProduto> itensProduto)
-        {
-            throw new NotImplementedException();
-        }
+      var itemProduto = new ItemProduto
+      {
+        Id = itemProdutoDto.Id,
+        ProdutoId = itemProdutoDto.ProdutoId,
+        VendaId = itemProdutoDto.VendaId,
+        Valor = itemProdutoDto.Valor,
+        Quantidade = itemProdutoDto.Quantidade,
+      };
+      return itemProduto;
     }
+
+    public ItemProdutoDto MapperEntityToDto(ItemProduto itemProduto)
+    {
+      var itemProdutoDto = new ItemProdutoDto
+      {
+        Id = itemProduto.Id,
+        ProdutoId = itemProduto.ProdutoId,
+        VendaId = itemProduto.VendaId,
+        Valor = itemProduto.Valor,
+        Quantidade = itemProduto.Quantidade,
+      };
+      return itemProdutoDto;
+    }
+
+    public ICollection<ItemProdutoDto> MapperEntitiesToDtos(ICollection<ItemProduto> itemProdutos)
+    {
+      var itemProdutoDtos = itemProdutos.Select(itemProduto => new ItemProdutoDto
+      {
+        Id = itemProduto.Id,
+        ProdutoId = itemProduto.ProdutoId,
+        VendaId = itemProduto.VendaId,
+        Valor = itemProduto.Valor,
+        Quantidade = itemProduto.Quantidade,
+      });
+      return itemProdutoDtos.ToList();
+    }
+
+    public ICollection<ItemProduto> MapperDtosToEntities(ICollection<ItemProdutoDto> itemProdutoDtos)
+    {
+      var itemProduto = itemProdutoDtos.Select(itemProdutoDto => new ItemProduto
+      {
+        Id = itemProdutoDto.Id,
+        ProdutoId = itemProdutoDto.ProdutoId,
+        VendaId = itemProdutoDto.VendaId,
+        Valor = itemProdutoDto.Valor,
+        Quantidade = itemProdutoDto.Quantidade,
+      });
+      return itemProduto.ToList();
+    }
+  }
 }
 
 
