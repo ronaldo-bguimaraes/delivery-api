@@ -30,7 +30,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Nome = usuario.Nome,
         Telefone = usuario.Telefone,
         Email = usuario.Email,
-        DataCadastro = usuario.DataCadastro,
+        DataCadastro = usuario.DataCadastro.ToUniversalTime(),
       };
       return usuarioDto;
     }
@@ -43,7 +43,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Nome = usuario.Nome,
         Telefone = usuario.Telefone,
         Email = usuario.Email,
-        DataCadastro = usuario.DataCadastro,
+        DataCadastro = usuario.DataCadastro.ToUniversalTime(),
       });
       return usuarioDtos.ToList();
     }

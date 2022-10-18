@@ -14,7 +14,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
         Id = clienteDto.Id,
         Cpf = clienteDto.Cpf,
-        DataNascimento = clienteDto.DataNascimento,
+        DataNascimento = clienteDto.DataNascimento.ToUniversalTime(),
         UsuarioId = clienteDto.UsuarioId,
       };
       return cliente;
@@ -26,7 +26,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
         Id = cliente.Id,
         Cpf = cliente.Cpf,
-        DataNascimento = cliente.DataNascimento,
+        DataNascimento = cliente.DataNascimento.ToUniversalTime(),
         UsuarioId = cliente.UsuarioId,
       };
       return clienteDto;
@@ -38,7 +38,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
       {
         Id = cliente.Id,
         Cpf = cliente.Cpf,
-        DataNascimento = cliente.DataNascimento,
+        DataNascimento = cliente.DataNascimento.ToUniversalTime(),
         UsuarioId = cliente.UsuarioId,
       });
       return clienteDtos.ToList();
