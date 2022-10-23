@@ -32,13 +32,6 @@ namespace Delivery.Domain.Core.Services
         }
         venda.DataVenda = DateTime.Now.ToUniversalTime();
         processarVenda(venda);
-        venda.Condicao = CondicaoVenda.Solicitada;
-        foreach (var itemProduto in venda.ItensProduto)
-        {
-          serviceItemProduto.Add(itemProduto);
-        }
-        venda.DataVenda = DateTime.Now;
-        processarVenda(venda);
         base.Add(venda);
       }
       catch (Exception)
