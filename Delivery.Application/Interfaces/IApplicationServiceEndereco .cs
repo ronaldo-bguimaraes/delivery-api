@@ -13,6 +13,6 @@ namespace Delivery.Application
 
     EnderecoDto GetById(int id);
 
-    ICollection<EnderecoDto> GetByUsuarioId(int id);
+    ICollection<EnderecoDto> GetByUsuarioId(int usuarioId);
   }
 }

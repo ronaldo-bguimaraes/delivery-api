@@ -34,6 +34,13 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceVenda.GetById(id));
     }
 
+    [HttpGet("clientes/{clienteId}")]
+    [Authorize(Policy = "User")]
+    public ActionResult GetByClienteId(int clienteId)
+    {
+      return Ok(applicationServiceVenda.GetByClienteId(clienteId));
+    }
+
 
     [HttpPost]
     [Authorize(Policy = "User")]

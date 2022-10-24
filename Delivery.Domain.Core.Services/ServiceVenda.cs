@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
@@ -19,6 +20,11 @@ namespace Delivery.Domain.Core.Services
       repositoryVenda = _repositoryVenda;
       serviceItemProduto = _serviceItemProduto;
       servicePagamento = _servicePagamento;
+    }
+
+    public ICollection<Venda> GetByClienteId(int clienteId)
+    {
+      return repositoryVenda.GetByClienteId(clienteId);
     }
 
     public void realizarVenda(Venda venda)
