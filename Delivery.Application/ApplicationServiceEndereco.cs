@@ -41,9 +41,9 @@ namespace Delivery.Application
       return mapperEndereco.MapperEntityToDto(endereco);
     }
 
-    public ICollection<EnderecoDto> GetByUsuarioId(int id)
+    public ICollection<EnderecoDto> GetByUsuarioId(int usuarioId)
     {
-      var enderecos = serviceEndereco.GetByUsuarioId(id);
+      var enderecos = serviceEndereco.GetByUsuarioId(usuarioId);
       return mapperEndereco.MapperEntitiesToDtos(enderecos);
     }
 

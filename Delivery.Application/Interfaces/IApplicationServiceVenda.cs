@@ -13,5 +13,7 @@ namespace Delivery.Application
     ICollection<VendaDto> GetAll();
 
     VendaDto GetById(int id);
+
+    ICollection<VendaDto> GetByClienteId(int clienteId);
   }
 }

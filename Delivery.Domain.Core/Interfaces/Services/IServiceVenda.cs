@@ -1,4 +1,5 @@
-﻿using Delivery.Domain.Entities;
+﻿using System.Collections.Generic;
+using Delivery.Domain.Entities;
 
 namespace Delivery.Domain.Core.Interfaces.Services
 {
@@ -6,5 +7,6 @@ namespace Delivery.Domain.Core.Interfaces.Services
     public void processarVenda(Venda venda);
     public void realizarVenda(Venda venda);
     public void validarVenda(Venda venda);
+    ICollection<Venda> GetByClienteId(int clienteId);
   }
 }

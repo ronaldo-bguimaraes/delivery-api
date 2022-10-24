@@ -14,7 +14,6 @@ namespace Delivery.Domain.Core.Services
       repositoryEndereco = _repositoryEndereco;
     }
 
-    // não está funcionando
     public ICollection<Endereco> GetByUsuarioId(int usuarioId)
     {
       return repositoryEndereco.GetByUsuarioId(usuarioId);

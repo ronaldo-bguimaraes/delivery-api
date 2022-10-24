@@ -41,6 +41,12 @@ namespace Delivery.Application
       return mapperVenda.MapperEntityToDto(venda);
     }
 
+    public ICollection<VendaDto> GetByClienteId(int clienteId)
+    {
+      var vendas = serviceVenda.GetByClienteId(clienteId);
+      return mapperVenda.MapperEntitiesToDtos(vendas);
+    }
+
     public void Remove(VendaDto vendaDto)
     {
       var venda = mapperVenda.MapperDtoToEntity(vendaDto);
