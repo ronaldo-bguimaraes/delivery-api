@@ -17,7 +17,7 @@ namespace Delivery.Domain.Core.Services
 
     public override void Add(Usuario usuario)
     {
-      usuario.DataCadastro = DateTime.Now.ToUniversalTime();
+      usuario.setDataCadastro();
       base.Add(usuario);
     }
   }

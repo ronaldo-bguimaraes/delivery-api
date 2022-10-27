@@ -22,5 +22,10 @@ namespace Delivery.Domain.Entities
     public int? VendaId { get; set; }
 
     public virtual Venda Venda { get; set; }
+
+    public void processar()
+    {
+      Valor = Produto.Valor;
+    }
   }
 }

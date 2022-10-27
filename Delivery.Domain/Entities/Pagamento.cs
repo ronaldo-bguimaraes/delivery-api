@@ -19,5 +19,9 @@ namespace Delivery.Domain.Entities
     public FormaPagamento FormaPagamento { get; set; }
 
     public virtual ICollection<Venda> Vendas { get; set; }
+
+    public void setDataPagamento() {
+      DataPagamento = DateTime.Now.ToUniversalTime();
+    }
   }
 }
