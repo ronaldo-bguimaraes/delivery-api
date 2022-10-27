@@ -24,13 +24,8 @@ namespace Delivery.Domain.Core.Services
     public override void Add(ItemProduto itemProduto)
     {
       itemProduto.Produto = serviceProduto.GetById(itemProduto.ProdutoId.GetValueOrDefault());
-      processarItemProduto(itemProduto);
+      itemProduto.processar();
       base.Add(itemProduto);
-    }
-
-    public void processarItemProduto(ItemProduto itemProduto)
-    {
-      itemProduto.Valor = itemProduto.Produto.Valor;
     }
   }
 }

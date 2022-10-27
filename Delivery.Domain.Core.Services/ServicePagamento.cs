@@ -19,7 +19,7 @@ namespace Delivery.Domain.Core.Services
 
     public override void Add(Pagamento pagamento)
     {
-      pagamento.DataPagamento = DateTime.Now.ToUniversalTime();
+      pagamento.setDataPagamento();
       base.Add(pagamento);
     }
 

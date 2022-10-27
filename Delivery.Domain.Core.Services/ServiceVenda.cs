@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Core.Services.Exceptions;
 using Delivery.Domain.Entities;
-using Delivery.Domain.Enums;
 
 namespace Delivery.Domain.Core.Services
 {
@@ -31,13 +29,13 @@ namespace Delivery.Domain.Core.Services
     {
       try
       {
-        venda.Condicao = CondicaoVenda.Solicitada;
+        venda.setSolicitada();
         foreach (var itemProduto in venda.ItensProduto)
         {
           serviceItemProduto.Add(itemProduto);
         }
-        venda.DataVenda = DateTime.Now.ToUniversalTime();
-        processarVenda(venda);
+        venda.setDataVenda();
+        venda.processar();
         base.Add(venda);
       }
       catch (Exception)
@@ -48,36 +46,24 @@ namespace Delivery.Domain.Core.Services
 
     public void confirmarVenda(Venda venda)
     {
-      try
-      {
-        servicePagamento.validarPagamento(venda.Pagamento);
-        venda.Condicao = CondicaoVenda.Confirmada;
-        base.Update(venda);
-      }
-      catch (Exception)
-      {
-        throw;
-      }
+      venda.setConfirmada();
+      base.Update(venda);
     }
 
     public void cancelarVenda(Venda venda)
     {
-      venda.Condicao = CondicaoVenda.Cancelada;
+      venda.setCancelada();
       base.Update(venda);
     }
 
     public void validarVenda(Venda venda)
     {
-      if (venda.Pagamento.Valor < venda.Total)
-      {
+      try {
+        venda.validar();
+      }
+      catch {
         throw new PagamentoInsuficienteServiceException();
       }
-    }
-
-    public void processarVenda(Venda venda)
-    {
-      venda.Subtotal = venda.ItensProduto.Sum(e => e.Valor * e.Quantidade);
-      venda.Total = venda.Subtotal - venda.Desconto;
     }
   }
 }

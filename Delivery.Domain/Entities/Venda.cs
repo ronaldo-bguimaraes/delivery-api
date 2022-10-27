@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -41,5 +42,35 @@ namespace Delivery.Domain.Entities
     public int? PagamentoId { get; set; }
 
     public virtual Pagamento Pagamento { get; set; }
+
+    public void setDataVenda() {
+      DataVenda = DateTime.Now.ToUniversalTime();
+    }
+
+    public void processar()
+    {
+      Subtotal = ItensProduto.Sum(e => e.Valor * e.Quantidade);
+      Total = Subtotal - Desconto;
+    }
+
+    public void setSolicitada() {
+      Condicao = CondicaoVenda.Solicitada;
+    }
+
+    public void setConfirmada() {
+      Condicao = CondicaoVenda.Confirmada;
+    }
+
+    public void setCancelada() {
+      Condicao = CondicaoVenda.Cancelada;
+    }
+
+    public void validar()
+    {
+      if (Pagamento.Valor < Total)
+      {
+        throw new Exception();
+      }
+    }
   }
 }
