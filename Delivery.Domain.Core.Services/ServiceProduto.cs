@@ -1,7 +1,6 @@
 ﻿using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
-using System.Collections.Generic;
 
 namespace Delivery.Domain.Core.Services
 {

@@ -34,7 +34,7 @@ namespace Delivery.Domain.Core.Services
         {
           serviceItemProduto.Add(itemProduto);
         }
-        venda.setDataVenda();
+        venda.setDataVendaAtual();
         venda.processar();
         base.Add(venda);
       }
