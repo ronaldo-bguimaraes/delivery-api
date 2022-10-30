@@ -54,7 +54,7 @@ namespace Delivery.Application
       serviceUsuario.Remove(usuario);
     }
 
-    private Usuario getClaimType(UsuarioDto usuarioDto)
+    public Usuario GetClaimType(UsuarioDto usuarioDto)
     {
       Usuario usuario = null;
 
@@ -85,7 +85,7 @@ namespace Delivery.Application
 
     public UsuarioDto Authenticate(UsuarioDto usuarioDto)
     {
-      var usuario = getClaimType(usuarioDto);
+      var usuario = GetClaimType(usuarioDto);
 
       if (usuario == null)
       {
