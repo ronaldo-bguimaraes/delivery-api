@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivery.Domain.Core.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delivery.Infrastructure", "Delivery.Infrastructure\Delivery.Infrastructure.csproj", "{FCDB9A9B-ACE5-46E5-A922-A496BB1E3A5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Tests", "Delivery.Tests\Delivery.Tests.csproj", "{0DE798E8-D61B-41A7-915A-C40FA4583EC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{FCDB9A9B-ACE5-46E5-A922-A496BB1E3A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCDB9A9B-ACE5-46E5-A922-A496BB1E3A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCDB9A9B-ACE5-46E5-A922-A496BB1E3A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE798E8-D61B-41A7-915A-C40FA4583EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE798E8-D61B-41A7-915A-C40FA4583EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE798E8-D61B-41A7-915A-C40FA4583EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE798E8-D61B-41A7-915A-C40FA4583EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

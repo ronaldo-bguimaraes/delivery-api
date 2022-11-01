@@ -43,7 +43,7 @@ namespace Delivery.Domain.Entities
 
     public virtual Pagamento Pagamento { get; set; }
 
-    public void setDataVenda() {
+    public void setDataVendaAtual() {
       DataVenda = DateTime.Now.ToUniversalTime();
     }
 

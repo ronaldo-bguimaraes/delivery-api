@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using Delivery.Domain.Core.Interfaces.Repositories;
+﻿using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
-using Delivery.Domain.Enums;
 
 namespace Delivery.Domain.Core.Services
 {
@@ -19,7 +16,7 @@ namespace Delivery.Domain.Core.Services
 
     public override void Add(Pagamento pagamento)
     {
-      pagamento.setDataPagamento();
+      pagamento.setDataPagamentoAtual();
       base.Add(pagamento);
     }
 

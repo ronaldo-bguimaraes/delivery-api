@@ -20,7 +20,7 @@ namespace Delivery.Domain.Entities
 
     public virtual ICollection<Venda> Vendas { get; set; }
 
-    public void setDataPagamento() {
+    public void setDataPagamentoAtual() {
       DataPagamento = DateTime.Now.ToUniversalTime();
     }
   }
