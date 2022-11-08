@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 
@@ -19,6 +20,16 @@ namespace Delivery.Infrastructure.Data.Repositories
       sqlContext.Entry(entity).CurrentValues.SetValues(usuario);
       sqlContext.Entry(entity).Property(x => x.DataCadastro).IsModified = false;
       sqlContext.SaveChanges();
+    }
+
+    public Usuario GetByEmailAndSenha(string email, string senha)
+    {
+      return sqlContext.Set<Usuario>().Where(e => e.Email == email && e.Senha == senha).FirstOrDefault();
+    }
+
+    public Usuario GetByTelefoneAndSenha(string telefone, string senha)
+    {
+      return sqlContext.Set<Usuario>().Where(e => e.Telefone == telefone && e.Senha == senha).FirstOrDefault();
     }
   }
 }

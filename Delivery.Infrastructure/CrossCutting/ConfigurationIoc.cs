@@ -7,6 +7,8 @@ using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Core.Services;
 using Delivery.Infrastructure.CrossCutting.Map;
 using Delivery.Infrastructure.Data.Repositories;
+using Delivery.Domain.Validators;
+using Delivery.Domain.Interfaces.Validators;
 
 namespace Delivery.Infrastructure.CrossCutting
 {
@@ -47,6 +49,8 @@ namespace Delivery.Infrastructure.CrossCutting
       builder.RegisterType<ApplicationServiceProduto>().As<IApplicationServiceProduto>();
       builder.RegisterType<ApplicationServiceVenda>().As<IApplicationServiceVenda>();
       builder.RegisterType<ApplicationServiceFornecedor>().As<IApplicationServiceFornecedor>();
+      //
+      builder.RegisterType<VendaValidator>().As<IVendaValidator>();
     }
   }
 }

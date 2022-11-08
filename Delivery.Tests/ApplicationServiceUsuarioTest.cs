@@ -20,7 +20,7 @@ namespace Delivery.Tests
         Nome = "Usuario Teste",
         Telefone = "66999999999",
         Email = "usuario.teste@gmail.com",
-        Senha = Security.CreateMD5Hash("teste12345"),
+        Senha = "teste12345",
         DataCadastro = DateTime.Now,
       };
     }
@@ -32,7 +32,7 @@ namespace Delivery.Tests
       ICollection<Usuario> usuarios = new List<Usuario> { usuarioTeste };
 
       var serviceUsuarioMock = new Mock<IServiceUsuario>();
-      serviceUsuarioMock.Setup(e => e.GetAll()).Returns(() => usuarios);
+      serviceUsuarioMock.Setup(e => e.GetByTelefoneAndSenha(It.IsAny<string>(), It.IsAny<string>())).Returns(usuarioTeste);
 
       var mapperUsuarioMock = new Mock<IMapperUsuario>();
 
@@ -44,7 +44,7 @@ namespace Delivery.Tests
         Senha = "teste12345",
       };
 
-      var usuarioRetorno = applicationServiceUsuario.GetClaimType(usuarioLogin);
+      var usuarioRetorno = applicationServiceUsuario.GetUsuarioWithClaim(usuarioLogin);
 
       Assert.Equal(usuarioTeste.Id, usuarioRetorno.Id);
     }
@@ -52,14 +52,11 @@ namespace Delivery.Tests
     [Fact]
     public void TelefoneSenhaIncorretosTest()
     {
-      var usuarioTeste = GetUsuarioTest();
-      ICollection<Usuario> usuarios = new List<Usuario> { usuarioTeste };
-
       var serviceUsuarioMock = new Mock<IServiceUsuario>();
-      serviceUsuarioMock.Setup(e => e.GetAll()).Returns(() => usuarios);
+      serviceUsuarioMock.Setup(e => e.GetByTelefoneAndSenha(It.IsAny<string>(), It.IsAny<string>())).Returns<Usuario?>(null);
 
       var mapperUsuarioMock = new Mock<IMapperUsuario>();
-      
+
       var applicationServiceUsuario = new ApplicationServiceUsuario(serviceUsuarioMock.Object, mapperUsuarioMock.Object);
 
       var usuarioLogin = new UsuarioDto
@@ -68,7 +65,7 @@ namespace Delivery.Tests
         Senha = "12345678",
       };
 
-      var usuarioRetorno = applicationServiceUsuario.GetClaimType(usuarioLogin);
+      var usuarioRetorno = applicationServiceUsuario.GetUsuarioWithClaim(usuarioLogin);
 
       Assert.Null(usuarioRetorno);
     }

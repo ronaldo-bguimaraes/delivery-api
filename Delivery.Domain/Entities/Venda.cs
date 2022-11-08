@@ -38,10 +38,7 @@ namespace Delivery.Domain.Entities
 
     public virtual Entregador Entregador { get; set; }
 
-    [ForeignKey("PagamentoId")]
-    public int? PagamentoId { get; set; }
-
-    public virtual Pagamento Pagamento { get; set; }
+    public virtual ICollection<Pagamento> Pagamentos { get; set; }
 
     public void setDataVendaAtual() {
       DataVenda = DateTime.Now.ToUniversalTime();
@@ -63,14 +60,6 @@ namespace Delivery.Domain.Entities
 
     public void setCancelada() {
       Condicao = CondicaoVenda.Cancelada;
-    }
-
-    public void validar()
-    {
-      if (Pagamento.Valor < Total)
-      {
-        throw new Exception();
-      }
     }
   }
 }

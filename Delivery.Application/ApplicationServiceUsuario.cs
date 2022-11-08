@@ -5,7 +5,6 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using Delivery.Application.Interfaces.Mappers;
@@ -54,46 +53,39 @@ namespace Delivery.Application
       serviceUsuario.Remove(usuario);
     }
 
-    public Usuario GetClaimType(UsuarioDto usuarioDto)
+    public Usuario GetUsuarioWithClaim(UsuarioDto usuarioDto)
     {
       Usuario usuario = null;
-
-      var query = serviceUsuario.GetAll().Where(x => x.Senha == Security.CreateMD5Hash(usuarioDto.Senha));
-
-      if (usuarioDto.Email != null)
+      if (usuarioDto.Telefone != null && usuario == null)
       {
-        usuario = query.Where(x => x.Email == usuarioDto.Email).FirstOrDefault();
-        if (usuario != null)
-        {
-          usuario.Claim = new Claim(ClaimTypes.Email, usuario.Email);
-          return usuario;
-        }
-      }
-
-      if (usuarioDto.Telefone != null)
-      {
-        usuario = query.Where(x => x.Telefone == usuarioDto.Telefone).FirstOrDefault();
+        usuario = serviceUsuario.GetByTelefoneAndSenha(usuarioDto.Telefone, usuarioDto.Senha);
         if (usuario != null)
         {
           usuario.Claim = new Claim(ClaimTypes.MobilePhone, usuario.Telefone);
-          return usuario;
         }
       }
-
+      if (usuarioDto.Email != null && usuario == null)
+      {
+        usuario = serviceUsuario.GetByEmailAndSenha(usuarioDto.Email, usuarioDto.Senha);
+        if (usuario != null)
+        {
+          usuario.Claim = new Claim(ClaimTypes.Email, usuario.Email);
+        }
+      }
       return usuario;
     }
 
     public UsuarioDto Authenticate(UsuarioDto usuarioDto)
     {
-      var usuario = GetClaimType(usuarioDto);
+      var usuario = GetUsuarioWithClaim(usuarioDto);
 
       if (usuario == null)
       {
         return null;
       }
 
-      var tokenHandler = new JwtSecurityTokenHandler();
       var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
       var tokenDescriptor = new SecurityTokenDescriptor
       {
         Subject = new ClaimsIdentity(new Claim[] { usuario.Claim, new Claim("Store", "User") }),
@@ -101,6 +93,7 @@ namespace Delivery.Application
         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
       };
 
+      var tokenHandler = new JwtSecurityTokenHandler();
       var token = tokenHandler.CreateToken(tokenDescriptor);
 
       var userDto = mapperUsuario.MapperEntityToDto(usuario);

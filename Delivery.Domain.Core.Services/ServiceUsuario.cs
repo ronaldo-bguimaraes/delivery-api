@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
@@ -15,10 +17,25 @@ namespace Delivery.Domain.Core.Services
       repositoryUsuario = _repositoryUsuario;
     }
 
-    public override void Add(Usuario usuario)
+    public static string CreateMD5Hash(string text)
     {
-      usuario.setDataCadastroAtual();
-      base.Add(usuario);
+      MD5 md5 = MD5.Create();
+      byte[] inputBytes = Encoding.ASCII.GetBytes(text);
+      byte[] hashBytes = md5.ComputeHash(inputBytes);
+      var hash = hashBytes.Select(e => e.ToString("X2"));
+      return string.Join("", hash);
+    }
+
+    public Usuario GetByEmailAndSenha(string email, string senha)
+    {
+      var hash = CreateMD5Hash(senha);
+      return repositoryUsuario.GetByEmailAndSenha(email, hash);
+    }
+
+    public Usuario GetByTelefoneAndSenha(string telefone, string senha)
+    {
+      var hash = CreateMD5Hash(senha);
+      return repositoryUsuario.GetByTelefoneAndSenha(telefone, hash);
     }
   }
 }
