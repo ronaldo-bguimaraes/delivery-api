@@ -103,8 +103,9 @@ namespace Delivery.Tests
        ItensProduto = new List<ItemProduto> {ItemProduto},
      }; 
       var Calculo = ItemProduto.Valor * ItemProduto.Quantidade;
-      var CalculoFinal =  Calculo - Venda.Desconto + Venda.Frete;
+      var CalculoVenda =  Calculo - Venda.Desconto + Venda.Frete;
     }
+
   }
 
 }
