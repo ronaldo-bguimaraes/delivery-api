@@ -101,7 +101,9 @@ namespace Delivery.Tests
        Desconto = 10,
        Frete = 7,
        ItensProduto = new List<ItemProduto> {ItemProduto},
-     };   
+     }; 
+      var Calculo = ItemProduto.Valor * ItemProduto.Quantidade;
+      var CalculoFinal =  Calculo - Venda.Desconto + Venda.Frete;
     }
   }
 
