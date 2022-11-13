@@ -88,20 +88,21 @@ namespace Delivery.Tests
 
       Assert.False(result.IsValid);
     }
-    public void processarVenda(){
-       
-         
-           var itemProduto = new ItemProduto
+    public void ProcessarVenda()
+    {
+      var ItemProduto = new ItemProduto
       {
-       Valor = 10, 
+        Valor = 10, 
         Quantidade = 3 
       };
-         var venda = new Venda(){
-          Subtotal = 30,
-          Desconto = 10,
-          Frete = 7,
-           ItensProduto = new List<ItemProduto> {itemProduto},
-         };            
+      var Venda = new Venda()
+      {
+       Subtotal = 30,
+       Desconto = 10,
+       Frete = 7,
+       ItensProduto = new List<ItemProduto> {ItemProduto},
+     };   
     }
   }
+
 }
