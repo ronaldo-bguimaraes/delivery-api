@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 
