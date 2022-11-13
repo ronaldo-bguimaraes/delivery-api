@@ -41,28 +41,28 @@ namespace Delivery.Domain.Entities
 
     public virtual ICollection<Pagamento> Pagamentos { get; set; }
 
-    public void setDataVendaAtual()
+    public void SetDataVendaAtual()
     {
-      DataVenda = DateTime.Now.ToUniversalTime();
+      DataVenda = DateTime.UtcNow;
     }
 
-    public void processar()
+    public void Processar()
     {
       Subtotal = ItensProduto.Sum(e => e.Valor * e.Quantidade);
       Total = Subtotal - Desconto + Frete;
     }
 
-    public void setSolicitada()
+    public void SetSolicitada()
     {
       Condicao = CondicaoVenda.Solicitada;
     }
 
-    public void setConfirmada()
+    public void SetConfirmada()
     {
       Condicao = CondicaoVenda.Confirmada;
     }
 
-    public void setCancelada()
+    public void SetCancelada()
     {
       Condicao = CondicaoVenda.Cancelada;
     }

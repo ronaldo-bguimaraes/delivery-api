@@ -1,13 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Delivery.Application;
-using Delivery.Application.Dtos;
-using Delivery.Application.Interfaces.Mappers;
-using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
 using Delivery.Domain.Enums;
 using Delivery.Domain.Validators;
-using Moq;
 using Xunit;
 
 namespace Delivery.Tests
@@ -88,26 +83,5 @@ namespace Delivery.Tests
 
       Assert.False(result.IsValid);
     }
-     
-    [Fact]
-    public void ProcessarVenda()
-    {
-      var ItemProduto = new ItemProduto
-      {
-        Valor = 10, 
-        Quantidade = 3 
-      };
-      var Venda = new Venda()
-      {
-       Desconto = 10,
-       Frete = 7,
-       ItensProduto = new List<ItemProduto> {ItemProduto},
-     };
-       var Subtotal = 30;
-       var ValoCorreto = 27;
-         Venda.processar();
-          Assert.True(Venda.Total == ValoCorreto);
-          Assert.True(Venda.Subtotal == Subtotal);
-    } 
   }
 }

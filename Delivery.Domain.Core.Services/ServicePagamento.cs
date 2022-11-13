@@ -16,7 +16,7 @@ namespace Delivery.Domain.Core.Services
 
     public override void Add(Pagamento pagamento)
     {
-      pagamento.setDataPagamentoAtual();
+      pagamento.SetDataPagamentoAtual();
       base.Add(pagamento);
     }
 

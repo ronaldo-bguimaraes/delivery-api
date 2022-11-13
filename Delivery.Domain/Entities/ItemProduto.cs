@@ -23,7 +23,7 @@ namespace Delivery.Domain.Entities
 
     public virtual Venda Venda { get; set; }
 
-    public void processar()
+    public void Processar()
     {
       Valor = Produto.Valor;
     }

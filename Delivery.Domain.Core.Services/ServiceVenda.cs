@@ -33,13 +33,13 @@ namespace Delivery.Domain.Core.Services
     {
       try
       {
-        venda.setSolicitada();
+        venda.SetSolicitada();
         foreach (var itemProduto in venda.ItensProduto)
         {
           serviceItemProduto.Add(itemProduto);
         }
-        venda.setDataVendaAtual();
-        venda.processar();
+        venda.SetDataVendaAtual();
+        venda.Processar();
         base.Add(venda);
       }
       catch (Exception)
@@ -50,13 +50,13 @@ namespace Delivery.Domain.Core.Services
 
     public void confirmarVenda(Venda venda)
     {
-      venda.setConfirmada();
+      venda.SetConfirmada();
       base.Update(venda);
     }
 
     public void cancelarVenda(Venda venda)
     {
-      venda.setCancelada();
+      venda.SetCancelada();
       base.Update(venda);
     }
 

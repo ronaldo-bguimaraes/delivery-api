@@ -31,8 +31,9 @@ namespace Delivery.Domain.Entities
 
     public ICollection<Endereco> Enderecos { get; set; }
 
-    public void setDataCadastroAtual() {
-      DataCadastro = DateTime.Now.ToUniversalTime();
+    public void SetDataCadastroAtual()
+    {
+      DataCadastro = DateTime.UtcNow;
     }
   }
 }
