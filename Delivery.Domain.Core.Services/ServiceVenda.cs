@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
-using Delivery.Domain.Core.Services.Exceptions;
 using Delivery.Domain.Entities;
 using Delivery.Domain.Validators;
 using FluentValidation;

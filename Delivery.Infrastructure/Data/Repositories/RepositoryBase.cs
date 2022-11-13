@@ -1,5 +1,6 @@
 ﻿using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,7 +16,7 @@ namespace Delivery.Infrastructure.Data.Repositories
     }
 
     public virtual void Add(T obj)
-      {
+    {
       sqlContext.Set<T>().Add(obj);
       sqlContext.SaveChanges();
     }
@@ -27,9 +28,9 @@ namespace Delivery.Infrastructure.Data.Repositories
       sqlContext.SaveChanges();
     }
 
-    public virtual ICollection<T> GetAll()
+    public virtual DbSet<T> All()
     {
-      return sqlContext.Set<T>().ToList();
+      return sqlContext.Set<T>();
     }
 
     public virtual T GetById(int id)

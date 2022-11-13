@@ -31,7 +31,7 @@ namespace Delivery.Application
 
     public ICollection<VendaDto> GetAll()
     {
-      var vendas = serviceVenda.GetAll();
+      var vendas = serviceVenda.All();
       return mapperVenda.MapperEntitiesToDtos(vendas);
     }
 

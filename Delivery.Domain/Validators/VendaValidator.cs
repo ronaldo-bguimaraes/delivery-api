@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Delivery.Domain.Entities;
 using Delivery.Domain.Interfaces.Validators;
@@ -9,12 +10,24 @@ namespace Delivery.Domain.Validators
   {
     public VendaValidator()
     {
-      RuleFor(venda => venda.ClienteId).NotNull();
-      RuleFor(venda => venda.Condicao).NotNull();
-      RuleFor(venda => venda.DataVenda).NotNull();
-      RuleFor(venda => venda.Desconto).GreaterThanOrEqualTo(0).LessThanOrEqualTo(venda => venda.Total);
-      RuleFor(venda => venda.Frete).NotNull().GreaterThanOrEqualTo(0);
-      RuleFor(venda => venda.ItensProduto).NotNull().Must(x => x.Any());
+      RuleFor(x => x.ClienteId)
+        .NotNull();
+      RuleFor(x => x.Condicao)
+        .NotNull();
+      RuleFor(x => x.DataVenda)
+        .NotNull()
+        .LessThanOrEqualTo(DateTime.UtcNow);
+      RuleFor(x => x.Desconto)
+        .NotNull()
+        .GreaterThanOrEqualTo(0)
+        .LessThanOrEqualTo(x => x.Subtotal);
+      RuleFor(x => x.Frete)
+        .NotNull()
+        .GreaterThanOrEqualTo(0);
+      RuleFor(x => x.ItensProduto)
+        .NotNull()
+        .NotEmpty()
+        .Must(x => x != null && x.GroupBy(x => x.Produto.FornecedorId).Count() == 1);
     }
   }
 }
