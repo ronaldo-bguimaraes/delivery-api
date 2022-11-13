@@ -22,14 +22,14 @@ namespace Delivery.Infrastructure.Data.Repositories
       sqlContext.SaveChanges();
     }
 
-    public Usuario GetByEmailAndSenha(string email, string senha)
+    public Usuario GetByEmail(string email)
     {
-      return sqlContext.Set<Usuario>().Where(e => e.Email == email && e.Senha == senha).FirstOrDefault();
+      return sqlContext.Set<Usuario>().Where(e => e.Email == email).FirstOrDefault();
     }
 
-    public Usuario GetByTelefoneAndSenha(string telefone, string senha)
+    public Usuario GetByTelefone(string telefone)
     {
-      return sqlContext.Set<Usuario>().Where(e => e.Telefone == telefone && e.Senha == senha).FirstOrDefault();
+      return sqlContext.Set<Usuario>().Where(e => e.Telefone == telefone).FirstOrDefault();
     }
   }
 }

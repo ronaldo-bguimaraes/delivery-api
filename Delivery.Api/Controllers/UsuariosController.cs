@@ -78,7 +78,8 @@ namespace Delivery.Api.Controllers
     {
       try
       {
-        if (usuarioDto == null) {
+        if (usuarioDto == null)
+        {
           return NotFound();
         }
 

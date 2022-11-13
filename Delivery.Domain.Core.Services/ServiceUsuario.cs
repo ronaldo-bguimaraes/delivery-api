@@ -26,16 +26,29 @@ namespace Delivery.Domain.Core.Services
       return string.Join("", hash);
     }
 
+    public bool ValidaSenha(string senhaFornecida, string senhaSalva)
+    {
+      return CreateMD5Hash(senhaFornecida) == senhaSalva;
+    }
+
     public Usuario GetByEmailAndSenha(string email, string senha)
     {
-      var hash = CreateMD5Hash(senha);
-      return repositoryUsuario.GetByEmailAndSenha(email, hash);
+      var usuario = repositoryUsuario.GetByEmail(email);
+      if (usuario != null && ValidaSenha(senha, usuario.Senha))
+      {
+        return usuario;
+      }
+      return null;
     }
 
     public Usuario GetByTelefoneAndSenha(string telefone, string senha)
     {
-      var hash = CreateMD5Hash(senha);
-      return repositoryUsuario.GetByTelefoneAndSenha(telefone, hash);
+      var usuario = repositoryUsuario.GetByTelefone(telefone);
+      if (usuario != null && ValidaSenha(senha, usuario.Senha))
+      {
+        return usuario;
+      }
+      return null;
     }
   }
 }

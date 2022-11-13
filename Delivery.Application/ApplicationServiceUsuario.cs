@@ -37,7 +37,7 @@ namespace Delivery.Application
 
     public ICollection<UsuarioDto> GetAll()
     {
-      var usuario = serviceUsuario.GetAll();
+      var usuario = serviceUsuario.All();
       return mapperUsuario.MapperEntitiesToDtos(usuario);
     }
 
