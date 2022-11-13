@@ -93,21 +93,15 @@ namespace Delivery.Tests
          
            var itemProduto = new ItemProduto
       {
-        Produto = new Produto { Valor = 10 }
+       Valor = 10, 
+        Quantidade = 3 
       };
-
-           var itemProduto1 = new ItemProduto
-      {
-        Produto = new ItemProduto { Quantidade = 3 }
-      };
-
          var venda = new Venda(){
           Subtotal = 30,
           Desconto = 10,
           Frete = 7,
-           ItensProduto = new List<ItemProduto> {itemProduto,itemProduto1},
-         };
-                
+           ItensProduto = new List<ItemProduto> {itemProduto},
+         };            
     }
   }
 }
