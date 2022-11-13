@@ -62,7 +62,7 @@ namespace Delivery.Tests
       var usuarioLogin = new UsuarioDto
       {
         Telefone = "66999999999",
-        Senha = "12345678",
+        Senha = "12345678", 
       };
 
       var usuarioRetorno = applicationServiceUsuario.GetUsuarioWithClaim(usuarioLogin);
