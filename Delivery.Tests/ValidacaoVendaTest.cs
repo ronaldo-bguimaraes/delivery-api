@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Delivery.Application;
+using Delivery.Application.Dtos;
+using Delivery.Application.Interfaces.Mappers;
+using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
 using Delivery.Domain.Enums;
 using Delivery.Domain.Validators;
+using Moq;
 using Xunit;
 
 namespace Delivery.Tests
@@ -82,6 +87,27 @@ namespace Delivery.Tests
       var result = vendaValidator.Validate(venda);
 
       Assert.False(result.IsValid);
+    }
+    public void processarVenda(){
+       
+         
+           var itemProduto = new ItemProduto
+      {
+        Produto = new Produto { Valor = 10 }
+      };
+
+           var itemProduto1 = new ItemProduto
+      {
+        Produto = new ItemProduto { Quantidade = 3 }
+      };
+
+         var venda = new Venda(){
+          Subtotal = 30,
+          Desconto = 10,
+          Frete = 7,
+           ItensProduto = new List<ItemProduto> {itemProduto,itemProduto1},
+         };
+                
     }
   }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delivery.Domain.Entities
@@ -23,5 +24,10 @@ namespace Delivery.Domain.Entities
     public int? FornecedorId { get; set; }
 
     public virtual Fornecedor Fornecedor { get; set; }
-  }
+
+        public static implicit operator Produto(ItemProduto v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
