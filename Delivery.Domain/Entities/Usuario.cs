@@ -31,8 +31,45 @@ namespace Delivery.Domain.Entities
 
     public ICollection<Endereco> Enderecos { get; set; }
 
-    public void setDataCadastroAtual() {
+    public void setDataCadastroAtual()
+    {
       DataCadastro = DateTime.Now.ToUniversalTime();
+    }
+
+    public override bool Equals(object obj)
+    {
+      if (obj == null || GetType() != obj.GetType())
+      {
+        return false;
+      }
+      Usuario usuario = (Usuario)obj;
+      if (usuario.Nome != Nome)
+      {
+        return false;
+      }
+      if (usuario.Email != Email)
+      {
+        return false;
+      }
+      if (usuario.Telefone != Telefone)
+      {
+        return false;
+      }
+      if (usuario.DataCadastro != DataCadastro)
+      {
+        return false;
+      }
+      if (usuario.Senha != Senha)
+      {
+        return false;
+      }
+      return true;
+    }
+
+    // override object.GetHashCode
+    public override int GetHashCode()
+    {
+      return base.GetHashCode();
     }
   }
 }
