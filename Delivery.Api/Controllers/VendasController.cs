@@ -55,7 +55,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Save(vendaDto);
         return Ok("Venda cadastrada com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao cadastrar a venda" });
       }
@@ -74,7 +74,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Save(vendaDto);
         return Ok("Venda cadastrada com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao salvar a venda" });
       }
@@ -93,7 +93,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Save(vendaDto);
         return Ok("Venda atualizada com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao atualizar a venda" });
       }
@@ -113,7 +113,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Remove(vendaDto);
         return Ok("Venda removida com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao remover a venda" });
       }

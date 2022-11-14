@@ -51,7 +51,7 @@ namespace Delivery.Api.Controllers
         applicationServiceEndereco.Save(enderecoDto);
         return Ok("Endereço cadastrado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao cadastrar o endereço" });
       }
@@ -70,7 +70,7 @@ namespace Delivery.Api.Controllers
         applicationServiceEndereco.Save(enderecoDto);
         return Ok("Endereço salvo com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao salvar o endereço" });
       }
@@ -89,7 +89,7 @@ namespace Delivery.Api.Controllers
         applicationServiceEndereco.Save(enderecoDto);
         return Ok("Endereço atualizado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao atualizar o endereço" });
       }
@@ -108,7 +108,7 @@ namespace Delivery.Api.Controllers
         applicationServiceEndereco.Remove(enderecoDto);
         return Ok("Endereço removido com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao remover o endereço" });
       }

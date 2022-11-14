@@ -44,7 +44,7 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario cadastrado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao cadastrar o usuario" });
       }
@@ -85,7 +85,7 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario atualizado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao atualizar o usuario" });
       }
@@ -104,7 +104,7 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Remove(usuarioDto);
         return Ok("Usuario removido com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao remover o usuario" });
       }

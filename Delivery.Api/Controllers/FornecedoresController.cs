@@ -51,7 +51,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Save(fornecedorDto);
         return Ok("Fornecedor cadastrado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao cadastrar o fornecedor" });
       }
@@ -70,7 +70,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Save(fornecedorDto);
         return Ok("Fornecedor salvo com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao salvar o fornecedor" });
       }
@@ -89,7 +89,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Save(fornecedorDto);
         return Ok("Fornecedor atualizado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao remover o fornecedor" });
       }
@@ -108,7 +108,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Remove(fornecedorDto);
         return Ok("Fornecedor removido com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao remover o fornecedor" });
       }

@@ -48,7 +48,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(produtoDto);
         return Ok("Produto cadastrado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao cadastrar o produto" });
       }
@@ -67,7 +67,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(produtoDto);
         return Ok("Produto salvo com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao salvar o produto" });
       }
@@ -86,7 +86,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(produtoDto);
         return Ok("Produto atualizado com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao atualizar o produto" });
       }
@@ -106,7 +106,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Remove(produtoDto);
         return Ok("Produto removido com sucesso!");
       }
-      catch
+      catch (Exception)
       {
         return BadRequest(new { message = "Erro ao remover o produto" });
       }
