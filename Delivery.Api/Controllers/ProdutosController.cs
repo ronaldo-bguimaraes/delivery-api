@@ -48,7 +48,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(enderecoDto);
         return Ok("Produto cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -67,7 +67,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(produtoDto);
         return Ok("Produto salvo com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -86,7 +86,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(enderecoDto);
         return Ok("Produto atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -106,7 +106,7 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Remove(enderecoDto);
         return Ok("Produto removido com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }

@@ -51,7 +51,7 @@ namespace Delivery.Api.Controllers
         applicationServiceCliente.Save(clienteDto);
         return Ok("Cliente cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -70,7 +70,7 @@ namespace Delivery.Api.Controllers
         applicationServiceCliente.Save(clienteDto);
         return Ok("Cliente salvo com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -89,7 +89,7 @@ namespace Delivery.Api.Controllers
         applicationServiceCliente.Save(clienteDto);
         return Ok("Cliente atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -108,7 +108,7 @@ namespace Delivery.Api.Controllers
         applicationServiceCliente.Remove(clienteDto);
         return Ok("Cliente removido com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }

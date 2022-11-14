@@ -45,7 +45,7 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -86,7 +86,7 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -105,7 +105,7 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Remove(UsuarioDto);
         return Ok("Usuario removido com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }

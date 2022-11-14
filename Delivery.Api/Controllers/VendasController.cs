@@ -55,7 +55,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Save(enderecoDto);
         return Ok("Venda cadastrada com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -74,7 +74,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Save(produtoDto);
         return Ok("Venda cadastrada com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -93,7 +93,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Save(enderecoDto);
         return Ok("Venda atualizada com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -113,7 +113,7 @@ namespace Delivery.Api.Controllers
         applicationServiceVenda.Remove(enderecoDto);
         return Ok("Venda removida com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }

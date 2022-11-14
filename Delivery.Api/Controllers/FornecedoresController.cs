@@ -51,7 +51,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Save(clienteDto);
         return Ok("Fornecedor cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -70,7 +70,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Save(clienteDto);
         return Ok("Fornecedor salvo com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -89,7 +89,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Save(clienteDto);
         return Ok("Fornecedor atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
@@ -108,7 +108,7 @@ namespace Delivery.Api.Controllers
         applicationServiceFornecedor.Remove(clienteDto);
         return Ok("Fornecedor removido com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         throw;
       }
