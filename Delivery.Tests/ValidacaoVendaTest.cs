@@ -88,6 +88,8 @@ namespace Delivery.Tests
 
       Assert.False(result.IsValid);
     }
+     
+    [Fact]
     public void ProcessarVenda()
     {
       var ItemProduto = new ItemProduto
@@ -97,15 +99,15 @@ namespace Delivery.Tests
       };
       var Venda = new Venda()
       {
-       Subtotal = 30,
        Desconto = 10,
        Frete = 7,
        ItensProduto = new List<ItemProduto> {ItemProduto},
-     }; 
-      var Calculo = ItemProduto.Valor * ItemProduto.Quantidade;
-      var CalculoVenda =  Calculo - Venda.Desconto + Venda.Frete;
-    }
-
+     };
+       var Subtotal = 30;
+       var ValoCorreto = 27;
+         Venda.processar();
+          Assert.True(Venda.Total == ValoCorreto);
+          Assert.True(Venda.Subtotal == Subtotal);
+    } 
   }
-
 }
