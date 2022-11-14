@@ -40,77 +40,77 @@ namespace Delivery.Api.Controllers
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] FornecedorDto clienteDto)
+    public ActionResult Post([FromBody] FornecedorDto fornecedorDto)
     {
       try
       {
-        if (clienteDto == null)
+        if (fornecedorDto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Save(clienteDto);
+        applicationServiceFornecedor.Save(fornecedorDto);
         return Ok("Fornecedor cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao cadastrar o fornecedor" });
       }
     }
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] FornecedorDto clienteDto)
+    public ActionResult Save([FromBody] FornecedorDto fornecedorDto)
     {
       try
       {
-        if (clienteDto == null)
+        if (fornecedorDto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Save(clienteDto);
+        applicationServiceFornecedor.Save(fornecedorDto);
         return Ok("Fornecedor salvo com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao salvar o fornecedor" });
       }
     }
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] FornecedorDto clienteDto)
+    public ActionResult Put([FromBody] FornecedorDto fornecedorDto)
     {
       try
       {
-        if (clienteDto == null)
+        if (fornecedorDto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Save(clienteDto);
+        applicationServiceFornecedor.Save(fornecedorDto);
         return Ok("Fornecedor atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao remover o fornecedor" });
       }
     }
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] FornecedorDto clienteDto)
+    public ActionResult Delete([FromBody] FornecedorDto fornecedorDto)
     {
       try
       {
-        if (clienteDto == null)
+        if (fornecedorDto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Remove(clienteDto);
+        applicationServiceFornecedor.Remove(fornecedorDto);
         return Ok("Fornecedor removido com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao remover o fornecedor" });
       }
     }
   }

@@ -2,7 +2,6 @@ using Delivery.Application;
 using Delivery.Application.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Delivery.Api.Controllers
 {
@@ -45,9 +44,9 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao cadastrar o usuario" });
       }
     }
 
@@ -66,9 +65,9 @@ namespace Delivery.Api.Controllers
 
         return Ok(user);
       }
-      catch (Exception ex)
+      catch
       {
-        return BadRequest(ex);
+        return BadRequest(new { message = "Erro ao autenticar o usuario" });
       }
     }
 
@@ -86,28 +85,28 @@ namespace Delivery.Api.Controllers
         applicationServiceUsuario.Save(usuarioDto);
         return Ok("Usuario atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao atualizar o usuario" });
       }
     }
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] UsuarioDto UsuarioDto)
+    public ActionResult Delete([FromBody] UsuarioDto usuarioDto)
     {
       try
       {
-        if (UsuarioDto == null)
+        if (usuarioDto == null)
         {
           return NotFound();
         }
-        applicationServiceUsuario.Remove(UsuarioDto);
+        applicationServiceUsuario.Remove(usuarioDto);
         return Ok("Usuario removido com sucesso!");
       }
-      catch (Exception ex)
+      catch
       {
-        throw;
+        return BadRequest(new { message = "Erro ao remover o usuario" });
       }
     }
   }
