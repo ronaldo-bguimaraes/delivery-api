@@ -1,4 +1,6 @@
 #!/bin/bash
+cd ~/delivery-api
+export PATH="$PATH:$HOME/.dotnet/tools"
 clear_build() {
   sudo rm -r ./*/bin
   sudo rm -r ./*/obj
