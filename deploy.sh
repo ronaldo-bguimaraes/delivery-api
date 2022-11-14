@@ -11,7 +11,8 @@ echo ""
 git fetch origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 git reset --hard origin/main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 git pull origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
-echo "Deploying commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
+echo ""
+echo "$(git log --pretty=format:'%s (%an - %ae)' -1)"
 echo ""
 echo "Formating code..."
 dotnet format 2>&1> /dev/null
@@ -33,14 +34,15 @@ echo ""
 if [ $result -eq 0 ]; then
   echo "Test completed successfully!"
   echo ""
-  echo "Pushing deploy commit..."
+  echo "Generating a deploy commit..."
   git add . 2>&1> /dev/null
   git commit -m "Deploy commit $(date '+%Y%m%d-%H:%M:%S')" 2>&1> /dev/null
   git push 2>&1> /dev/null
   echo ""
   if [ $? -eq 0 ]; then
     echo "The main branch has been updated!"
-    echo "Deploy commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
+    echo ""
+    echo "Generated commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
   else
     echo "Error updating main branch!"
   fi
