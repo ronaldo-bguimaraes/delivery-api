@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,7 +22,8 @@ namespace Delivery.Domain.Entities
 
     public virtual Venda Venda { get; set; }
 
-    public void SetDataPagamentoAtual() {
+    public void SetDataPagamentoAtual()
+    {
       DataPagamento = DateTime.UtcNow;
     }
   }

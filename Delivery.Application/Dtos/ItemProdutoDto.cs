@@ -1,4 +1,4 @@
-﻿namespace Delivery.Application.Dtos
+namespace Delivery.Application.Dtos
 {
   public class ItemProdutoDto : EntityDto
   {
@@ -7,7 +7,7 @@
     public int Quantidade { get; set; }
 
     public int? ProdutoId { get; set; }
-    
+
     public int? VendaId { get; set; }
   }
 }

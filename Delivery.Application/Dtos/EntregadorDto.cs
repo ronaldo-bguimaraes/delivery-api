@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Enums;
+using Delivery.Domain.Enums;
 
 namespace Delivery.Application.Dtos
 {

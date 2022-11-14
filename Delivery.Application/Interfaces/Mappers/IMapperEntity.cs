@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Delivery.Domain.Entities;
 using Delivery.Application.Dtos;
 

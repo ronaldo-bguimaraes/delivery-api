@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Entities;
+using Delivery.Domain.Entities;
 using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using Delivery.Application.Interfaces.Mappers;
 namespace Delivery.Infrastructure.CrossCutting.Map
 {
   public class MapperCliente : IMapperCliente
- {
+  {
     public Cliente MapperDtoToEntity(ClienteDto clienteDto)
     {
       var cliente = new Cliente()

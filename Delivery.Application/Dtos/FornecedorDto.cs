@@ -1,4 +1,4 @@
-﻿namespace Delivery.Application.Dtos
+namespace Delivery.Application.Dtos
 {
   public class FornecedorDto : EntityDto
   {

@@ -1,4 +1,4 @@
-﻿using Delivery.Application;
+using Delivery.Application;
 using Delivery.Application.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -53,7 +53,7 @@ namespace Delivery.Api.Controllers
       }
       catch (Exception ex)
       {
-        throw ex;
+        throw;
       }
     }
 
@@ -72,7 +72,7 @@ namespace Delivery.Api.Controllers
       }
       catch (Exception ex)
       {
-        throw ex;
+        throw;
       }
     }
 
@@ -91,7 +91,7 @@ namespace Delivery.Api.Controllers
       }
       catch (Exception ex)
       {
-        throw ex;
+        throw;
       }
     }
 
@@ -110,7 +110,7 @@ namespace Delivery.Api.Controllers
       }
       catch (Exception ex)
       {
-        throw ex;
+        throw;
       }
     }
   }

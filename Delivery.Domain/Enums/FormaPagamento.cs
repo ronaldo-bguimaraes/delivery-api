@@ -1,4 +1,4 @@
-﻿namespace Delivery.Domain.Entities
+namespace Delivery.Domain.Entities
 {
   public enum FormaPagamento : int
   {

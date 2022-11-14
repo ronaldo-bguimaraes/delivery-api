@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using Delivery.Application;
 using Delivery.Application.Mappers;
 using Delivery.Application.Interfaces.Mappers;

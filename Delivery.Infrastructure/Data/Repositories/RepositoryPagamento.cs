@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 
