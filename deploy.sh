@@ -5,15 +5,14 @@ clear_build() {
 }
 # ignore local changes and pull
 echo "Updating local repository..."
-git fetch origin main 2>&1> /dev/null
-git reset --hard origin/main 2>&1> /dev/null
-git pull origin main 2>&1> /dev/null
-chmod +x ./deploy.sh
+git fetch origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
+git reset --hard origin/main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
+git pull origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 echo "Deploying commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
 dotnet format 2>&1> /dev/null
 export ASPNETCORE_ENVIRONMENT=Development
 echo "Updating $ASPNETCORE_ENVIRONMENT environment..."
-clear_build
+clear_build 2>&1> /dev/null
 dotnet ef database update --project ./Delivery.Api 2>&1> /dev/null
 echo "$ASPNETCORE_ENVIRONMENT environment update completed..."
 
@@ -36,13 +35,13 @@ if [ $result -eq 0 ]; then
   export ASPNETCORE_ENVIRONMENT=Production
   echo "Updating $ASPNETCORE_ENVIRONMENT environment..."
   # clear trash
-  clear_build
+  clear_build 2>&1> /dev/null
   dotnet ef database update --project ./Delivery.Api 2>&1> /dev/null
   # publish project to nginx folder
-  clear_build
+  clear_build 2>&1> /dev/null
   sudo dotnet publish -f net6.0 -o /var/www/delivery-api/ -c Release -r linux-x64 --self-contained false 2>&1> /dev/null
   # clear trash
-  clear_build
+  clear_build 2>&1> /dev/null
   echo "Restarting service..."
   # reload services
   sudo systemctl restart delivery-api.service 2>&1> /dev/null
