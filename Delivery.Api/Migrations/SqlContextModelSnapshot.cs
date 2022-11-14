@@ -185,7 +185,12 @@ namespace Delivery.Api.Migrations
                     b.Property<double>("Valor")
                         .HasColumnType("float");
 
+                    b.Property<int?>("VendaId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("VendaId");
 
                     b.ToTable("Pagamentos");
                 });
@@ -280,9 +285,6 @@ namespace Delivery.Api.Migrations
                     b.Property<double>("Frete")
                         .HasColumnType("float");
 
-                    b.Property<int?>("PagamentoId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Subtotal")
                         .HasColumnType("float");
 
@@ -296,8 +298,6 @@ namespace Delivery.Api.Migrations
                     b.HasIndex("EntregadorId");
 
                     b.HasIndex("FornecedorId");
-
-                    b.HasIndex("PagamentoId");
 
                     b.ToTable("Vendas");
                 });
@@ -353,6 +353,15 @@ namespace Delivery.Api.Migrations
                     b.Navigation("Venda");
                 });
 
+            modelBuilder.Entity("Delivery.Domain.Entities.Pagamento", b =>
+                {
+                    b.HasOne("Delivery.Domain.Entities.Venda", "Venda")
+                        .WithMany("Pagamentos")
+                        .HasForeignKey("VendaId");
+
+                    b.Navigation("Venda");
+                });
+
             modelBuilder.Entity("Delivery.Domain.Entities.Produto", b =>
                 {
                     b.HasOne("Delivery.Domain.Entities.Fornecedor", "Fornecedor")
@@ -376,15 +385,9 @@ namespace Delivery.Api.Migrations
                         .WithMany("Vendas")
                         .HasForeignKey("FornecedorId");
 
-                    b.HasOne("Delivery.Domain.Entities.Pagamento", "Pagamento")
-                        .WithMany("Vendas")
-                        .HasForeignKey("PagamentoId");
-
                     b.Navigation("Cliente");
 
                     b.Navigation("Entregador");
-
-                    b.Navigation("Pagamento");
                 });
 
             modelBuilder.Entity("Delivery.Domain.Entities.Cliente", b =>
@@ -402,11 +405,6 @@ namespace Delivery.Api.Migrations
                     b.Navigation("Vendas");
                 });
 
-            modelBuilder.Entity("Delivery.Domain.Entities.Pagamento", b =>
-                {
-                    b.Navigation("Vendas");
-                });
-
             modelBuilder.Entity("Delivery.Domain.Entities.Usuario", b =>
                 {
                     b.Navigation("Enderecos");
@@ -415,6 +413,8 @@ namespace Delivery.Api.Migrations
             modelBuilder.Entity("Delivery.Domain.Entities.Venda", b =>
                 {
                     b.Navigation("ItensProduto");
+
+                    b.Navigation("Pagamentos");
                 });
 #pragma warning restore 612, 618
         }

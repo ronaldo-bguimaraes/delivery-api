@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Core.Interfaces.Services;
+using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using Delivery.Application.Interfaces.Mappers;
@@ -31,7 +31,7 @@ namespace Delivery.Application
 
     public ICollection<VendaDto> GetAll()
     {
-      var vendas = serviceVenda.GetAll();
+      var vendas = serviceVenda.All();
       return mapperVenda.MapperEntitiesToDtos(vendas);
     }
 

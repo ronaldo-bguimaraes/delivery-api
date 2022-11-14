@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Entities;
+using Delivery.Domain.Entities;
 using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,12 @@ namespace Delivery.Infrastructure.CrossCutting.Map
   public class MapperVenda : IMapperVenda
   {
     private readonly IMapperItemProduto mapperItemProduto;
+    private readonly IMapperPagamento mapperPagamento;
 
-    public MapperVenda(IMapperItemProduto _mapperItemProduto)
+    public MapperVenda(IMapperItemProduto _mapperItemProduto, IMapperPagamento _mapperPagamento)
     {
       mapperItemProduto = _mapperItemProduto;
+      mapperPagamento = _mapperPagamento;
     }
 
     public Venda MapperDtoToEntity(VendaDto vendaDto)
@@ -25,7 +27,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         DataVenda = vendaDto.DataVenda,
         EntregadorId = vendaDto.EntregadorId,
         Frete = vendaDto.Frete,
-        PagamentoId = vendaDto.PagamentoId,
+        Pagamentos = mapperPagamento.MapperDtosToEntities(vendaDto.Pagamentos),
         Subtotal = vendaDto.Subtotal,
         Total = vendaDto.Total,
         ItensProduto = mapperItemProduto.MapperDtosToEntities(vendaDto.ItensProduto)
@@ -43,7 +45,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         DataVenda = venda.DataVenda,
         EntregadorId = venda.EntregadorId,
         Frete = venda.Frete,
-        PagamentoId = venda.PagamentoId,
+        Pagamentos = mapperPagamento.MapperEntitiesToDtos(venda.Pagamentos),
         Subtotal = venda.Subtotal,
         Total = venda.Total,
         ItensProduto = mapperItemProduto.MapperEntitiesToDtos(venda.ItensProduto)
@@ -61,7 +63,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         DataVenda = venda.DataVenda,
         EntregadorId = venda.EntregadorId,
         Frete = venda.Frete,
-        PagamentoId = venda.PagamentoId,
+        Pagamentos = mapperPagamento.MapperEntitiesToDtos(venda.Pagamentos),
         Subtotal = venda.Subtotal,
         Total = venda.Total,
         ItensProduto = mapperItemProduto.MapperEntitiesToDtos(venda.ItensProduto)
@@ -79,7 +81,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         DataVenda = vendaDto.DataVenda,
         EntregadorId = vendaDto.EntregadorId,
         Frete = vendaDto.Frete,
-        PagamentoId = vendaDto.PagamentoId,
+        Pagamentos = mapperPagamento.MapperDtosToEntities(vendaDto.Pagamentos),
         Subtotal = vendaDto.Subtotal,
         Total = vendaDto.Total,
         ItensProduto = mapperItemProduto.MapperDtosToEntities(vendaDto.ItensProduto)

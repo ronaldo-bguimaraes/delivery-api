@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Delivery.Api/Delivery.Api.csproj",
+        "${workspaceFolder}/Delivery.Tests/Delivery.Tests.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -19,7 +19,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/Delivery.Api/Delivery.Api.csproj",
+        "${workspaceFolder}/Delivery.Tests/Delivery.Tests.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -33,7 +33,7 @@
         "watch",
         "run",
         "--project",
-        "${workspaceFolder}/Delivery.Api/Delivery.Api.csproj"
+        "${workspaceFolder}/Delivery.Tests/Delivery.Tests.csproj"
       ],
       "problemMatcher": "$msCompile"
     }

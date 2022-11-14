@@ -1,7 +1,8 @@
-﻿using Delivery.Domain.Core.Interfaces.Repositories;
+using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Delivery.Domain.Core.Services
 {
@@ -24,9 +25,9 @@ namespace Delivery.Domain.Core.Services
       repository.Remove(obj);
     }
 
-    public virtual ICollection<T> GetAll()
+    public virtual ICollection<T> All()
     {
-      return repository.GetAll();
+      return repository.All().ToList();
     }
 
     public virtual T GetById(int id)

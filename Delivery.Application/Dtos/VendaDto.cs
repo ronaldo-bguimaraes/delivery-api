@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Enums;
+using Delivery.Domain.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -24,6 +24,6 @@ namespace Delivery.Application.Dtos
 
     public int? EntregadorId { get; set; }
 
-    public int? PagamentoId { get; set; }
+    public ICollection<PagamentoDto> Pagamentos { get; set; }
   }
 }

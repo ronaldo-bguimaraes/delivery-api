@@ -1,4 +1,6 @@
-﻿using System;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
@@ -15,10 +17,38 @@ namespace Delivery.Domain.Core.Services
       repositoryUsuario = _repositoryUsuario;
     }
 
-    public override void Add(Usuario usuario)
+    public static string CreateMD5Hash(string text)
     {
-      usuario.setDataCadastroAtual();
-      base.Add(usuario);
+      MD5 md5 = MD5.Create();
+      byte[] inputBytes = Encoding.ASCII.GetBytes(text);
+      byte[] hashBytes = md5.ComputeHash(inputBytes);
+      var hash = hashBytes.Select(e => e.ToString("X2"));
+      return string.Join("", hash);
+    }
+
+    public bool ValidaSenha(string senhaFornecida, string senhaSalva)
+    {
+      return CreateMD5Hash(senhaFornecida) == senhaSalva;
+    }
+
+    public Usuario GetByEmailAndSenha(string email, string senha)
+    {
+      var usuario = repositoryUsuario.GetByEmail(email);
+      if (usuario != null && ValidaSenha(senha, usuario.Senha))
+      {
+        return usuario;
+      }
+      return null;
+    }
+
+    public Usuario GetByTelefoneAndSenha(string telefone, string senha)
+    {
+      var usuario = repositoryUsuario.GetByTelefone(telefone);
+      if (usuario != null && ValidaSenha(senha, usuario.Senha))
+      {
+        return usuario;
+      }
+      return null;
     }
   }
 }

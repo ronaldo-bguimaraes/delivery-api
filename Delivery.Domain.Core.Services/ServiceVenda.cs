@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
-using Delivery.Domain.Core.Services.Exceptions;
 using Delivery.Domain.Entities;
+using Delivery.Domain.Validators;
+using FluentValidation;
 
 namespace Delivery.Domain.Core.Services
 {
@@ -13,11 +14,14 @@ namespace Delivery.Domain.Core.Services
     private readonly IServiceItemProduto serviceItemProduto;
     private readonly IServicePagamento servicePagamento;
 
-    public ServiceVenda(IRepositoryVenda _repositoryVenda, IServiceItemProduto _serviceItemProduto, IServicePagamento _servicePagamento) : base(_repositoryVenda)
+    private readonly VendaValidator validator;
+
+    public ServiceVenda(IRepositoryVenda _repositoryVenda, IServiceItemProduto _serviceItemProduto, IServicePagamento _servicePagamento, VendaValidator _validator) : base(_repositoryVenda)
     {
       repositoryVenda = _repositoryVenda;
       serviceItemProduto = _serviceItemProduto;
       servicePagamento = _servicePagamento;
+      validator = _validator;
     }
 
     public ICollection<Venda> GetByClienteId(int clienteId)
@@ -29,13 +33,13 @@ namespace Delivery.Domain.Core.Services
     {
       try
       {
-        venda.setSolicitada();
+        venda.SetSolicitada();
         foreach (var itemProduto in venda.ItensProduto)
         {
           serviceItemProduto.Add(itemProduto);
         }
-        venda.setDataVendaAtual();
-        venda.processar();
+        venda.SetDataVendaAtual();
+        venda.Processar();
         base.Add(venda);
       }
       catch (Exception)
@@ -46,24 +50,20 @@ namespace Delivery.Domain.Core.Services
 
     public void confirmarVenda(Venda venda)
     {
-      venda.setConfirmada();
+      venda.SetConfirmada();
       base.Update(venda);
     }
 
     public void cancelarVenda(Venda venda)
     {
-      venda.setCancelada();
+      venda.SetCancelada();
       base.Update(venda);
     }
 
     public void validarVenda(Venda venda)
     {
-      try {
-        venda.validar();
-      }
-      catch {
-        throw new PagamentoInsuficienteServiceException();
-      }
+      var validator = new VendaValidator();
+      validator.ValidateAndThrow(venda);
     }
   }
 }

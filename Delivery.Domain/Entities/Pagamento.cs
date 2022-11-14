@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,10 +17,14 @@ namespace Delivery.Domain.Entities
     [Column(TypeName = "int")]
     public FormaPagamento FormaPagamento { get; set; }
 
-    public virtual ICollection<Venda> Vendas { get; set; }
+    [ForeignKey("VendaId")]
+    public int? VendaId { get; set; }
 
-    public void setDataPagamentoAtual() {
-      DataPagamento = DateTime.Now.ToUniversalTime();
+    public virtual Venda Venda { get; set; }
+
+    public void SetDataPagamentoAtual()
+    {
+      DataPagamento = DateTime.UtcNow;
     }
   }
 }

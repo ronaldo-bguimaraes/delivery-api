@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Core.Interfaces.Repositories;
+using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 using System.Linq;
 
@@ -15,7 +15,7 @@ namespace Delivery.Infrastructure.Data.Repositories
 
     public Cliente GetByUsuarioId(int usuarioId)
     {
-      return sqlContext.Set<Cliente>().Where(c => c.UsuarioId == usuarioId).FirstOrDefault();
+      return All().Where(c => c.UsuarioId == usuarioId).FirstOrDefault();
     }
   }
 }

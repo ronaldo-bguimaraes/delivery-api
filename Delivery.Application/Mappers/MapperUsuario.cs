@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Entities;
+using Delivery.Domain.Entities;
 using Delivery.Application.Dtos;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Nome = usuarioDto.Nome,
         Telefone = usuarioDto.Telefone,
         Email = usuarioDto.Email,
-        Senha = Security.CreateMD5Hash(usuarioDto.Senha),
+        Senha = usuarioDto.Senha,
       };
       return usuario;
     }
@@ -56,7 +56,7 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Nome = usuarioDto.Nome,
         Telefone = usuarioDto.Telefone,
         Email = usuarioDto.Email,
-        Senha = Security.CreateMD5Hash(usuarioDto.Senha),
+        Senha = usuarioDto.Senha,
       });
       return usuarios.ToList();
     }

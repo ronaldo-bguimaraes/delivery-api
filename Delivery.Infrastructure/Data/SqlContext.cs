@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Entities;
+using Delivery.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Delivery.Infrastructure.Data
@@ -17,5 +17,5 @@ namespace Delivery.Infrastructure.Data
     public DbSet<Venda> Vendas { get; set; }
     public DbSet<Pagamento> Pagamentos { get; set; }
 
-    }
+  }
 }

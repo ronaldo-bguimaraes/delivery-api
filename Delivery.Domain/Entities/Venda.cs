@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Delivery.Domain.Enums;
+using Delivery.Domain.Validators;
 
 namespace Delivery.Domain.Entities
 {
@@ -38,39 +39,32 @@ namespace Delivery.Domain.Entities
 
     public virtual Entregador Entregador { get; set; }
 
-    [ForeignKey("PagamentoId")]
-    public int? PagamentoId { get; set; }
+    public virtual ICollection<Pagamento> Pagamentos { get; set; }
 
-    public virtual Pagamento Pagamento { get; set; }
-
-    public void setDataVendaAtual() {
-      DataVenda = DateTime.Now.ToUniversalTime();
+    public void SetDataVendaAtual()
+    {
+      DataVenda = DateTime.UtcNow;
     }
 
-    public void processar()
+    public void Processar()
     {
       Subtotal = ItensProduto.Sum(e => e.Valor * e.Quantidade);
-      Total = Subtotal - Desconto;
+      Total = Subtotal - Desconto + Frete;
     }
 
-    public void setSolicitada() {
+    public void SetSolicitada()
+    {
       Condicao = CondicaoVenda.Solicitada;
     }
 
-    public void setConfirmada() {
+    public void SetConfirmada()
+    {
       Condicao = CondicaoVenda.Confirmada;
     }
 
-    public void setCancelada() {
-      Condicao = CondicaoVenda.Cancelada;
-    }
-
-    public void validar()
+    public void SetCancelada()
     {
-      if (Pagamento.Valor < Total)
-      {
-        throw new Exception();
-      }
+      Condicao = CondicaoVenda.Cancelada;
     }
   }
 }

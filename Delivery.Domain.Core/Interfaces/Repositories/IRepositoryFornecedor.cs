@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Entities;
+using Delivery.Domain.Entities;
 
 namespace Delivery.Domain.Core.Interfaces.Repositories
 {

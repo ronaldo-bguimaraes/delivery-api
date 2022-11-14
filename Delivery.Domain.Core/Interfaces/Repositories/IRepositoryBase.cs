@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Delivery.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Delivery.Domain.Core.Interfaces.Repositories
 {
@@ -8,7 +9,7 @@ namespace Delivery.Domain.Core.Interfaces.Repositories
     void Add(T obj);
     void Update(T obj);
     void Remove(T obj);
-    ICollection<T> GetAll(); // Pode ser usado uma lista, mas o ICollection funciona melhor
+    DbSet<T> All();
     T GetById(int id);
   }
 }

@@ -1,4 +1,4 @@
-﻿using Delivery.Domain.Core.Interfaces.Repositories;
+using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
 
@@ -20,7 +20,7 @@ namespace Delivery.Domain.Core.Services
     public override void Add(ItemProduto itemProduto)
     {
       itemProduto.Produto = serviceProduto.GetById(itemProduto.ProdutoId.GetValueOrDefault());
-      itemProduto.processar();
+      itemProduto.Processar();
       base.Add(itemProduto);
     }
   }
