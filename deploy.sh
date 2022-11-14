@@ -12,12 +12,9 @@ git fetch origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 git reset --hard origin/main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 git pull origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 echo ""
-echo "$(git log --pretty=format:'%s (%an - %ae)' -1)"
+echo "Target commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
 echo ""
-echo "Formating code..."
-dotnet format 2>&1> /dev/null
 export ASPNETCORE_ENVIRONMENT=Development
-echo ""
 echo "Updating $ASPNETCORE_ENVIRONMENT environment..."
 clear_build 2>&1> /dev/null
 dotnet ef database update --project ./Delivery.Api 2>&1> /dev/null
@@ -33,19 +30,6 @@ result=$?
 echo ""
 if [ $result -eq 0 ]; then
   echo "Test completed successfully!"
-  echo ""
-  echo "Generating a deploy commit..."
-  git add . 2>&1> /dev/null
-  git commit -m "Deploy commit $(date '+%Y%m%d-%H:%M:%S')" 2>&1> /dev/null
-  git push 2>&1> /dev/null
-  echo ""
-  if [ $? -eq 0 ]; then
-    echo "The main branch has been updated!"
-    echo ""
-    echo "Generated commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
-  else
-    echo "Error updating main branch!"
-  fi
   echo ""
   export ASPNETCORE_ENVIRONMENT=Production
   echo "Updating $ASPNETCORE_ENVIRONMENT environment..."
