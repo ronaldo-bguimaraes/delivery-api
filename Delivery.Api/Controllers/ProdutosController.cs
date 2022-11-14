@@ -37,20 +37,20 @@ namespace Delivery.Api.Controllers
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] ProdutoDto enderecoDto)
+    public ActionResult Post([FromBody] ProdutoDto produtoDto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (produtoDto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(enderecoDto);
+        applicationServiceProduto.Save(produtoDto);
         return Ok("Produto cadastrado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao cadastrar o produto" });
       }
     }
 
@@ -67,48 +67,48 @@ namespace Delivery.Api.Controllers
         applicationServiceProduto.Save(produtoDto);
         return Ok("Produto salvo com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao salvar o produto" });
       }
     }
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] ProdutoDto enderecoDto)
+    public ActionResult Put([FromBody] ProdutoDto produtoDto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (produtoDto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(enderecoDto);
+        applicationServiceProduto.Save(produtoDto);
         return Ok("Produto atualizado com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao atualizar o produto" });
       }
     }
 
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] ProdutoDto enderecoDto)
+    public ActionResult Delete([FromBody] ProdutoDto produtoDto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (produtoDto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Remove(enderecoDto);
+        applicationServiceProduto.Remove(produtoDto);
         return Ok("Produto removido com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao remover o produto" });
       }
     }
   }
