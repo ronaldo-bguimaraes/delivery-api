@@ -15,7 +15,6 @@ namespace Delivery.Tests
     {
       configuration = new ConfigurationBuilder()
         .AddJsonFile("appsettings.json", optional: true)
-        .AddJsonFile("appsettings.Production.json", optional: true)
         .AddJsonFile("appsettings.Development.json", optional: true)
         .Build();
 

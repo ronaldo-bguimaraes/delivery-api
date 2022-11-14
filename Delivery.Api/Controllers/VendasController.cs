@@ -44,78 +44,78 @@ namespace Delivery.Api.Controllers
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] VendaDto enderecoDto)
+    public ActionResult Post([FromBody] VendaDto vendaDto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (vendaDto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Save(enderecoDto);
+        applicationServiceVenda.Save(vendaDto);
         return Ok("Venda cadastrada com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao cadastrar a venda" });
       }
     }
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] VendaDto produtoDto)
+    public ActionResult Save([FromBody] VendaDto vendaDto)
     {
       try
       {
-        if (produtoDto == null)
+        if (vendaDto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Save(produtoDto);
+        applicationServiceVenda.Save(vendaDto);
         return Ok("Venda cadastrada com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao salvar a venda" });
       }
     }
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] VendaDto enderecoDto)
+    public ActionResult Put([FromBody] VendaDto vendaDto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (vendaDto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Save(enderecoDto);
+        applicationServiceVenda.Save(vendaDto);
         return Ok("Venda atualizada com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao atualizar a venda" });
       }
     }
 
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] VendaDto enderecoDto)
+    public ActionResult Delete([FromBody] VendaDto vendaDto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (vendaDto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Remove(enderecoDto);
+        applicationServiceVenda.Remove(vendaDto);
         return Ok("Venda removida com sucesso!");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
-        throw;
+        return BadRequest(new { message = "Erro ao remover a venda" });
       }
     }
   }
