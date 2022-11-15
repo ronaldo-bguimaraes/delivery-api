@@ -2,8 +2,8 @@
 cd ~/delivery-api
 export PATH="$PATH:$HOME/.dotnet/tools"
 clear_build() {
-  sudo rm -r ./*/bin
-  sudo rm -r ./*/obj
+  sudo rm -rf ./*/bin
+  sudo rm -rf ./*/obj
 }
 # ignore local changes and pull
 echo "Updating local repository..."
@@ -24,7 +24,7 @@ echo "$ASPNETCORE_ENVIRONMENT environment update completed..."
 # test
 echo ""
 echo "Starting the test..."
-dotnet test 2>&1> /dev/null
+sudo dotnet test 2>&1> /dev/null
 result=$?
 
 echo ""
