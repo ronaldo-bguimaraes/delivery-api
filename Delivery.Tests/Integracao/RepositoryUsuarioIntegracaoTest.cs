@@ -9,13 +9,13 @@ namespace Delivery.Tests
 {
   public class RepositoryUsuarioIntegracaoTest
   {
-    private SqlContextTest sqlContextTest;
-    private IRepositoryUsuario repositoryUsuario;
+    private readonly SqlContextTest SqlContextTest;
+    private readonly IRepositoryUsuario RepositoryUsuario;
 
     public RepositoryUsuarioIntegracaoTest()
     {
-      sqlContextTest = new SqlContextTest();
-      repositoryUsuario = new RepositoryUsuario(sqlContextTest.SqlContext);
+      SqlContextTest = new SqlContextTest();
+      RepositoryUsuario = new RepositoryUsuario(SqlContextTest.SqlContext);
     }
 
     [Fact]
@@ -32,7 +32,7 @@ namespace Delivery.Tests
       };
       try
       {
-        repositoryUsuario.Add(usuario);
+        RepositoryUsuario.Add(usuario);
       }
       catch
       {
@@ -40,7 +40,7 @@ namespace Delivery.Tests
       }
       try
       {
-        Usuario usuarioAdicionado = repositoryUsuario.GetById(usuario.Id);
+        Usuario usuarioAdicionado = RepositoryUsuario.GetById(usuario.Id);
         Assert.True(usuario.Equals(usuarioAdicionado));
       }
       catch
@@ -61,12 +61,12 @@ namespace Delivery.Tests
         Enderecos = new List<Endereco>(),
         Senha = "12345678",
       };
-      repositoryUsuario.Add(usuario);
-      usuario.Senha = "87654321";
       try
       {
-        repositoryUsuario.Update(usuario);
-        var usuarioAtualizado = repositoryUsuario.GetById(usuario.Id);
+        RepositoryUsuario.Add(usuario);
+        usuario.Senha = "87654321";
+        RepositoryUsuario.Update(usuario);
+        var usuarioAtualizado = RepositoryUsuario.GetById(usuario.Id);
         Assert.True(usuario.Equals(usuarioAtualizado));
       }
       catch
@@ -87,11 +87,11 @@ namespace Delivery.Tests
         Enderecos = new List<Endereco>(),
         Senha = "12345678",
       };
-      repositoryUsuario.Add(usuario);
       try
       {
-        repositoryUsuario.Remove(usuario);
-        var usuarioRemovido = repositoryUsuario.GetById(usuario.Id);
+        RepositoryUsuario.Add(usuario);
+        RepositoryUsuario.Remove(usuario);
+        var usuarioRemovido = RepositoryUsuario.GetById(usuario.Id);
         Assert.Null(usuarioRemovido);
       }
       catch

@@ -7,16 +7,16 @@ namespace Delivery.Domain.Core.Services
 {
   public class ServiceEndereco : ServiceBase<Endereco>, IServiceEndereco
   {
-    private readonly IRepositoryEndereco repositoryEndereco;
+    private readonly IRepositoryEndereco RepositoryEndereco;
 
-    public ServiceEndereco(IRepositoryEndereco _repositoryEndereco) : base(_repositoryEndereco)
+    public ServiceEndereco(IRepositoryEndereco repositoryEndereco) : base(repositoryEndereco)
     {
-      repositoryEndereco = _repositoryEndereco;
+      RepositoryEndereco = repositoryEndereco;
     }
 
     public ICollection<Endereco> GetByUsuarioId(int usuarioId)
     {
-      return repositoryEndereco.GetByUsuarioId(usuarioId);
+      return RepositoryEndereco.GetByUsuarioId(usuarioId);
     }
   }
 }

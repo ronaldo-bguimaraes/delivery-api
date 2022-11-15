@@ -6,18 +6,18 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryPagamento : RepositoryBase<Pagamento>, IRepositoryPagamento
   {
-    private readonly SqlContext sqlContext;
-    public RepositoryPagamento(SqlContext _sqlcontext) : base(_sqlcontext)
+    private readonly SqlContext SqlContext;
+    public RepositoryPagamento(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
     public override void Update(Pagamento pagamento)
     {
-      var entity = sqlContext.Set<Pagamento>().Find(pagamento.Id);
-      sqlContext.Entry(entity).CurrentValues.SetValues(pagamento);
-      sqlContext.Entry(entity).Property(x => x.DataPagamento).IsModified = false;
-      sqlContext.SaveChanges();
+      var entity = SqlContext.Set<Pagamento>().Find(pagamento.Id);
+      SqlContext.Entry(entity).CurrentValues.SetValues(pagamento);
+      SqlContext.Entry(entity).Property(e => e.DataPagamento).IsModified = false;
+      SqlContext.SaveChanges();
     }
   }
 }

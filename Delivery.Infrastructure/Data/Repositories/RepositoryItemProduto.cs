@@ -5,11 +5,11 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryItemProduto : RepositoryBase<ItemProduto>, IRepositoryItemProduto
   {
-    private readonly SqlContext sqlContext;
+    private readonly SqlContext SqlContext;
 
-    public RepositoryItemProduto(SqlContext _sqlcontext) : base(_sqlcontext)
+    public RepositoryItemProduto(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
   }
 }

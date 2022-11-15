@@ -14,7 +14,7 @@ namespace Delivery.Tests
     {
       var usuarioDto = new UsuarioDto();
       var serviceMock = new Mock<IApplicationServiceUsuario>();
-      serviceMock.Setup(x => x.Authenticate(It.IsAny<UsuarioDto>())).Returns(usuarioDto);
+      serviceMock.Setup(e => e.Authenticate(It.IsAny<UsuarioDto>())).Returns(usuarioDto);
 
       var usuariosController = new UsuariosController(serviceMock.Object);
       var result = usuariosController.Authenticate(usuarioDto);
@@ -27,7 +27,7 @@ namespace Delivery.Tests
     {
       var usuarioDto = new UsuarioDto();
       var serviceMock = new Mock<IApplicationServiceUsuario>();
-      serviceMock.Setup(x => x.Authenticate(It.IsAny<UsuarioDto>())).Returns<UsuarioDto>(null);
+      serviceMock.Setup(e => e.Authenticate(It.IsAny<UsuarioDto>())).Returns<UsuarioDto>(null);
 
       var usuariosController = new UsuariosController(serviceMock.Object);
       var result = usuariosController.Authenticate(usuarioDto);

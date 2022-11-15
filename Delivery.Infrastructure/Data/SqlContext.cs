@@ -16,6 +16,5 @@ namespace Delivery.Infrastructure.Data
     public DbSet<Entregador> Entregadores { get; set; }
     public DbSet<Venda> Vendas { get; set; }
     public DbSet<Pagamento> Pagamentos { get; set; }
-
   }
 }

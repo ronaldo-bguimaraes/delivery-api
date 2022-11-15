@@ -7,16 +7,16 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryEndereco : RepositoryBase<Endereco>, IRepositoryEndereco
   {
-    private readonly SqlContext sqlContext;
+    private readonly SqlContext SqlContext;
 
-    public RepositoryEndereco(SqlContext _sqlcontext) : base(_sqlcontext)
+    public RepositoryEndereco(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
-    public ICollection<Endereco> GetByUsuarioId(int usuarioId)
+    public ICollection<Endereco> GetByUsuarioId(int id)
     {
-      return sqlContext.Set<Endereco>().Where(e => e.UsuarioId == usuarioId).ToList();
+      return SqlContext.Set<Endereco>().Where(e => e.UsuarioId == id).ToList();
     }
   }
 }

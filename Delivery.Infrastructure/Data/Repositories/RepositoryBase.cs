@@ -1,48 +1,46 @@
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Delivery.Infrastructure.Data.Repositories
 {
   public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : EntityBase
   {
-    private readonly SqlContext sqlContext;
+    private readonly SqlContext SqlContext;
 
-    public RepositoryBase(SqlContext _sqlcontext)
+    public RepositoryBase(SqlContext sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
     public virtual void Add(T obj)
     {
-      sqlContext.Set<T>().Add(obj);
-      sqlContext.SaveChanges();
+      SqlContext.Set<T>().Add(obj);
+      SqlContext.SaveChanges();
     }
 
     public virtual void Remove(T obj)
     {
-      var entity = sqlContext.Set<T>().Find(obj.Id);
-      sqlContext.Set<T>().Remove(entity);
-      sqlContext.SaveChanges();
+      var entity = SqlContext.Set<T>().Find(obj.Id);
+      SqlContext.Set<T>().Remove(entity);
+      SqlContext.SaveChanges();
     }
 
     public virtual DbSet<T> All()
     {
-      return sqlContext.Set<T>();
+      return SqlContext.Set<T>();
     }
 
     public virtual T GetById(int id)
     {
-      return sqlContext.Set<T>().Find(id);
+      return SqlContext.Set<T>().Find(id);
     }
 
     public virtual void Update(T obj)
     {
-      var entity = sqlContext.Set<T>().Find(obj.Id);
-      sqlContext.Entry(entity).CurrentValues.SetValues(obj);
-      sqlContext.SaveChanges();
+      var entity = SqlContext.Set<T>().Find(obj.Id);
+      SqlContext.Entry(entity).CurrentValues.SetValues(obj);
+      SqlContext.SaveChanges();
     }
   }
 }
