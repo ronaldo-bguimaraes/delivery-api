@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Delivery.Domain.Enums;
-using Delivery.Domain.Validators;
 
 namespace Delivery.Domain.Entities
 {
@@ -17,8 +16,6 @@ namespace Delivery.Domain.Entities
     public double Subtotal { get; set; }
 
     public double Frete { get; set; }
-
-    public double Total { get; set; }
 
     public DateTime DataVenda { get; set; }
 
@@ -41,6 +38,20 @@ namespace Delivery.Domain.Entities
 
     public virtual ICollection<Pagamento> Pagamentos { get; set; }
 
+    [ForeignKey("FornecedorId")]
+    public int? FornecedorId { get; set; }
+
+    public virtual Fornecedor Fornecedor { get; set; }
+
+    [NotMapped]
+    public double Total
+    {
+      get
+      {
+        return Subtotal - Desconto + Frete;
+      }
+    }
+
     public void SetDataVendaAtual()
     {
       DataVenda = DateTime.UtcNow;
@@ -48,8 +59,8 @@ namespace Delivery.Domain.Entities
 
     public void Processar()
     {
-      Subtotal = ItensProduto.Sum(e => e.Valor * e.Quantidade);
-      Total = Subtotal - Desconto + Frete;
+      Fornecedor = ItensProduto.FirstOrDefault().Fornecedor;
+      Subtotal = ItensProduto.Sum(e => e.Total);
     }
 
     public void SetSolicitada()

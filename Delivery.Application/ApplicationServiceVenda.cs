@@ -31,7 +31,7 @@ namespace Delivery.Application
 
     public ICollection<VendaDto> GetAll()
     {
-      var vendas = ServiceVenda.All();
+      var vendas = ServiceVenda.GetAll();
       return MapperVenda.MapperEntitiesToDtos(vendas);
     }
 
@@ -44,6 +44,12 @@ namespace Delivery.Application
     public ICollection<VendaDto> GetByClienteId(int id)
     {
       var vendas = ServiceVenda.GetByClienteId(id);
+      return MapperVenda.MapperEntitiesToDtos(vendas);
+    }
+
+    public ICollection<VendaDto> GetByFornecedorId(int id)
+    {
+      var vendas = ServiceVenda.GetByFornecedorId(id);
       return MapperVenda.MapperEntitiesToDtos(vendas);
     }
 

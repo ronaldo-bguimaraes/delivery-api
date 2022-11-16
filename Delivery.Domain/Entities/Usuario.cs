@@ -29,7 +29,7 @@ namespace Delivery.Domain.Entities
 
     public DateTime DataCadastro { get; set; }
 
-    public ICollection<Endereco> Enderecos { get; set; }
+    public virtual ICollection<Endereco> Enderecos { get; set; }
 
     public void SetDataCadastroAtual()
     {

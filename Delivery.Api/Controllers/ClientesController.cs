@@ -31,24 +31,24 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceCliente.GetById(id));
     }
 
-    [HttpGet("usuarios/{usuarioId}")]
+    [HttpGet("usuarios/{id}")]
     [Authorize(Policy = "User")]
-    public ActionResult GetByUsuarioId(int usuarioId)
+    public ActionResult GetByUsuarioId(int id)
     {
-      return Ok(applicationServiceCliente.GetByUsuarioId(usuarioId));
+      return Ok(applicationServiceCliente.GetByUsuarioId(id));
     }
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] ClienteDto clienteDto)
+    public ActionResult Post([FromBody] ClienteDto dto)
     {
       try
       {
-        if (clienteDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceCliente.Save(clienteDto);
+        applicationServiceCliente.Save(dto);
         return Ok("Cliente cadastrado com sucesso!");
       }
       catch (Exception)
@@ -59,15 +59,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] ClienteDto clienteDto)
+    public ActionResult Save([FromBody] ClienteDto dto)
     {
       try
       {
-        if (clienteDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceCliente.Save(clienteDto);
+        applicationServiceCliente.Save(dto);
         return Ok("Cliente salvo com sucesso!");
       }
       catch (Exception)
@@ -78,15 +78,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] ClienteDto clienteDto)
+    public ActionResult Put([FromBody] ClienteDto dto)
     {
       try
       {
-        if (clienteDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceCliente.Save(clienteDto);
+        applicationServiceCliente.Save(dto);
         return Ok("Cliente atualizado com sucesso!");
       }
       catch (Exception)
@@ -97,15 +97,15 @@ namespace Delivery.Api.Controllers
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] ClienteDto clienteDto)
+    public ActionResult Delete([FromBody] ClienteDto dto)
     {
       try
       {
-        if (clienteDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceCliente.Remove(clienteDto);
+        applicationServiceCliente.Remove(dto);
         return Ok("Cliente removido com sucesso!");
       }
       catch (Exception)

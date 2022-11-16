@@ -3,17 +3,9 @@ using System.Collections.Generic;
 
 namespace Delivery.Application
 {
-  public interface IApplicationServiceVenda
+  public interface IApplicationServiceVenda : IApplicationServiceBase<VendaDto>
   {
-
-    public void Save(VendaDto vendaDto);
-
-    public void Remove(VendaDto vendaDto);
-
-    public ICollection<VendaDto> GetAll();
-
-    public VendaDto GetById(int id);
-
     public ICollection<VendaDto> GetByClienteId(int id);
+    public ICollection<VendaDto> GetByFornecedorId(int id);
   }
 }

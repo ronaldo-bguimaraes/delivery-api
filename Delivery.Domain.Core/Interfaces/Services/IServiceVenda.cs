@@ -9,6 +9,7 @@ namespace Delivery.Domain.Core.Interfaces.Services
     public void Cancelar(Venda venda);
     public void Confirmar(Venda venda);
     public void Processar(Venda venda);
-    ICollection<Venda> GetByClienteId(int clienteId);
+    ICollection<Venda> GetByClienteId(int id);
+    ICollection<Venda> GetByFornecedorId(int id);
   }
 }

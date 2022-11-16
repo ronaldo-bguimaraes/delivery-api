@@ -25,9 +25,9 @@ namespace Delivery.Domain.Core.Services
       Repository.Remove(obj);
     }
 
-    public virtual ICollection<T> All()
+    public virtual ICollection<T> GetAll()
     {
-      return Repository.All().ToList();
+      return Repository.GetAll();
     }
 
     public virtual T GetById(int id)

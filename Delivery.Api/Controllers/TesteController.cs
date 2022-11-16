@@ -8,7 +8,7 @@ namespace Delivery.Api.Controllers
   [Route("[controller]")]
   public class TesteController : Controller
   {
-    public IWebHostEnvironment Env { get; }
+    public readonly IWebHostEnvironment Env;
 
     public TesteController(IWebHostEnvironment env)
     {

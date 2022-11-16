@@ -16,7 +16,6 @@ using System.Text;
 
 namespace Delivery.Api
 {
-  //Swagger (OpenAPI) is a language-agnostic specification for describing REST APIs
   public class Startup
   {
     public IConfiguration Configuration { get; }
@@ -26,7 +25,6 @@ namespace Delivery.Api
       Configuration = configuration;
     }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
       var connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -34,7 +32,8 @@ namespace Delivery.Api
       services.AddCors();
 
       services.AddDbContext<SqlContext>(options =>
-        options.UseSqlServer(connectionString, x => x.MigrationsAssembly("Delivery.Api"))
+        options.UseLazyLoadingProxies()
+          .UseSqlServer(connectionString, e => e.MigrationsAssembly("Delivery.Api"))
       );
 
       services.AddControllers();
@@ -47,29 +46,29 @@ namespace Delivery.Api
 
       services.AddAuthorization(options =>
       {
-        options.AddPolicy("User", policy => policy.RequireClaim("Store", "User"));
-        options.AddPolicy("Admin", policy => policy.RequireClaim("Store", "Admin"));
+        options.AddPolicy("User", e => e.RequireClaim("Store", "User"));
+        options.AddPolicy("Admin", e => e.RequireClaim("Store", "Admin"));
       });
 
       var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
-      services.AddAuthentication(x =>
+      services.AddAuthentication(e =>
       {
-        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        e.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        e.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
       })
-      .AddJwtBearer(x =>
-      {
-        x.RequireHttpsMetadata = false;
-        x.SaveToken = true;
-        x.TokenValidationParameters = new TokenValidationParameters
+        .AddJwtBearer(e =>
         {
-          ValidateIssuerSigningKey = true,
-          IssuerSigningKey = new SymmetricSecurityKey(key),
-          ValidateIssuer = false,
-          ValidateAudience = false
-        };
-      });
+          e.RequireHttpsMetadata = false;
+          e.SaveToken = true;
+          e.TokenValidationParameters = new TokenValidationParameters
+          {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false
+          };
+        });
 
       services.AddSwaggerGen(options =>
       {
