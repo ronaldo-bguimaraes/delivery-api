@@ -10,25 +10,32 @@ namespace Delivery.Api.Controllers
   [Route("[controller]")]
   public class ProdutosController : Controller
   {
-    private readonly IApplicationServiceProduto applicationServiceProduto;
+    private readonly IApplicationServiceProduto ApplicationServiceProduto;
 
-    public ProdutosController(IApplicationServiceProduto _applicationServiceProduto)
+    public ProdutosController(IApplicationServiceProduto applicationServiceProduto)
     {
-      applicationServiceProduto = _applicationServiceProduto;
+      ApplicationServiceProduto = applicationServiceProduto;
     }
 
     [HttpGet]
     [Authorize(Policy = "User")]
     public ActionResult Get()
     {
-      return Ok(applicationServiceProduto.GetAll());
+      return Ok(ApplicationServiceProduto.GetAll());
     }
 
     [HttpGet("{id}")]
     [Authorize(Policy = "User")]
     public ActionResult Get(int id)
     {
-      return Ok(applicationServiceProduto.GetById(id));
+      return Ok(ApplicationServiceProduto.GetById(id));
+    }
+
+    [HttpGet("fornecedores/{id}")]
+    [Authorize(Policy = "User")]
+    public ActionResult GetByFornecedorId(int id)
+    {
+      return Ok(ApplicationServiceProduto.GetByFornecedorId(id));
     }
 
     [HttpPost]
@@ -41,7 +48,7 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(dto);
+        ApplicationServiceProduto.Save(dto);
         return Ok("Produto cadastrado com sucesso!");
       }
       catch (Exception)
@@ -60,7 +67,7 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(dto);
+        ApplicationServiceProduto.Save(dto);
         return Ok("Produto salvo com sucesso!");
       }
       catch (Exception)
@@ -79,7 +86,7 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(dto);
+        ApplicationServiceProduto.Save(dto);
         return Ok("Produto atualizado com sucesso!");
       }
       catch (Exception)
@@ -98,7 +105,7 @@ namespace Delivery.Api.Controllers
         {
           return NotFound();
         }
-        applicationServiceProduto.Remove(dto);
+        ApplicationServiceProduto.Remove(dto);
         return Ok("Produto removido com sucesso!");
       }
       catch (Exception)

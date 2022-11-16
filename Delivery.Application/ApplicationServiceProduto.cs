@@ -7,44 +7,50 @@ namespace Delivery.Application
 {
   public class ApplicationServiceProduto : IApplicationServiceProduto
   {
-    private readonly IServiceProduto serviceProduto;
-    private readonly IMapperProduto mapperProduto;
+    private readonly IServiceProduto ServiceProduto;
+    private readonly IMapperProduto MapperProduto;
 
-    public ApplicationServiceProduto(IServiceProduto _serviceProduto, IMapperProduto _mapperProduto)
+    public ApplicationServiceProduto(IServiceProduto serviceProduto, IMapperProduto mapperProduto)
     {
-      serviceProduto = _serviceProduto;
-      mapperProduto = _mapperProduto;
+      ServiceProduto = serviceProduto;
+      MapperProduto = mapperProduto;
     }
 
     public void Save(ProdutoDto produtoDto)
     {
-      var produto = mapperProduto.MapperDtoToEntity(produtoDto);
-      if (serviceProduto.GetById(produto.Id) == null)
+      var produto = MapperProduto.MapperDtoToEntity(produtoDto);
+      if (ServiceProduto.GetById(produto.Id) == null)
       {
-        serviceProduto.Add(produto);
+        ServiceProduto.Add(produto);
       }
       else
       {
-        serviceProduto.Update(produto);
+        ServiceProduto.Update(produto);
       }
     }
 
     public ICollection<ProdutoDto> GetAll()
     {
-      var enderecos = serviceProduto.GetAll();
-      return mapperProduto.MapperEntitiesToDtos(enderecos);
+      var enderecos = ServiceProduto.GetAll();
+      return MapperProduto.MapperEntitiesToDtos(enderecos);
     }
 
     public ProdutoDto GetById(int id)
     {
-      var endereco = serviceProduto.GetById(id);
-      return mapperProduto.MapperEntityToDto(endereco);
+      var endereco = ServiceProduto.GetById(id);
+      return MapperProduto.MapperEntityToDto(endereco);
+    }
+
+    public ICollection<ProdutoDto> GetByFornecedorId(int id)
+    {
+      var vendas = ServiceProduto.GetByFornecedorId(id);
+      return MapperProduto.MapperEntitiesToDtos(vendas);
     }
 
     public void Remove(ProdutoDto enderecoDto)
     {
-      var endereco = mapperProduto.MapperDtoToEntity(enderecoDto);
-      serviceProduto.Remove(endereco);
+      var endereco = MapperProduto.MapperDtoToEntity(enderecoDto);
+      ServiceProduto.Remove(endereco);
     }
   }
 }
