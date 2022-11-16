@@ -10,24 +10,23 @@ namespace Delivery.Domain.Validators
   {
     public VendaValidator()
     {
-      RuleFor(x => x.ClienteId)
-        .NotNull();
-      RuleFor(x => x.Condicao)
-        .NotNull();
-      RuleFor(x => x.DataVenda)
-        .NotNull()
-        .LessThanOrEqualTo(DateTime.UtcNow);
-      RuleFor(x => x.Desconto)
+      RuleFor(e => e.ClienteId).NotNull();
+      RuleFor(e => e.Condicao).NotNull();
+      RuleFor(e => e.DataVenda).NotNull().LessThanOrEqualTo(DateTime.UtcNow);
+
+      RuleFor(e => e.Desconto)
         .NotNull()
         .GreaterThanOrEqualTo(0)
-        .LessThanOrEqualTo(x => x.Subtotal);
-      RuleFor(x => x.Frete)
+        .LessThanOrEqualTo(e => e.Subtotal);
+
+      RuleFor(e => e.Frete)
         .NotNull()
         .GreaterThanOrEqualTo(0);
-      RuleFor(x => x.ItensProduto)
+
+      RuleFor(e => e.ItensProduto)
         .NotNull()
         .NotEmpty()
-        .Must(x => x != null && x.GroupBy(x => x.Produto.FornecedorId).Count() == 1);
+        .Must(e => e != null && e.GroupBy(e => e.Produto.FornecedorId).Count() == 1);
     }
   }
 }

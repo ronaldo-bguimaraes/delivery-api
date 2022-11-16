@@ -6,14 +6,14 @@ namespace Delivery.Application
   public interface IApplicationServiceVenda
   {
 
-    void Save(VendaDto vendaDto);
+    public void Save(VendaDto vendaDto);
 
-    void Remove(VendaDto vendaDto);
+    public void Remove(VendaDto vendaDto);
 
-    ICollection<VendaDto> GetAll();
+    public ICollection<VendaDto> GetAll();
 
-    VendaDto GetById(int id);
+    public VendaDto GetById(int id);
 
-    ICollection<VendaDto> GetByClienteId(int clienteId);
+    public ICollection<VendaDto> GetByClienteId(int id);
   }
 }

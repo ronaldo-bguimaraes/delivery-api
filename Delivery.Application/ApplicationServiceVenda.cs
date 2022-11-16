@@ -7,50 +7,50 @@ namespace Delivery.Application
 {
   public class ApplicationServiceVenda : IApplicationServiceVenda
   {
-    private readonly IServiceVenda serviceVenda;
-    private readonly IMapperVenda mapperVenda;
+    private readonly IServiceVenda ServiceVenda;
+    private readonly IMapperVenda MapperVenda;
 
-    public ApplicationServiceVenda(IServiceVenda _serviceVenda, IMapperVenda _mapperVenda)
+    public ApplicationServiceVenda(IServiceVenda serviceVenda, IMapperVenda mapperVenda)
     {
-      serviceVenda = _serviceVenda;
-      mapperVenda = _mapperVenda;
+      ServiceVenda = serviceVenda;
+      MapperVenda = mapperVenda;
     }
 
     public void Save(VendaDto vendaDto)
     {
-      var venda = mapperVenda.MapperDtoToEntity(vendaDto);
-      if (serviceVenda.GetById(venda.Id) == null)
+      var venda = MapperVenda.MapperDtoToEntity(vendaDto);
+      if (ServiceVenda.GetById(venda.Id) == null)
       {
-        serviceVenda.realizarVenda(venda);
+        ServiceVenda.Solicitar(venda);
       }
       else
       {
-        serviceVenda.Update(venda);
+        ServiceVenda.Update(venda);
       }
     }
 
     public ICollection<VendaDto> GetAll()
     {
-      var vendas = serviceVenda.All();
-      return mapperVenda.MapperEntitiesToDtos(vendas);
+      var vendas = ServiceVenda.All();
+      return MapperVenda.MapperEntitiesToDtos(vendas);
     }
 
     public VendaDto GetById(int id)
     {
-      var venda = serviceVenda.GetById(id);
-      return mapperVenda.MapperEntityToDto(venda);
+      var venda = ServiceVenda.GetById(id);
+      return MapperVenda.MapperEntityToDto(venda);
     }
 
-    public ICollection<VendaDto> GetByClienteId(int clienteId)
+    public ICollection<VendaDto> GetByClienteId(int id)
     {
-      var vendas = serviceVenda.GetByClienteId(clienteId);
-      return mapperVenda.MapperEntitiesToDtos(vendas);
+      var vendas = ServiceVenda.GetByClienteId(id);
+      return MapperVenda.MapperEntitiesToDtos(vendas);
     }
 
     public void Remove(VendaDto vendaDto)
     {
-      var venda = mapperVenda.MapperDtoToEntity(vendaDto);
-      serviceVenda.Remove(venda);
+      var venda = MapperVenda.MapperDtoToEntity(vendaDto);
+      ServiceVenda.Remove(venda);
     }
   }
 }

@@ -6,35 +6,23 @@ namespace Delivery.Tests
 {
   public class SqlContextTest
   {
-    private IConfiguration? configuration;
-    private string connectionString;
-    private DbContextOptions<SqlContext>? options;
-    private SqlContext sqlContext;
+    private readonly IConfiguration? Configuration;
+    private readonly string ConnectionString;
+    private readonly DbContextOptions<SqlContext>? Options;
+    public readonly SqlContext SqlContext;
 
     public SqlContextTest()
     {
-      configuration = new ConfigurationBuilder()
+      Configuration = new ConfigurationBuilder()
         .AddJsonFile("appsettings.json", optional: true)
         .AddJsonFile("appsettings.Development.json", optional: true)
         .Build();
 
-      connectionString = configuration
-        .GetSection("ConnectionStrings")
-        .GetValue<string>("DefaultConnection");
+      ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("DefaultConnection");
 
-      options = new DbContextOptionsBuilder<SqlContext>()
-        .UseSqlServer(connectionString)
-        .Options;
+      Options = new DbContextOptionsBuilder<SqlContext>().UseSqlServer(ConnectionString).Options;
 
-      sqlContext = new SqlContext(options);
-    }
-
-    public SqlContext SqlContext
-    {
-      get
-      {
-        return sqlContext;
-      }
+      SqlContext = new SqlContext(Options);
     }
   }
 }

@@ -6,10 +6,10 @@ namespace Delivery.Domain.Core.Interfaces.Repositories
 {
   public interface IRepositoryBase<T> where T : EntityBase
   {
-    void Add(T obj);
-    void Update(T obj);
-    void Remove(T obj);
-    DbSet<T> All();
-    T GetById(int id);
+    public void Add(T obj);
+    public void Update(T obj);
+    public void Remove(T obj);
+    public DbSet<T> All();
+    public T GetById(int id);
   }
 }

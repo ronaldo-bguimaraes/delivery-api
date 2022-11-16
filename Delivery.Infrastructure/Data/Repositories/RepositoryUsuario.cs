@@ -6,29 +6,29 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryUsuario : RepositoryBase<Usuario>, IRepositoryUsuario
   {
-    private readonly SqlContext sqlContext;
+    private readonly SqlContext SqlContext;
 
-    public RepositoryUsuario(SqlContext _sqlcontext) : base(_sqlcontext)
+    public RepositoryUsuario(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
     public override void Update(Usuario usuario)
     {
-      var entity = sqlContext.Set<Usuario>().Find(usuario.Id);
-      sqlContext.Entry(entity).CurrentValues.SetValues(usuario);
-      sqlContext.Entry(entity).Property(x => x.DataCadastro).IsModified = false;
-      sqlContext.SaveChanges();
+      var entity = SqlContext.Set<Usuario>().Find(usuario.Id);
+      SqlContext.Entry(entity).CurrentValues.SetValues(usuario);
+      SqlContext.Entry(entity).Property(e => e.DataCadastro).IsModified = false;
+      SqlContext.SaveChanges();
     }
 
     public Usuario GetByEmail(string email)
     {
-      return sqlContext.Set<Usuario>().Where(e => e.Email == email).FirstOrDefault();
+      return SqlContext.Set<Usuario>().Where(e => e.Email == email).FirstOrDefault();
     }
 
     public Usuario GetByTelefone(string telefone)
     {
-      return sqlContext.Set<Usuario>().Where(e => e.Telefone == telefone).FirstOrDefault();
+      return SqlContext.Set<Usuario>().Where(e => e.Telefone == telefone).FirstOrDefault();
     }
   }
 }

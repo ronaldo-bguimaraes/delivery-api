@@ -9,23 +9,26 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryVenda : RepositoryBase<Venda>, IRepositoryVenda
   {
-    private readonly SqlContext sqlContext;
-    public RepositoryVenda(SqlContext _sqlcontext) : base(_sqlcontext)
+    private readonly SqlContext SqlContext;
+    public RepositoryVenda(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
-    public ICollection<Venda> GetByClienteId(int clienteId)
+    public ICollection<Venda> GetByClienteId(int id)
     {
-      return sqlContext.Set<Venda>().Include(e => e.ItensProduto).Where(e => e.ClienteId == clienteId).ToList();
+      return SqlContext.Set<Venda>()
+        .Include(e => e.ItensProduto)
+        .Include(e => e.Pagamentos)
+        .Where(e => e.ClienteId == id).ToList();
     }
 
     public override void Update(Venda venda)
     {
-      var entity = sqlContext.Set<Venda>().Find(venda.Id);
-      sqlContext.Entry(entity).CurrentValues.SetValues(venda);
-      sqlContext.Entry(entity).Property(x => x.DataVenda).IsModified = false;
-      sqlContext.SaveChanges();
+      var entity = SqlContext.Set<Venda>().Find(venda.Id);
+      SqlContext.Entry(entity).CurrentValues.SetValues(venda);
+      SqlContext.Entry(entity).Property(e => e.DataVenda).IsModified = false;
+      SqlContext.SaveChanges();
     }
   }
 }

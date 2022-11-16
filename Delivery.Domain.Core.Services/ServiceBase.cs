@@ -8,36 +8,36 @@ namespace Delivery.Domain.Core.Services
 {
   public abstract class ServiceBase<T> : IServiceBase<T> where T : EntityBase
   {
-    private readonly IRepositoryBase<T> repository;
+    private readonly IRepositoryBase<T> Repository;
 
-    public ServiceBase(IRepositoryBase<T> _repository)
+    public ServiceBase(IRepositoryBase<T> repository)
     {
-      repository = _repository;
+      Repository = repository;
     }
 
     public virtual void Add(T obj)
     {
-      repository.Add(obj);
+      Repository.Add(obj);
     }
 
     public virtual void Remove(T obj)
     {
-      repository.Remove(obj);
+      Repository.Remove(obj);
     }
 
     public virtual ICollection<T> All()
     {
-      return repository.All().ToList();
+      return Repository.All().ToList();
     }
 
     public virtual T GetById(int id)
     {
-      return repository.GetById(id);
+      return Repository.GetById(id);
     }
 
     public virtual void Update(T obj)
     {
-      repository.Update(obj);
+      Repository.Update(obj);
     }
   }
 }

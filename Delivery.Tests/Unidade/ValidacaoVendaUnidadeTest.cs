@@ -32,8 +32,8 @@ namespace Delivery.Tests
         ItensProduto = new List<ItemProduto> { itemProduto1, itemProduto2 },
       };
 
-      var vendaValidator = new VendaValidator();
-      var result = vendaValidator.Validate(venda);
+      var validator = new VendaValidator();
+      var result = validator.Validate(venda);
 
       Assert.True(result.IsValid);
     }
@@ -49,8 +49,8 @@ namespace Delivery.Tests
         Frete = -10,
       };
 
-      var vendaValidator = new VendaValidator();
-      var result = vendaValidator.Validate(venda);
+      var validator = new VendaValidator();
+      var result = validator.Validate(venda);
 
       Assert.False(result.IsValid);
     }
@@ -78,8 +78,8 @@ namespace Delivery.Tests
         ItensProduto = new List<ItemProduto> { itemProduto1, itemProduto2 },
       };
 
-      var vendaValidator = new VendaValidator();
-      var result = vendaValidator.Validate(venda);
+      var validator = new VendaValidator();
+      var result = validator.Validate(venda);
 
       Assert.False(result.IsValid);
     }

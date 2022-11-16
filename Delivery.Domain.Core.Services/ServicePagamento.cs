@@ -7,11 +7,11 @@ namespace Delivery.Domain.Core.Services
   public class ServicePagamento : ServiceBase<Pagamento>, IServicePagamento
 
   {
-    private readonly IRepositoryPagamento repositoryPagamento;
+    private readonly IRepositoryPagamento RepositoryPagamento;
 
-    public ServicePagamento(IRepositoryPagamento _repositoryPagamento) : base(_repositoryPagamento)
+    public ServicePagamento(IRepositoryPagamento repositoryPagamento) : base(repositoryPagamento)
     {
-      repositoryPagamento = _repositoryPagamento;
+      RepositoryPagamento = repositoryPagamento;
     }
 
     public override void Add(Pagamento pagamento)
@@ -20,8 +20,8 @@ namespace Delivery.Domain.Core.Services
       base.Add(pagamento);
     }
 
-    public void validarPagamento(Pagamento pagamento) { }
+    public void ValidarPagamento(Pagamento pagamento) { }
 
-    public void confirmarPagamento(Pagamento pagamento) { }
+    public void ConfirmarPagamento(Pagamento pagamento) { }
   }
 }

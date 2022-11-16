@@ -5,15 +5,15 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceFornecedor
   {
-    void Save(FornecedorDto fornecedorDto);
+    public void Save(FornecedorDto fornecedorDto);
 
-    void Remove(FornecedorDto fornecedorDto);
+    public void Remove(FornecedorDto fornecedorDto);
 
-    ICollection<FornecedorDto> GetAll();
+    public ICollection<FornecedorDto> GetAll();
 
-    FornecedorDto GetById(int id);
+    public FornecedorDto GetById(int id);
 
-    FornecedorDto GetByUsuarioId(int id);
+    public FornecedorDto GetByUsuarioId(int id);
 
   }
 }

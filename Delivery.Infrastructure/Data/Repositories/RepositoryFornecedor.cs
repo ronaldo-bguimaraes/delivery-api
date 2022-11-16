@@ -6,16 +6,16 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryFornecedor : RepositoryBase<Fornecedor>, IRepositoryFornecedor
   {
-    private readonly SqlContext sqlContext;
+    private readonly SqlContext SqlContext;
 
-    public RepositoryFornecedor(SqlContext _sqlcontext) : base(_sqlcontext)
+    public RepositoryFornecedor(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
-    public Fornecedor GetByUsuarioId(int usuarioId)
+    public Fornecedor GetByUsuarioId(int id)
     {
-      return sqlContext.Set<Fornecedor>().Where(c => c.UsuarioId == usuarioId).FirstOrDefault();
+      return SqlContext.Set<Fornecedor>().Where(e => e.UsuarioId == id).FirstOrDefault();
     }
   }
 }

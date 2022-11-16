@@ -6,16 +6,16 @@ namespace Delivery.Infrastructure.Data.Repositories
 {
   public class RepositoryCliente : RepositoryBase<Cliente>, IRepositoryCliente
   {
-    private readonly SqlContext sqlContext;
+    private readonly SqlContext SqlContext;
 
-    public RepositoryCliente(SqlContext _sqlcontext) : base(_sqlcontext)
+    public RepositoryCliente(SqlContext sqlcontext) : base(sqlcontext)
     {
-      sqlContext = _sqlcontext;
+      SqlContext = sqlcontext;
     }
 
-    public Cliente GetByUsuarioId(int usuarioId)
+    public Cliente GetByUsuarioId(int id)
     {
-      return All().Where(c => c.UsuarioId == usuarioId).FirstOrDefault();
+      return All().Where(e => e.UsuarioId == id).FirstOrDefault();
     }
   }
 }

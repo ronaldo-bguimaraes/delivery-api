@@ -5,12 +5,12 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceProduto
   {
-    void Save(ProdutoDto produtoDto);
+    public void Save(ProdutoDto produtoDto);
 
-    void Remove(ProdutoDto produtoDto);
+    public void Remove(ProdutoDto produtoDto);
 
-    ICollection<ProdutoDto> GetAll();
+    public ICollection<ProdutoDto> GetAll();
 
-    ProdutoDto GetById(int id);
+    public ProdutoDto GetById(int id);
   }
 }

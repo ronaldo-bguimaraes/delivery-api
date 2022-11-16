@@ -6,9 +6,9 @@ namespace Delivery.Application.Interfaces.Mappers
 {
   public interface IMapperBase<T, U> where T : EntityDto where U : EntityBase
   {
-    U MapperDtoToEntity(T dto);
-    T MapperEntityToDto(U entity);
-    ICollection<U> MapperDtosToEntities(ICollection<T> dtos);
-    ICollection<T> MapperEntitiesToDtos(ICollection<U> entities);
+    public U MapperDtoToEntity(T dto);
+    public T MapperEntityToDto(U entity);
+    public ICollection<U> MapperDtosToEntities(ICollection<T> dtos);
+    public ICollection<T> MapperEntitiesToDtos(ICollection<U> entities);
   }
 }

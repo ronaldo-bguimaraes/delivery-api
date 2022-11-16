@@ -6,16 +6,16 @@ namespace Delivery.Domain.Core.Services
 {
   public class ServiceFornecedor : ServiceBase<Fornecedor>, IServiceFornecedor
   {
-    private readonly IRepositoryFornecedor repositoryFornecedor;
+    private readonly IRepositoryFornecedor RepositoryFornecedor;
 
-    public ServiceFornecedor(IRepositoryFornecedor _repositoryFornecedor) : base(_repositoryFornecedor)
+    public ServiceFornecedor(IRepositoryFornecedor repositoryFornecedor) : base(repositoryFornecedor)
     {
-      repositoryFornecedor = _repositoryFornecedor;
+      RepositoryFornecedor = repositoryFornecedor;
     }
 
     public Fornecedor GetByUsuarioId(int usuarioId)
     {
-      return repositoryFornecedor.GetByUsuarioId(usuarioId);
+      return RepositoryFornecedor.GetByUsuarioId(usuarioId);
     }
   }
 }

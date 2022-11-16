@@ -5,12 +5,12 @@ namespace Delivery.Application
 {
   public interface IApplicationPagamento
   {
-    void Save(PagamentoDto pagamentoDto);
+    public void Save(PagamentoDto pagamentoDto);
 
-    void Remove(PagamentoDto pagamentoDto);
+    public void Remove(PagamentoDto pagamentoDto);
 
-    ICollection<PagamentoDto> GetAll();
+    public ICollection<PagamentoDto> GetAll();
 
-    PagamentoDto GetById(int id);
+    public PagamentoDto GetById(int id);
   }
 }

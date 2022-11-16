@@ -5,8 +5,10 @@ namespace Delivery.Domain.Core.Interfaces.Services
 {
   public interface IServiceVenda : IServiceBase<Venda>
   {
-    public void realizarVenda(Venda venda);
-    public void validarVenda(Venda venda);
+    public void Solicitar(Venda venda);
+    public void Cancelar(Venda venda);
+    public void Confirmar(Venda venda);
+    public void Processar(Venda venda);
     ICollection<Venda> GetByClienteId(int clienteId);
   }
 }

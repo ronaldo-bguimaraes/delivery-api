@@ -6,16 +6,16 @@ namespace Delivery.Domain.Core.Services
 {
   public class ServiceCliente : ServiceBase<Cliente>, IServiceCliente
   {
-    private readonly IRepositoryCliente repositoryCliente;
+    private readonly IRepositoryCliente RepositoryCliente;
 
-    public ServiceCliente(IRepositoryCliente _repositoryCliente) : base(_repositoryCliente)
+    public ServiceCliente(IRepositoryCliente repositoryCliente) : base(repositoryCliente)
     {
-      repositoryCliente = _repositoryCliente;
+      RepositoryCliente = repositoryCliente;
     }
 
     public Cliente GetByUsuarioId(int usuarioId)
     {
-      return repositoryCliente.GetByUsuarioId(usuarioId);
+      return RepositoryCliente.GetByUsuarioId(usuarioId);
     }
   }
 }

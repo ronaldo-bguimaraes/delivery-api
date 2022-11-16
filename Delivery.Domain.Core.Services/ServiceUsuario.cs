@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,6 +18,19 @@ namespace Delivery.Domain.Core.Services
       repositoryUsuario = _repositoryUsuario;
     }
 
+    public override void Add(Usuario usuario)
+    {
+      if (repositoryUsuario.GetByEmail(usuario.Email) != null)
+      {
+        throw new Exception("Esse email já está sendo usado!");
+      }
+      if (repositoryUsuario.GetByTelefone(usuario.Telefone) != null)
+      {
+        throw new Exception("Esse telefone já está sendo usado!");
+      }
+      base.Add(usuario);
+    }
+
     public static string CreateMD5Hash(string text)
     {
       MD5 md5 = MD5.Create();
@@ -26,9 +40,9 @@ namespace Delivery.Domain.Core.Services
       return string.Join("", hash);
     }
 
-    public bool ValidaSenha(string senhaFornecida, string senhaSalva)
+    public bool ValidaSenha(string senha, string hash)
     {
-      return CreateMD5Hash(senhaFornecida) == senhaSalva;
+      return CreateMD5Hash(senha) == hash;
     }
 
     public Usuario GetByEmailAndSenha(string email, string senha)

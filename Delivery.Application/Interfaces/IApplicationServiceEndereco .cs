@@ -5,14 +5,14 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceEndereco
   {
-    void Save(EnderecoDto enderecoDto);
+    public void Save(EnderecoDto enderecoDto);
 
-    void Remove(EnderecoDto enderecoDto);
+    public void Remove(EnderecoDto enderecoDto);
 
-    ICollection<EnderecoDto> GetAll();
+    public ICollection<EnderecoDto> GetAll();
 
-    EnderecoDto GetById(int id);
+    public EnderecoDto GetById(int id);
 
-    ICollection<EnderecoDto> GetByUsuarioId(int usuarioId);
+    public ICollection<EnderecoDto> GetByUsuarioId(int id);
   }
 }

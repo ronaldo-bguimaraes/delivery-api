@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
+using Delivery.Domain.Interfaces.Validators;
 using Delivery.Domain.Validators;
 using FluentValidation;
 
@@ -10,60 +11,55 @@ namespace Delivery.Domain.Core.Services
 {
   public class ServiceVenda : ServiceBase<Venda>, IServiceVenda
   {
-    private readonly IRepositoryVenda repositoryVenda;
-    private readonly IServiceItemProduto serviceItemProduto;
-    private readonly IServicePagamento servicePagamento;
+    private readonly IRepositoryVenda RepositoryVenda;
+    private readonly IServiceItemProduto ServiceItemProduto;
+    private readonly IServicePagamento ServicePagamento;
 
-    private readonly VendaValidator validator;
+    private readonly IVendaValidator Validator;
 
-    public ServiceVenda(IRepositoryVenda _repositoryVenda, IServiceItemProduto _serviceItemProduto, IServicePagamento _servicePagamento, VendaValidator _validator) : base(_repositoryVenda)
+    public ServiceVenda(IRepositoryVenda repositoryVenda, IServiceItemProduto serviceItemProduto, IServicePagamento servicePagamento, IVendaValidator validator) : base(repositoryVenda)
     {
-      repositoryVenda = _repositoryVenda;
-      serviceItemProduto = _serviceItemProduto;
-      servicePagamento = _servicePagamento;
-      validator = _validator;
+      RepositoryVenda = repositoryVenda;
+      ServiceItemProduto = serviceItemProduto;
+      ServicePagamento = servicePagamento;
+      Validator = validator;
     }
 
-    public ICollection<Venda> GetByClienteId(int clienteId)
+    public ICollection<Venda> GetByClienteId(int id)
     {
-      return repositoryVenda.GetByClienteId(clienteId);
+      return RepositoryVenda.GetByClienteId(id);
     }
 
-    public void realizarVenda(Venda venda)
+    public void Solicitar(Venda venda)
     {
-      try
-      {
-        venda.SetSolicitada();
-        foreach (var itemProduto in venda.ItensProduto)
-        {
-          serviceItemProduto.Add(itemProduto);
-        }
-        venda.SetDataVendaAtual();
-        venda.Processar();
-        base.Add(venda);
-      }
-      catch (Exception)
-      {
-        throw;
-      }
+      venda.SetSolicitada();
+      venda.SetDataVendaAtual();
+      Processar(venda);
+      Validator.ValidateAndThrow(venda);
+      base.Add(venda);
     }
 
-    public void confirmarVenda(Venda venda)
+    public void Confirmar(Venda venda)
     {
       venda.SetConfirmada();
+      Validator.ValidateAndThrow(venda);
       base.Update(venda);
     }
 
-    public void cancelarVenda(Venda venda)
+    public void Cancelar(Venda venda)
     {
       venda.SetCancelada();
+      Validator.ValidateAndThrow(venda);
       base.Update(venda);
     }
 
-    public void validarVenda(Venda venda)
+    public void Processar(Venda venda)
     {
-      var validator = new VendaValidator();
-      validator.ValidateAndThrow(venda);
+      foreach (var itemProduto in venda.ItensProduto)
+      {
+        ServiceItemProduto.Processar(itemProduto);
+      }
+      venda.Processar();
     }
   }
 }

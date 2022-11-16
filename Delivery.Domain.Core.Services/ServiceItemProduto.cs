@@ -6,22 +6,27 @@ namespace Delivery.Domain.Core.Services
 {
   public class ServiceItemProduto : ServiceBase<ItemProduto>, IServiceItemProduto
   {
-    private readonly IRepositoryItemProduto repositoryItemProduto;
-    private readonly IServiceProduto serviceProduto;
-    private readonly IServicePagamento servicePagamento;
+    private readonly IRepositoryItemProduto RepositoryItemProduto;
+    private readonly IServiceProduto ServiceProduto;
+    private readonly IServicePagamento ServicePagamento;
 
-    public ServiceItemProduto(IRepositoryItemProduto _repositoryItemProduto, IServiceProduto _serviceProduto, IServicePagamento _servicePagamento) : base(_repositoryItemProduto)
+    public ServiceItemProduto(IRepositoryItemProduto repositoryItemProduto, IServiceProduto serviceProduto, IServicePagamento servicePagamento) : base(repositoryItemProduto)
     {
-      repositoryItemProduto = _repositoryItemProduto;
-      serviceProduto = _serviceProduto;
-      servicePagamento = _servicePagamento;
+      RepositoryItemProduto = repositoryItemProduto;
+      ServiceProduto = serviceProduto;
+      ServicePagamento = servicePagamento;
     }
 
     public override void Add(ItemProduto itemProduto)
     {
-      itemProduto.Produto = serviceProduto.GetById(itemProduto.ProdutoId.GetValueOrDefault());
-      itemProduto.Processar();
+      Processar(itemProduto);
       base.Add(itemProduto);
+    }
+
+    public void Processar(ItemProduto itemProduto)
+    {
+      itemProduto.Produto = ServiceProduto.GetById(itemProduto.ProdutoId.GetValueOrDefault());
+      itemProduto.Processar();
     }
   }
 }
