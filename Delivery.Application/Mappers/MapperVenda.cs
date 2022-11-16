@@ -29,7 +29,6 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Frete = vendaDto.Frete,
         Pagamentos = mapperPagamento.MapperDtosToEntities(vendaDto.Pagamentos),
         Subtotal = vendaDto.Subtotal,
-        Total = vendaDto.Total,
         ItensProduto = mapperItemProduto.MapperDtosToEntities(vendaDto.ItensProduto)
       };
       return venda;
@@ -83,7 +82,6 @@ namespace Delivery.Infrastructure.CrossCutting.Map
         Frete = vendaDto.Frete,
         Pagamentos = mapperPagamento.MapperDtosToEntities(vendaDto.Pagamentos),
         Subtotal = vendaDto.Subtotal,
-        Total = vendaDto.Total,
         ItensProduto = mapperItemProduto.MapperDtosToEntities(vendaDto.ItensProduto)
       });
       return vendas.ToList();

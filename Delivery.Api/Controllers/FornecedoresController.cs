@@ -31,24 +31,24 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceFornecedor.GetById(id));
     }
 
-    [HttpGet("usuarios/{usuarioId}")]
+    [HttpGet("usuarios/{id}")]
     [Authorize(Policy = "User")]
-    public ActionResult GetByUsuarioId(int usuarioId)
+    public ActionResult GetByUsuarioId(int id)
     {
-      return Ok(applicationServiceFornecedor.GetByUsuarioId(usuarioId));
+      return Ok(applicationServiceFornecedor.GetByUsuarioId(id));
     }
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] FornecedorDto fornecedorDto)
+    public ActionResult Post([FromBody] FornecedorDto dto)
     {
       try
       {
-        if (fornecedorDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Save(fornecedorDto);
+        applicationServiceFornecedor.Save(dto);
         return Ok("Fornecedor cadastrado com sucesso!");
       }
       catch (Exception)
@@ -59,15 +59,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] FornecedorDto fornecedorDto)
+    public ActionResult Save([FromBody] FornecedorDto dto)
     {
       try
       {
-        if (fornecedorDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Save(fornecedorDto);
+        applicationServiceFornecedor.Save(dto);
         return Ok("Fornecedor salvo com sucesso!");
       }
       catch (Exception)
@@ -78,15 +78,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] FornecedorDto fornecedorDto)
+    public ActionResult Put([FromBody] FornecedorDto dto)
     {
       try
       {
-        if (fornecedorDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Save(fornecedorDto);
+        applicationServiceFornecedor.Save(dto);
         return Ok("Fornecedor atualizado com sucesso!");
       }
       catch (Exception)
@@ -97,15 +97,15 @@ namespace Delivery.Api.Controllers
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] FornecedorDto fornecedorDto)
+    public ActionResult Delete([FromBody] FornecedorDto dto)
     {
       try
       {
-        if (fornecedorDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceFornecedor.Remove(fornecedorDto);
+        applicationServiceFornecedor.Remove(dto);
         return Ok("Fornecedor removido com sucesso!");
       }
       catch (Exception)

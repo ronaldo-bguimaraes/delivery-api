@@ -31,7 +31,7 @@ namespace Delivery.Application
 
     public ICollection<FornecedorDto> GetAll()
     {
-      var fornecedores = serviceFornecedor.All();
+      var fornecedores = serviceFornecedor.GetAll();
       return mapperFornecedor.MapperEntitiesToDtos(fornecedores);
     }
 

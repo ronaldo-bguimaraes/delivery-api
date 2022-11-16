@@ -10,14 +10,12 @@ namespace Delivery.Api.Controllers
   [Route("[controller]")]
   public class ProdutosController : Controller
   {
-    // Fazer um controller para chamar a applicationService
     private readonly IApplicationServiceProduto applicationServiceProduto;
 
     public ProdutosController(IApplicationServiceProduto _applicationServiceProduto)
     {
       applicationServiceProduto = _applicationServiceProduto;
     }
-
 
     [HttpGet]
     [Authorize(Policy = "User")]
@@ -26,7 +24,6 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceProduto.GetAll());
     }
 
-
     [HttpGet("{id}")]
     [Authorize(Policy = "User")]
     public ActionResult Get(int id)
@@ -34,18 +31,17 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceProduto.GetById(id));
     }
 
-
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] ProdutoDto produtoDto)
+    public ActionResult Post([FromBody] ProdutoDto dto)
     {
       try
       {
-        if (produtoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(produtoDto);
+        applicationServiceProduto.Save(dto);
         return Ok("Produto cadastrado com sucesso!");
       }
       catch (Exception)
@@ -56,15 +52,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] ProdutoDto produtoDto)
+    public ActionResult Save([FromBody] ProdutoDto dto)
     {
       try
       {
-        if (produtoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(produtoDto);
+        applicationServiceProduto.Save(dto);
         return Ok("Produto salvo com sucesso!");
       }
       catch (Exception)
@@ -75,15 +71,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] ProdutoDto produtoDto)
+    public ActionResult Put([FromBody] ProdutoDto dto)
     {
       try
       {
-        if (produtoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Save(produtoDto);
+        applicationServiceProduto.Save(dto);
         return Ok("Produto atualizado com sucesso!");
       }
       catch (Exception)
@@ -92,18 +88,17 @@ namespace Delivery.Api.Controllers
       }
     }
 
-
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] ProdutoDto produtoDto)
+    public ActionResult Delete([FromBody] ProdutoDto dto)
     {
       try
       {
-        if (produtoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceProduto.Remove(produtoDto);
+        applicationServiceProduto.Remove(dto);
         return Ok("Produto removido com sucesso!");
       }
       catch (Exception)

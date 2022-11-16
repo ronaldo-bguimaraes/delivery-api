@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,9 +24,25 @@ namespace Delivery.Domain.Entities
 
     public virtual Venda Venda { get; set; }
 
+    [NotMapped]
+    public double Total
+    {
+      get
+      {
+        return Valor * Quantidade;
+      }
+    }
+
+    [DefaultValue(1)]
+    [ForeignKey("FornecedorId")]
+    public int? FornecedorId { get; set; }
+
+    public virtual Fornecedor Fornecedor { get; set; }
+
     public void Processar()
     {
       Valor = Produto.Valor;
+      Fornecedor = Produto.Fornecedor;
     }
   }
 }

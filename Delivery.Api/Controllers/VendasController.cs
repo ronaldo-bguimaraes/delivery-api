@@ -10,14 +10,12 @@ namespace Delivery.Api.Controllers
   [Route("[controller]")]
   public class VendasController : Controller
   {
-    // Fazer um controller para chamar a applicationService
     private readonly IApplicationServiceVenda applicationServiceVenda;
 
     public VendasController(IApplicationServiceVenda _applicationServiceVenda)
     {
       applicationServiceVenda = _applicationServiceVenda;
     }
-
 
     [HttpGet]
     [Authorize(Policy = "User")]
@@ -26,7 +24,6 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceVenda.GetAll());
     }
 
-
     [HttpGet("{id}")]
     [Authorize(Policy = "User")]
     public ActionResult Get(int id)
@@ -34,25 +31,31 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceVenda.GetById(id));
     }
 
-    [HttpGet("clientes/{clienteId}")]
+    [HttpGet("clientes/{id}")]
     [Authorize(Policy = "User")]
-    public ActionResult GetByClienteId(int clienteId)
+    public ActionResult GetByClienteId(int id)
     {
-      return Ok(applicationServiceVenda.GetByClienteId(clienteId));
+      return Ok(applicationServiceVenda.GetByClienteId(id));
     }
 
+    [HttpGet("fornecedores/{id}")]
+    [Authorize(Policy = "User")]
+    public ActionResult GetByFornecedorId(int id)
+    {
+      return Ok(applicationServiceVenda.GetByFornecedorId(id));
+    }
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] VendaDto vendaDto)
+    public ActionResult Post([FromBody] VendaDto dto)
     {
       try
       {
-        if (vendaDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Save(vendaDto);
+        applicationServiceVenda.Save(dto);
         return Ok("Venda cadastrada com sucesso!");
       }
       catch (Exception)
@@ -63,15 +66,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] VendaDto vendaDto)
+    public ActionResult Save([FromBody] VendaDto dto)
     {
       try
       {
-        if (vendaDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Save(vendaDto);
+        applicationServiceVenda.Save(dto);
         return Ok("Venda cadastrada com sucesso!");
       }
       catch (Exception)
@@ -82,15 +85,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] VendaDto vendaDto)
+    public ActionResult Put([FromBody] VendaDto dto)
     {
       try
       {
-        if (vendaDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Save(vendaDto);
+        applicationServiceVenda.Save(dto);
         return Ok("Venda atualizada com sucesso!");
       }
       catch (Exception)
@@ -99,18 +102,17 @@ namespace Delivery.Api.Controllers
       }
     }
 
-
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] VendaDto vendaDto)
+    public ActionResult Delete([FromBody] VendaDto dto)
     {
       try
       {
-        if (vendaDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceVenda.Remove(vendaDto);
+        applicationServiceVenda.Remove(dto);
         return Ok("Venda removida com sucesso!");
       }
       catch (Exception)

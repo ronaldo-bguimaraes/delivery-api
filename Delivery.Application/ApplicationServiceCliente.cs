@@ -31,7 +31,7 @@ namespace Delivery.Application
 
     public ICollection<ClienteDto> GetAll()
     {
-      var clientes = serviceCliente.All();
+      var clientes = serviceCliente.GetAll();
       return mapperCliente.MapperEntitiesToDtos(clientes);
     }
 

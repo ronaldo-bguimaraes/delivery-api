@@ -31,24 +31,24 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceEndereco.GetById(id));
     }
 
-    [HttpGet("usuarios/{usuarioId}")]
+    [HttpGet("usuarios/{id}")]
     [Authorize(Policy = "User")]
-    public ActionResult GetByUsuarioId(int usuarioId)
+    public ActionResult GetByUsuarioId(int id)
     {
-      return Ok(applicationServiceEndereco.GetByUsuarioId(usuarioId));
+      return Ok(applicationServiceEndereco.GetByUsuarioId(id));
     }
 
     [HttpPost]
     [Authorize(Policy = "User")]
-    public ActionResult Post([FromBody] EnderecoDto enderecoDto)
+    public ActionResult Post([FromBody] EnderecoDto dto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceEndereco.Save(enderecoDto);
+        applicationServiceEndereco.Save(dto);
         return Ok("Endereço cadastrado com sucesso!");
       }
       catch (Exception)
@@ -59,15 +59,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPost("save")]
     [Authorize(Policy = "User")]
-    public ActionResult Save([FromBody] EnderecoDto enderecoDto)
+    public ActionResult Save([FromBody] EnderecoDto dto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceEndereco.Save(enderecoDto);
+        applicationServiceEndereco.Save(dto);
         return Ok("Endereço salvo com sucesso!");
       }
       catch (Exception)
@@ -78,15 +78,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] EnderecoDto enderecoDto)
+    public ActionResult Put([FromBody] EnderecoDto dto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceEndereco.Save(enderecoDto);
+        applicationServiceEndereco.Save(dto);
         return Ok("Endereço atualizado com sucesso!");
       }
       catch (Exception)
@@ -97,15 +97,15 @@ namespace Delivery.Api.Controllers
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] EnderecoDto enderecoDto)
+    public ActionResult Delete([FromBody] EnderecoDto dto)
     {
       try
       {
-        if (enderecoDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceEndereco.Remove(enderecoDto);
+        applicationServiceEndereco.Remove(dto);
         return Ok("Endereço removido com sucesso!");
       }
       catch (Exception)

@@ -31,7 +31,7 @@ namespace Delivery.Application
 
     public ICollection<EnderecoDto> GetAll()
     {
-      var enderecos = serviceEndereco.All();
+      var enderecos = serviceEndereco.GetAll();
       return mapperEndereco.MapperEntitiesToDtos(enderecos);
     }
 

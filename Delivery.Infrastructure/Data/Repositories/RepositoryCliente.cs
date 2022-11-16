@@ -15,7 +15,7 @@ namespace Delivery.Infrastructure.Data.Repositories
 
     public Cliente GetByUsuarioId(int id)
     {
-      return All().Where(e => e.UsuarioId == id).FirstOrDefault();
+      return SqlContext.Set<Cliente>().Where(e => e.UsuarioId == id).FirstOrDefault();
     }
   }
 }

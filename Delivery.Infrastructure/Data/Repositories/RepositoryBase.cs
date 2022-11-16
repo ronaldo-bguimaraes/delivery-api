@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -26,9 +28,9 @@ namespace Delivery.Infrastructure.Data.Repositories
       SqlContext.SaveChanges();
     }
 
-    public virtual DbSet<T> All()
+    public virtual ICollection<T> GetAll()
     {
-      return SqlContext.Set<T>();
+      return SqlContext.Set<T>().ToList();
     }
 
     public virtual T GetById(int id)

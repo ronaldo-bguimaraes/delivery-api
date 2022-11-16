@@ -26,7 +26,7 @@ namespace Delivery.Domain.Validators
       RuleFor(e => e.ItensProduto)
         .NotNull()
         .NotEmpty()
-        .Must(e => e != null && e.GroupBy(e => e.Produto.FornecedorId).Count() == 1);
+        .Must(e => e != null && e.GroupBy(e => e.FornecedorId).Count() == 1);
     }
   }
 }

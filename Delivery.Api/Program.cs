@@ -17,15 +17,15 @@ namespace Delivery.Api
     {
 
       return Host.CreateDefaultBuilder(args)
-      .UseServiceProviderFactory(new AutofacServiceProviderFactory())
-      .ConfigureContainer<ContainerBuilder>(builder =>
-      {
-        builder.RegisterModule(new ModuleIoc());
-      })
-      .ConfigureWebHostDefaults(webBuilder =>
-      {
-        webBuilder.UseStartup<Startup>();
-      });
+        .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+        .ConfigureContainer<ContainerBuilder>(builder =>
+        {
+          builder.RegisterModule(new ModuleIoc());
+        })
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+          webBuilder.UseStartup<Startup>();
+        });
     }
   }
 }

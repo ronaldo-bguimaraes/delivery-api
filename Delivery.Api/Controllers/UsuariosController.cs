@@ -10,7 +10,6 @@ namespace Delivery.Api.Controllers
   [Route("[controller]")]
   public class UsuariosController : Controller
   {
-    // Fazer um controller para chamar a applicationService
     private readonly IApplicationServiceUsuario applicationServiceUsuario;
 
     public UsuariosController(IApplicationServiceUsuario _applicationServiceUsuario)
@@ -34,15 +33,15 @@ namespace Delivery.Api.Controllers
 
     [HttpPost]
     [AllowAnonymous]
-    public ActionResult Post([FromBody] UsuarioDto usuarioDto)
+    public ActionResult Post([FromBody] UsuarioDto dto)
     {
       try
       {
-        if (usuarioDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceUsuario.Save(usuarioDto);
+        applicationServiceUsuario.Save(dto);
         return Ok("Usuario cadastrado com sucesso!");
       }
       catch (Exception)
@@ -53,11 +52,11 @@ namespace Delivery.Api.Controllers
 
     [HttpPost("login")]
     [AllowAnonymous]
-    public IActionResult Authenticate([FromBody] UsuarioDto usuarioDto)
+    public IActionResult Authenticate([FromBody] UsuarioDto dto)
     {
       try
       {
-        var user = applicationServiceUsuario.Authenticate(usuarioDto);
+        var user = applicationServiceUsuario.Authenticate(dto);
 
         if (user == null)
         {
@@ -74,16 +73,16 @@ namespace Delivery.Api.Controllers
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put([FromBody] UsuarioDto usuarioDto)
+    public ActionResult Put([FromBody] UsuarioDto dto)
     {
       try
       {
-        if (usuarioDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
 
-        applicationServiceUsuario.Save(usuarioDto);
+        applicationServiceUsuario.Save(dto);
         return Ok("Usuario atualizado com sucesso!");
       }
       catch (Exception)
@@ -94,15 +93,15 @@ namespace Delivery.Api.Controllers
 
     [HttpDelete]
     [Authorize(Policy = "User")]
-    public ActionResult Delete([FromBody] UsuarioDto usuarioDto)
+    public ActionResult Delete([FromBody] UsuarioDto dto)
     {
       try
       {
-        if (usuarioDto == null)
+        if (dto == null)
         {
           return NotFound();
         }
-        applicationServiceUsuario.Remove(usuarioDto);
+        applicationServiceUsuario.Remove(dto);
         return Ok("Usuario removido com sucesso!");
       }
       catch (Exception)
