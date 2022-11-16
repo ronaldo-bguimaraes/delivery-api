@@ -14,11 +14,11 @@ namespace Delivery.Tests
     {
       var itemProduto1 = new ItemProduto
       {
-        Produto = new Produto { FornecedorId = 1 }
+        FornecedorId = 1
       };
       var itemProduto2 = new ItemProduto
       {
-        Produto = new Produto { FornecedorId = 1 }
+        FornecedorId = 1
       };
 
       var venda = new Venda()
@@ -60,11 +60,11 @@ namespace Delivery.Tests
     {
       var itemProduto1 = new ItemProduto
       {
-        Produto = new Produto { FornecedorId = 1 }
+        FornecedorId = 1
       };
       var itemProduto2 = new ItemProduto
       {
-        Produto = new Produto { FornecedorId = 2 }
+        FornecedorId = 2
       };
 
       var venda = new Venda()
