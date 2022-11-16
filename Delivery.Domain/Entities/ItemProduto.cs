@@ -33,7 +33,6 @@ namespace Delivery.Domain.Entities
       }
     }
 
-    [DefaultValue(1)]
     [ForeignKey("FornecedorId")]
     public int? FornecedorId { get; set; }
 
