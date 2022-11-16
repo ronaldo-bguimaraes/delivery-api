@@ -5,15 +5,15 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceEntregador
   {
-    void Save(EntregadorDto entregadorDto);
+    public void Save(EntregadorDto entregadorDto);
 
-    void Remove(EntregadorDto entregadorDto);
+    public void Remove(EntregadorDto entregadorDto);
 
-    ICollection<EntregadorDto> GetAll();
+    public ICollection<EntregadorDto> GetAll();
 
-    EntregadorDto GetById(int id);
+    public EntregadorDto GetById(int id);
 
-    EntregadorDto GetByUsuarioId(int id);
+    public EntregadorDto GetByUsuarioId(int id);
 
   }
 }

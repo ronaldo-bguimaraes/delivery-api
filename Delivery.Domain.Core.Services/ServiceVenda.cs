@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Core.Interfaces.Services;
 using Delivery.Domain.Entities;
+using Delivery.Domain.Interfaces.Validators;
 using Delivery.Domain.Validators;
 using FluentValidation;
 
@@ -14,9 +15,9 @@ namespace Delivery.Domain.Core.Services
     private readonly IServiceItemProduto ServiceItemProduto;
     private readonly IServicePagamento ServicePagamento;
 
-    private readonly VendaValidator Validator;
+    private readonly IVendaValidator Validator;
 
-    public ServiceVenda(IRepositoryVenda repositoryVenda, IServiceItemProduto serviceItemProduto, IServicePagamento servicePagamento, VendaValidator validator) : base(repositoryVenda)
+    public ServiceVenda(IRepositoryVenda repositoryVenda, IServiceItemProduto serviceItemProduto, IServicePagamento servicePagamento, IVendaValidator validator) : base(repositoryVenda)
     {
       RepositoryVenda = repositoryVenda;
       ServiceItemProduto = serviceItemProduto;
@@ -24,9 +25,9 @@ namespace Delivery.Domain.Core.Services
       Validator = validator;
     }
 
-    public ICollection<Venda> GetByClienteId(int clienteId)
+    public ICollection<Venda> GetByClienteId(int id)
     {
-      return RepositoryVenda.GetByClienteId(clienteId);
+      return RepositoryVenda.GetByClienteId(id);
     }
 
     public void Solicitar(Venda venda)

@@ -5,14 +5,14 @@ namespace Delivery.Application
 {
   public interface IApplicationServiceUsuario
   {
-    void Save(UsuarioDto usuarioDto);
+    public void Save(UsuarioDto usuarioDto);
 
-    void Remove(UsuarioDto usuarioDto);
+    public void Remove(UsuarioDto usuarioDto);
 
-    ICollection<UsuarioDto> GetAll();
+    public ICollection<UsuarioDto> GetAll();
 
-    UsuarioDto Authenticate(UsuarioDto usuarioDto);
+    public UsuarioDto Authenticate(UsuarioDto usuarioDto);
 
-    UsuarioDto GetById(int id);
+    public UsuarioDto GetById(int id);
   }
 }

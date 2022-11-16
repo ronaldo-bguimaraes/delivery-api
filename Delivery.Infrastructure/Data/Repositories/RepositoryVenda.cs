@@ -17,7 +17,10 @@ namespace Delivery.Infrastructure.Data.Repositories
 
     public ICollection<Venda> GetByClienteId(int id)
     {
-      return SqlContext.Set<Venda>().Include(e => e.ItensProduto).Where(e => e.ClienteId == id).ToList();
+      return SqlContext.Set<Venda>()
+        .Include(e => e.ItensProduto)
+        .Include(e => e.Pagamentos)
+        .Where(e => e.ClienteId == id).ToList();
     }
 
     public override void Update(Venda venda)
