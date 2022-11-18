@@ -13,9 +13,9 @@ namespace Delivery.Domain.Core.Services
       RepositoryFornecedor = repositoryFornecedor;
     }
 
-    public Fornecedor GetByUsuarioId(int usuarioId)
+    public Fornecedor GetByUsuarioId(int id)
     {
-      return RepositoryFornecedor.GetByUsuarioId(usuarioId);
+      return RepositoryFornecedor.GetByUsuarioId(id);
     }
   }
 }
