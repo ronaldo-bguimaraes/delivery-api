@@ -28,6 +28,7 @@ namespace Delivery.Domain.Core.Services
       {
         throw new Exception("Esse telefone já está sendo usado!");
       }
+      usuario.Senha = CreateMD5Hash(usuario.Senha);
       base.Add(usuario);
     }
 
