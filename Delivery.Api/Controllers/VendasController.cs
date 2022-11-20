@@ -31,7 +31,7 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceVenda.GetById(id));
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("confirmar/{id}")]
     [Authorize(Policy = "User")]
     public ActionResult Confirmar(int id)
     {
@@ -45,7 +45,7 @@ namespace Delivery.Api.Controllers
       }
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("cancelar/{id}")]
     [Authorize(Policy = "User")]
     public ActionResult Cancelar(int id)
     {
