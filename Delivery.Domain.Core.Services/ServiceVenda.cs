@@ -37,21 +37,21 @@ namespace Delivery.Domain.Core.Services
       venda.SetSolicitada();
       venda.SetDataVendaAtual();
       Processar(venda);
-      Validator.ValidateAndThrow(venda);
+      // Validator.ValidateAndThrow(venda);
       base.Add(venda);
     }
 
     public void Confirmar(Venda venda)
     {
       venda.SetConfirmada();
-      Validator.ValidateAndThrow(venda);
+      // Validator.ValidateAndThrow(venda);
       base.Update(venda);
     }
 
     public void Cancelar(Venda venda)
     {
       venda.SetCancelada();
-      Validator.ValidateAndThrow(venda);
+      // Validator.ValidateAndThrow(venda);
       base.Update(venda);
     }
 

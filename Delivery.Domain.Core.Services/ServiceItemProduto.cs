@@ -25,6 +25,7 @@ namespace Delivery.Domain.Core.Services
 
     public void Processar(ItemProduto itemProduto)
     {
+      itemProduto.Produto = ServiceProduto.GetById(itemProduto.ProdutoId);
       itemProduto.Processar();
     }
   }
