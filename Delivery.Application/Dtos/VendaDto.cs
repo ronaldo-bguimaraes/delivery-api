@@ -25,5 +25,11 @@ namespace Delivery.Application.Dtos
     public int? EntregadorId { get; set; }
 
     public ICollection<PagamentoDto> Pagamentos { get; set; }
+
+    public VendaDto()
+    {
+      Pagamentos = new List<PagamentoDto>();
+      ItensProduto = new List<ItemProdutoDto>();
+    }
   }
 }

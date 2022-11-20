@@ -6,8 +6,8 @@ namespace Delivery.Application.Dtos
 
     public int Quantidade { get; set; }
 
-    public int? ProdutoId { get; set; }
+    public int ProdutoId { get; set; }
 
-    public int? VendaId { get; set; }
+    public int VendaId { get; set; }
   }
 }

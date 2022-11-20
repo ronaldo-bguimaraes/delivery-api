@@ -35,7 +35,8 @@ namespace Delivery.Api.Controllers
     [Authorize(Policy = "User")]
     public ActionResult Confirmar(int id)
     {
-      try {
+      try
+      {
         applicationServiceVenda.Confirmar(id);
         return Ok();
       }
@@ -49,7 +50,8 @@ namespace Delivery.Api.Controllers
     [Authorize(Policy = "User")]
     public ActionResult Cancelar(int id)
     {
-      try {
+      try
+      {
         applicationServiceVenda.Cancelar(id);
         return Ok();
       }

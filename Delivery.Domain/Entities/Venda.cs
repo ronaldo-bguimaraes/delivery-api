@@ -77,5 +77,11 @@ namespace Delivery.Domain.Entities
     {
       Condicao = CondicaoVenda.Cancelada;
     }
+
+    public Venda()
+    {
+      Pagamentos = new List<Pagamento>();
+      ItensProduto = new List<ItemProduto>();
+    }
   }
 }
