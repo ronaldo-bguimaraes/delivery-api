@@ -7,5 +7,7 @@ namespace Delivery.Application
   {
     public ICollection<VendaDto> GetByClienteId(int id);
     public ICollection<VendaDto> GetByFornecedorId(int id);
+    public void Confirmar(int id);
+    public void Cancelar(int id);
   }
 }

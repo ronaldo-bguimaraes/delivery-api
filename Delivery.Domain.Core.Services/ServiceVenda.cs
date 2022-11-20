@@ -27,7 +27,6 @@ namespace Delivery.Domain.Core.Services
       return RepositoryVenda.GetByClienteId(id);
     }
 
-
     public ICollection<Venda> GetByFornecedorId(int id)
     {
       return RepositoryVenda.GetByFornecedorId(id);

@@ -31,6 +31,34 @@ namespace Delivery.Api.Controllers
       return Ok(applicationServiceVenda.GetById(id));
     }
 
+    [HttpGet("{id}")]
+    [Authorize(Policy = "User")]
+    public ActionResult Confirmar(int id)
+    {
+      try {
+        applicationServiceVenda.Confirmar(id);
+        return Ok();
+      }
+      catch (Exception)
+      {
+        return BadRequest(new { message = "Erro ao confirmar a venda" });
+      }
+    }
+
+    [HttpGet("{id}")]
+    [Authorize(Policy = "User")]
+    public ActionResult Cancelar(int id)
+    {
+      try {
+        applicationServiceVenda.Cancelar(id);
+        return Ok();
+      }
+      catch (Exception)
+      {
+        return BadRequest(new { message = "Erro ao cancelar a venda" });
+      }
+    }
+
     [HttpGet("clientes/{id}")]
     [Authorize(Policy = "User")]
     public ActionResult GetByClienteId(int id)
