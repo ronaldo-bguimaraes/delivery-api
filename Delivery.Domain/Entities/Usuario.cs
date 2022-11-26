@@ -31,6 +31,10 @@ namespace Delivery.Domain.Entities
 
     public virtual ICollection<Endereco> Enderecos { get; set; }
 
+    public Usuario() {
+      Enderecos = new List<Endereco>();
+    }
+
     public void SetDataCadastroAtual()
     {
       DataCadastro = DateTime.UtcNow;
@@ -59,14 +63,9 @@ namespace Delivery.Domain.Entities
       {
         return false;
       }
-      if (usuario.Senha != Senha)
-      {
-        return false;
-      }
       return true;
     }
 
-    // override object.GetHashCode
     public override int GetHashCode()
     {
       return base.GetHashCode();

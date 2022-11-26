@@ -7,81 +7,69 @@ using Xunit;
 
 namespace Delivery.Tests
 {
-  public class ValidacaoVendaUnidadeTest
+public class ValidacaoVendaUnidadeTest
+{
+  [Fact]
+  public void DadosCorretosTest()
   {
-    [Fact]
-    public void DadosCorretosTest()
+    var itemProduto1 = new ItemProduto { FornecedorId = 1 };
+    var itemProduto2 = new ItemProduto { FornecedorId = 1 };
+
+    var venda = new Venda()
     {
-      var itemProduto1 = new ItemProduto
-      {
-        FornecedorId = 1
-      };
-      var itemProduto2 = new ItemProduto
-      {
-        FornecedorId = 1
-      };
+      ClienteId = 1,
+      Condicao = CondicaoVenda.Solicitada,
+      DataVenda = DateTime.UtcNow,
+      Desconto = 10,
+      Subtotal = 200,
+      Frete = 10,
+      ItensProduto = new List<ItemProduto> { itemProduto1, itemProduto2 },
+    };
 
-      var venda = new Venda()
-      {
-        ClienteId = 1,
-        Condicao = CondicaoVenda.Solicitada,
-        DataVenda = DateTime.UtcNow,
-        Desconto = 10,
-        Subtotal = 200,
-        Frete = 10,
-        ItensProduto = new List<ItemProduto> { itemProduto1, itemProduto2 },
-      };
+    var validator = new VendaValidator();
+    var result = validator.Validate(venda);
 
-      var validator = new VendaValidator();
-      var result = validator.Validate(venda);
-
-      Assert.True(result.IsValid);
-    }
-
-    [Fact]
-    public void DadosIncorretosTest()
-    {
-      var venda = new Venda()
-      {
-        DataVenda = new DateTime(2024, 12, 22),
-        Desconto = -10,
-        Subtotal = 100,
-        Frete = -10,
-      };
-
-      var validator = new VendaValidator();
-      var result = validator.Validate(venda);
-
-      Assert.False(result.IsValid);
-    }
-
-    [Fact]
-    public void VariosFornecedoresTest()
-    {
-      var itemProduto1 = new ItemProduto
-      {
-        FornecedorId = 1
-      };
-      var itemProduto2 = new ItemProduto
-      {
-        FornecedorId = 2
-      };
-
-      var venda = new Venda()
-      {
-        ClienteId = 1,
-        Condicao = CondicaoVenda.Solicitada,
-        DataVenda = DateTime.UtcNow,
-        Desconto = 10,
-        Subtotal = 200,
-        Frete = 10,
-        ItensProduto = new List<ItemProduto> { itemProduto1, itemProduto2 },
-      };
-
-      var validator = new VendaValidator();
-      var result = validator.Validate(venda);
-
-      Assert.False(result.IsValid);
-    }
+    Assert.True(result.IsValid);
   }
+
+  [Fact]
+  public void DadosIncorretosTest()
+  {
+    var venda = new Venda()
+    {
+      DataVenda = new DateTime(2024, 12, 22),
+      Desconto = -10,
+      Subtotal = 100,
+      Frete = -10,
+    };
+
+    var validator = new VendaValidator();
+    var result = validator.Validate(venda);
+
+    Assert.False(result.IsValid);
+  }
+
+  [Fact]
+  public void VariosFornecedoresTest()
+  {
+    var itemProduto1 = new ItemProduto { FornecedorId = 1 };
+    var itemProduto2 = new ItemProduto { FornecedorId = 2 };
+
+    var venda = new Venda()
+    {
+      ClienteId = 1,
+      Condicao = CondicaoVenda.Solicitada,
+      DataVenda = DateTime.UtcNow,
+      Desconto = 10,
+      Subtotal = 200,
+      Frete = 10,
+      ItensProduto = new List<ItemProduto> { itemProduto1, itemProduto2 },
+    };
+
+    var validator = new VendaValidator();
+    var result = validator.Validate(venda);
+
+    Assert.False(result.IsValid);
+  }
+}
 }

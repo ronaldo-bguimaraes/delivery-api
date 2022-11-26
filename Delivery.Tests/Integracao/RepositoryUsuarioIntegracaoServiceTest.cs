@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using Bogus;
 using Delivery.Domain.Core.Interfaces.Repositories;
 using Delivery.Domain.Entities;
 using Delivery.Infrastructure.Data.Repositories;
@@ -7,29 +7,29 @@ using Xunit;
 
 namespace Delivery.Tests
 {
-  public class RepositoryUsuarioIntegracaoTest
+  public class RepositoryUsuarioIntegracaoServiceTest
   {
     private readonly SqlContextTest SqlContextTest;
     private readonly IRepositoryUsuario RepositoryUsuario;
+    private readonly Faker<Usuario> UsuarioFaker;
 
-    public RepositoryUsuarioIntegracaoTest()
+    public RepositoryUsuarioIntegracaoServiceTest()
     {
       SqlContextTest = new SqlContextTest();
       RepositoryUsuario = new RepositoryUsuario(SqlContextTest.SqlContext);
+
+      UsuarioFaker = new Faker<Usuario>("pt_BR")
+        .RuleFor(e => e.Nome, e => e.Person.FullName)
+        .RuleFor(e => e.Telefone, e => e.Phone.PhoneNumber("65#########"))
+        .RuleFor(e => e.Email, e => e.Person.Email)
+        .RuleFor(e => e.Senha, e => e.Internet.Password(10, false))
+        .RuleFor(e => e.DataCadastro, e => e.Date.Recent());
     }
 
     [Fact]
     public void AddUsuario()
     {
-      var usuario = new Usuario
-      {
-        Nome = "Teste Add",
-        Email = "teste.add@outlook.com",
-        Telefone = "66998765432",
-        DataCadastro = DateTime.UtcNow,
-        Enderecos = new List<Endereco>(),
-        Senha = "12345678",
-      };
+      var usuario = UsuarioFaker.Generate();
       try
       {
         RepositoryUsuario.Add(usuario);
@@ -52,19 +52,11 @@ namespace Delivery.Tests
     [Fact]
     public void UpdateUsuario()
     {
-      var usuario = new Usuario
-      {
-        Nome = "Teste Update",
-        Email = "teste.update@outlook.com",
-        Telefone = "66998765432",
-        DataCadastro = DateTime.UtcNow,
-        Enderecos = new List<Endereco>(),
-        Senha = "12345678",
-      };
+      var usuario = UsuarioFaker.Generate();
       try
       {
         RepositoryUsuario.Add(usuario);
-        usuario.Senha = "87654321";
+        usuario.Nome = "UpdateUsuario";
         RepositoryUsuario.Update(usuario);
         var usuarioAtualizado = RepositoryUsuario.GetById(usuario.Id);
         Assert.True(usuario.Equals(usuarioAtualizado));
@@ -78,15 +70,7 @@ namespace Delivery.Tests
     [Fact]
     public void RemoveUsuario()
     {
-      var usuario = new Usuario
-      {
-        Nome = "Teste Remove",
-        Email = "teste.remove@outlook.com",
-        Telefone = "66998765432",
-        DataCadastro = DateTime.UtcNow,
-        Enderecos = new List<Endereco>(),
-        Senha = "12345678",
-      };
+      var usuario = UsuarioFaker.Generate();
       try
       {
         RepositoryUsuario.Add(usuario);
