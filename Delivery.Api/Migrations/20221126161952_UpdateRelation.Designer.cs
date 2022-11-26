@@ -4,6 +4,7 @@ using Delivery.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Delivery.Api.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    partial class SqlContextModelSnapshot : ModelSnapshot
+    [Migration("20221126161952_UpdateRelation")]
+    partial class UpdateRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,7 +192,7 @@ namespace Delivery.Api.Migrations
                     b.Property<double>("Valor")
                         .HasColumnType("float");
 
-                    b.Property<int?>("VendaId")
+                    b.Property<int>("VendaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -369,7 +371,9 @@ namespace Delivery.Api.Migrations
                 {
                     b.HasOne("Delivery.Domain.Entities.Venda", "Venda")
                         .WithMany("Pagamentos")
-                        .HasForeignKey("VendaId");
+                        .HasForeignKey("VendaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Venda");
                 });

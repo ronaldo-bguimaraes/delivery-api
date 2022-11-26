@@ -17,7 +17,7 @@ namespace Delivery.Domain.Entities
     public DateTime DataNascimento { get; set; }
 
     [ForeignKey("UsuarioId")]
-    public int? UsuarioId { get; set; }
+    public int UsuarioId { get; set; }
 
     public virtual Usuario Usuario { get; set; }
 
