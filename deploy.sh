@@ -15,12 +15,7 @@ git pull origin main 2>&1> /dev/null && sudo chmod +x ./deploy.sh
 echo ""
 echo "Target commit: $(git log --pretty=format:'%s (%an - %ae)' -1)"
 echo ""
-export ASPNETCORE_ENVIRONMENT=Development
-echo "Updating $ASPNETCORE_ENVIRONMENT environment..."
 clear_build 2>&1> /dev/null
-dotnet ef database update --project ./Delivery.Api 2>&1> /dev/null
-echo ""
-echo "$ASPNETCORE_ENVIRONMENT environment update completed..."
 
 # test
 echo ""

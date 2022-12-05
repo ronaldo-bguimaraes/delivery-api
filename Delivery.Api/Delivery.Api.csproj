@@ -21,7 +21,6 @@
     <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8"/>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Delivery.Infrastructure\Delivery.Infrastructure.csproj"/>
