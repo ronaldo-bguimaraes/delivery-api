@@ -70,10 +70,10 @@ namespace Delivery.Api
           };
         });
 
-      // services.AddSwaggerGen(options =>
-      // {
-      //   options.SwaggerDoc("v1", new OpenApiInfo { Title = "Delivery Api", Version = "v1" });
-      // });
+      services.AddSwaggerGen(options =>
+      {
+        options.SwaggerDoc("v1", new OpenApiInfo { Title = "Delivery Api", Version = "v1" });
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -89,11 +89,11 @@ namespace Delivery.Api
         app.UseDeveloperExceptionPage();
       }
 
-      // app.UseSwagger();
-      // app.UseSwaggerUI(options =>
-      // {
-      //   options.SwaggerEndpoint("/swagger/v1/swagger.json", "Delivery Api");
-      // });
+      app.UseSwagger();
+      app.UseSwaggerUI(options =>
+      {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Delivery Api");
+      });
 
       app.UseRouting();
 
