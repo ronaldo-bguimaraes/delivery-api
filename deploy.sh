@@ -1,5 +1,6 @@
 #!/bin/bash
 cd ~/delivery-api
+echo "test"
 export PATH="$PATH:$HOME/.dotnet/tools"
 clear_build() {
   sudo rm -rf ./*/bin
